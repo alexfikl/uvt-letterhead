@@ -32,10 +32,6 @@
 \newif\if@doublespacing \@doublespacingfalse
 \DeclareOption{doublespacing}{\@doublespacingtrue}
 
-% grid
-\newif\if@layoutgrid \@layoutgridfalse
-\DeclareOption{layoutgrid}{\@layoutgridtrue}
-
 \DeclareOption*{\PackageWarning{uvt-letterhead}{Unknown option `\CurrentOption`}}
 \ProcessOptions\relax
 
@@ -108,17 +104,21 @@
 
 % <<< commands
 
-\ProvideDocumentCommand \logofile   { m } {\def\@logofile{#1}}
 
+% top
+\NewDocumentCommand \toaddress      { m } {\def\@toaddress{#1}}
 \NewDocumentCommand \fromdate       { m } {\def\@fromdate{#1}}
-\NewDocumentCommand \fromdept       { m } {\def\@fromdept{#1}}
+
+% closing
+\NewDocumentCommand \closing        { m } {\def\@closing{#1}}
+\NewDocumentCommand \signaturefile  { m } {\def\@signaturefile{#1}}
 \NewDocumentCommand \fromname       { m } {\def\@fromname{#1}}
 \NewDocumentCommand \fromemail      { m } {\def\@fromemail{#1}}
 \NewDocumentCommand \fromweb        { m } {\def\@fromweb{#1}}
-\NewDocumentCommand \toaddress      { m } {\def\@toaddress{#1}}
-\NewDocumentCommand \closing        { m } {\def\@closing{#1}}
-\NewDocumentCommand \signaturefile  { m } {\def\@signaturefile{#1}}
 
+% department
+\NewDocumentCommand \logofile       { m } {\def\@logofile{#1}}
+\NewDocumentCommand \fromdept       { m } {\def\@fromdept{#1}}
 \NewDocumentCommand \fromdeptaddress{ m } {\def\@fromdeptaddress{#1}}
 \NewDocumentCommand \fromdeptphone  { m } {\def\@fromdeptphone{#1}}
 \NewDocumentCommand \fromdeptemail  { m } {\def\@fromdeptemail{#1}}
