@@ -57,6 +57,7 @@ This list could use some help from interested parties!
 ## What it looks like
 
 [Full PDF](template.pdf)
+![template](assets/template.png "template")
 
 ## Acknowledgement
 
