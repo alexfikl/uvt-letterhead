@@ -16,16 +16,24 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spacing paragraphs         |
 
+The standard branding colors are given below.
+
+| Color                             | RGB
+| :-                                | :-
+| `UVTLightBlue`                    | ![#3471B8](https://placehold.co/15x15/3471B8/3471B8.png) `(52, 113, 183)` |
+| `UVTDarkBlue`                     | ![#024A76](https://placehold.co/15x15/024A76/024A76.png) `(3, 75, 119)`   |
+| `UVTOrange`                       | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)` |
+
 The following commands are available to define the department, author, etc.
 
 | Command                           | Description                           |
 | :-                                | :-                                    |
 | `\fromdate{<text>}`               | Date (default `\today`)               |
-| `\closing{<text>}`                | Closing text (e.g. `Sincerely`)       |
-| `\signaturefile{<filename>}`      | Signature file (closing)              |
+| `\closing{<text>}`                | Closing text (e.g. `Sincerely`) (optional)|
+| `\signaturefile{<filename>}`      | Signature file (closing) (optional)   |
 | `\fromname{<text>}`               | Author name (closing)                 |
-| `\fromemail{<text>}`              | Author email (closing)                |
-| `\fromweb{<text>}`                | Author website (closing)              |
+| `\fromemail{<text>}`              | Author email (closing) (optional)     |
+| `\fromweb{<text>}`                | Author website (closing) (optional)   |
 | `\fromdept{<text>}`               | Department name (header)              |
 | `\logofile{<filename>}`           | Department logo (header)              |
 | `\fromdeptaddress{<text>}`        | Department address (footer)           |
