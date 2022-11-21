@@ -1,0 +1,214 @@
+% This package reproduces the UVT (West University of Timisoara) letterhead
+% available in MS Word format here
+%
+%   https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit
+%
+% Author: Alexandru Fikl <alexfikl at gmail dot com>
+%
+% Usage:
+%   \usepackage{uvt-letterhead}
+%
+% References:
+%   Colors and Logos: https://www.uvt.ro/en/dcimi/identitate-vizuala/
+%
+% Acknowledgement:
+%   The skeleton of this style file was copied from
+%   https://github.com/lukeolson/illinois-letterhead
+%   though little of it remains.
+
+% <<< preamble
+
+\def\fileversion{v0.1}
+\def\filedate{2022/11/21}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{uvt-letterhead}[\filedate \fileversion UVT Letterhead]
+
+% >>>
+
+% <<< options
+
+% double spacing
+\newif\if@doublespacing \@doublespacingfalse
+\DeclareOption{doublespacing}{\@doublespacingtrue}
+
+% grid
+\newif\if@layoutgrid \@layoutgridfalse
+\DeclareOption{layoutgrid}{\@layoutgridtrue}
+
+\DeclareOption*{\PackageWarning{uvt-letterhead}{Unknown option `\CurrentOption`}}
+\ProcessOptions\relax
+
+% >>>
+
+% <<< packages
+
+% generic formatting
+\RequirePackage[T1]{fontenc}
+\RequirePackage[rgb]{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+
+% used to set doublesplacing
+\RequirePackage{setspace}
+
+% fix page geometry
+% NOTE: just went to `Page Setup > Margins` to get these
+\RequirePackage[
+    headheight=1.51in,
+    headsep=12pt,
+    heightrounded,
+    top=1.51in,
+    left=0.98in,
+    bottom=1.08in,
+    right=0.79in]{geometry}
+% nicer links
+\RequirePackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+
+% nicer command definitions
+\usepackage{xparse}
+% indent first paragraph in a section
+\RequirePackage{indentfirst}
+% use microtype to improve spacing
+\RequirePackage{microtype}
+% fancy header and footer definition
+\RequirePackage{fancyhdr}
+
+% enable this to better check sizing
+\if@layoutgrid
+    \RequirePackage[
+        grid, gridBG,
+        gridunit=in,
+        gridcolor=gray!70,
+        subgridcolor=gray!70,
+        texcoord]{eso-pic}
+\fi
+
+\AtBeginDocument{
+    % customize PDF bookmarks a bit
+    \RequirePackage{bookmark}
+    \bookmarksetup{numbered}
+}
+
+% >>>
+
+% <<< colors
+
+% NOTE: https://www.uvt.ro/en/dcimi/identitate-vizuala/
+\definecolor{UVTLightBlue}{RGB}{52, 113, 183}
+\definecolor{UVTDarkBlue}{RGB}{3, 75, 119}
+\definecolor{UVTOrange}{RGB}{228, 172, 36}
+
+% NOTE: taken from the document itself
+\definecolor{UVTHeaderBlue}{RGB}{8, 67, 113}
+\definecolor{UVTHeaderGray}{RGB}{90, 90, 90}
+\definecolor{UVTFooterGray}{RGB}{166, 166, 166}
+
+% >>>
+
+% <<< commands
+
+\ProvideDocumentCommand \logofile   { m } {\def\@logofile{#1}}
+
+\NewDocumentCommand \fromdate       { m } {\def\@fromdate{#1}}
+\NewDocumentCommand \fromdept       { m } {\def\@fromdept{#1}}
+\NewDocumentCommand \fromname       { m } {\def\@fromname{#1}}
+\NewDocumentCommand \fromemail      { m } {\def\@fromemail{#1}}
+\NewDocumentCommand \fromweb        { m } {\def\@fromweb{#1}}
+\NewDocumentCommand \toaddress      { m } {\def\@toaddress{#1}}
+\NewDocumentCommand \closing        { m } {\def\@closing{#1}}
+\NewDocumentCommand \signaturefile  { m } {\def\@signaturefile{#1}}
+
+\NewDocumentCommand \fromdeptaddress{ m } {\def\@fromdeptaddress{#1}}
+\NewDocumentCommand \fromdeptphone  { m } {\def\@fromdeptphone{#1}}
+\NewDocumentCommand \fromdeptemail  { m } {\def\@fromdeptemail{#1}}
+\NewDocumentCommand \fromdeptweb    { m } {\def\@fromdeptweb{#1}}
+
+% >>>
+
+% <<< supported departments
+% >>>
+
+% <<< header / footer
+
+\pagestyle{fancy}
+% \fancyheadoffset{-0.9in}
+
+\renewcommand{\headrule}{%
+\vspace{-0.75in}
+\hfill\begin{tikzpicture}
+    \node at (-0.75in, 0.25in) {\includegraphics[width=0.175\linewidth]{\@logofile}};
+    \shade[left color=white, right color=UVTLightBlue, dashed]
+        (0, 0) rectangle (6.99in, 0.04in);
+\end{tikzpicture}
+}
+
+\fancyfoot{}
+\fancyfoot[C]{
+\begin{center}
+\tiny
+\textcolor{UVTFooterGray}{
+    \@fromdeptaddress \\
+    \textsc{Telefon}: \@fromdeptphone \\
+    \textsc{Email}: \href{mailto:\@fromdeptemail}{\@fromdeptemail} \\
+    \href{\@fromdeptweb}{\@fromdeptweb}
+}
+\end{center}
+}
+
+\fancyhead{}
+\fancyhead[R]{
+    {\tiny\textcolor{UVTHeaderGray}{\MakeUppercase{Universitate de Vest din Timisoara}}} \\
+    {\footnotesize\textcolor{UVTHeaderBlue}{\MakeUppercase{\@fromdept}}}%
+}
+
+% >>>
+
+% <<< opening
+
+\AtBeginDocument{%
+    \hfill\@ifundefined{@fromdate}{\today}{\@fromdate}
+}
+
+% >>>
+
+% <<< closing
+
+\AtEndDocument{%
+    \bigskip
+    \bigskip
+
+    \@ifundefined{@closing}{}{
+        \noindent\@closing,
+        \medskip
+    }
+
+    \@ifundefined{@signaturefile}{}{
+        \noindent\includegraphics[width=0.35\textwidth]{\@signaturefile}
+        \medskip
+    }
+
+    \noindent\@fromname \\
+    \@ifundefined{@fromemail}{}{
+        \textsc{Email}: \href{mailto:\@fromemail}{\@fromemail} \\
+    }
+    \@ifundefined{@fromweb}{}{
+        \textsc{Website}: \href{\@fromweb}{\@fromweb}
+    }
+}
+
+% >>>
+
+% <<< spacing
+
+\if@doublespacing
+    \doublespacing
+\else
+    \onehalfspacing
+\fi
+
+% >>>
+
+\endinput
+
+%% vim: nospell:filetype=tex
