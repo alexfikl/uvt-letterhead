@@ -1,23 +1,8 @@
 \documentclass[11pt]{article}
 
-\usepackage{uvt-letterhead}
+\usepackage[myriadpro]{uvt-letterhead}
 \usepackage{ifxetex}
 \usepackage{lipsum}
-
-% NOTE: montserrat on pdflatex requires texlive-fontsextra
-\ifxetex
-\IfFontExistsTF{Montserrat}{
-\setmainfont{Montserrat}[
-    FontFace={mb}{n}{Font=Montserrat-SemiBold},
-    ItalicFont=Montserrat-Italic,
-    BoldFont=Montserrat-ExtraBold]}{
-    % \usepackage[defaultfam, light, tabular, lining]{montserrat}
-    \usepackage[sc]{mathpazo}
-}
-\else
-    % \usepackage[defaultfam, light, tabular, lining]{montserrat}
-    \usepackage[sc]{mathpazo}
-\fi
 
 % NOTE: toggle the following lines to switch to Romanian
 % \usepackage[romanian]{babel}
@@ -26,7 +11,7 @@
 % department
 \fromdeptfmi
 \logofile{assets/uvt-logo.png}
-\fromdate{January 1st, 2022}
+% \fromdate{January 1\textsuperscript{st}, 2049}
 
 % details
 \fromname{Dr.\ Profesor Hubert J. Farnsworth}
@@ -34,12 +19,12 @@
 \fromweb{https://myname.github.io/}
 
 % closing address
-\closing{Sincerely}
+\closing{\textit{Sincerely}}
 \signaturefile{assets/signature.png}
 
 \begin{document}
 
-Dearly beloved,
+\textbf{Dearly beloved},
 \bigskip
 
 \lipsum[1-2]

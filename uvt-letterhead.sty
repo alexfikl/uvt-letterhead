@@ -32,6 +32,11 @@
 \newif\if@doublespacing \@doublespacingfalse
 \DeclareOption{doublespacing}{\@doublespacingtrue}
 
+% enable Myriad Pro
+\newif\if@myriadpro \@myriadprofalse
+\DeclareOption{myriadpro}{\@myriadprotrue}
+
+% debug layout
 \newif\if@layoutgrid \@layoutgridfalse
 \DeclareOption{layoutgrid}{\@layoutgridtrue}
 
@@ -78,6 +83,19 @@
 % fancy header and footer definition
 \RequirePackage{fancyhdr}
 \RequirePackage[absolute]{textpos}
+
+\if@myriadpro
+    \ifxetex
+        \setmainfont[
+            UprightFont=Myriad Pro-Regular,
+            ItalicFont=Myriad Pro-Italic,
+            BoldFont=Myriad Pro-Semibold,
+            ]{Myriad Pro}
+    \else
+        \usepackage[onlytext, smallfamily, lf]{MyriadPro}
+        \renewcommand{\familydefault}{\sfdefault}
+    \fi
+\fi
 
 % enable this to better check sizing
 \if@layoutgrid

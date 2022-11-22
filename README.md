@@ -3,6 +3,8 @@
 This is a reproduction of the UVT (West University of Timișoara) letterhead in
 Latex. It uses the UVT [branding](https://www.uvt.ro/en/dcimi/identitate-vizuala/)
 and [replicates this document](https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit).
+A full description of the various parts of the branding can be found in the
+[Official Manual](https://www.uvt.ro/wp-content/uploads/2020/07/MANUAL-IDENTITATE-NEW-WEB-FINAL-2016-.pdf).
 
 This is still a work in progress and the instructions on university branding are
 not very thorough, so feature requests or bug reports to improve this template
@@ -15,11 +17,17 @@ You will need `sig.png` or some other signature image if you want to use one.
 Modify `template.tex` as appropriate and build with `pdflatex` (or `xelatex`
 or `lualatex` for the adventurous).
 
+Note that, by default this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
+font. This font is available for personal and commercial use and can be easily
+loaded with the `XeLaTeX` or `LuaLaTeX` engines. To get it working on `PDFLaTeX`,
+use the [FontPro](https://github.com/sebschub/FontPro) distribution.
+
 The package defines the following options used as `\usepacakge[opts]{uvt-letterhead}`.
 
 | Option                            | Description                           |
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
+| `myriadpro`                       | Load the *Myriad Pro* fonts           |
 | `layoutgrid`                      | Adds a debug grid to check alignment  |
 
 The standard branding colors are given below.
