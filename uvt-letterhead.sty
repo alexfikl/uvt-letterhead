@@ -32,6 +32,9 @@
 \newif\if@doublespacing \@doublespacingfalse
 \DeclareOption{doublespacing}{\@doublespacingtrue}
 
+\newif\if@layoutgrid \@layoutgridfalse
+\DeclareOption{layoutgrid}{\@layoutgridtrue}
+
 \DeclareOption*{\PackageWarning{uvt-letterhead}{Unknown option `\CurrentOption`}}
 \ProcessOptions\relax
 
@@ -68,6 +71,7 @@
 \RequirePackage{microtype}
 % fancy header and footer definition
 \RequirePackage{fancyhdr}
+\RequirePackage[absolute]{textpos}
 
 % enable this to better check sizing
 \if@layoutgrid
@@ -210,9 +214,16 @@
 }
 
 \fancyhead{}
-\fancyhead[R]{
+\fancyhead[L]{%
+    \begin{textblock*}{\textwidth}(0.15in, 0.4in)
+        \includegraphics[width=0.2\textwidth]{\@logofile}
+    \end{textblock*}
+}
+\fancyhead[R]{%
+\begin{textblock*}{\textwidth}(1.5in, 0.9in)
     {\tiny\textcolor{UVTHeaderGray}{\MakeUppercase{Universitate de Vest din Timisoara}}} \\
     {\footnotesize\textcolor{UVTHeaderBlue}{\MakeUppercase{\@fromdept}}}%
+\end{textblock*}
 }
 
 % >>>
