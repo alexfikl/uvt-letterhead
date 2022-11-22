@@ -2,7 +2,7 @@ TEXMK?=latexrun
 
 all: template.pdf assets/template.png
 
-template.pdf: template.tex
+template.pdf: template.tex uvt-letterhead.sty
 	$(TEXMK) $<
 
 assets/template.png: template.pdf
