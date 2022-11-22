@@ -12,7 +12,8 @@ are **very welcome**!
 
 Copy `uvt-letterhead.sty`, `template.tex`, and `assets/` to your working directory.
 You will need `sig.png` or some other signature image if you want to use one.
-Modify `template.tex` as appropriate and build with `pdflatex`.
+Modify `template.tex` as appropriate and build with `pdflatex` (or `xelatex`
+or `lualatex` for the adventurous).
 
 The package defines the following options used as `\usepacakge[opts]{uvt-letterhead}`.
 

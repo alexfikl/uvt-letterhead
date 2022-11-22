@@ -1,9 +1,10 @@
 TEXMK?=latexrun
+TEXFLAGS?=--latex-cmd pdflatex -O latex.out
 
 all: template.pdf assets/template.png
 
 template.pdf: template.tex uvt-letterhead.sty
-	$(TEXMK) $<
+	$(TEXMK) $(TEXFLAGS) $<
 
 assets/template.png: template.pdf
 	convert \
@@ -17,7 +18,8 @@ assets/template.png: template.pdf
 		$@
 
 clean:
-	rm -rf latex.out
+	rm -rf latex.out \
+	rm -rf *.aux *.log *.out
 
 purge: clean
 	rm -rf template.pdf assets/template.png
