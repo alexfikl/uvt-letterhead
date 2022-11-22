@@ -130,6 +130,7 @@
 
 % NOTE: taken from the document itself
 \definecolor{UVTHeaderBlue}{RGB}{8, 67, 113}
+\definecolor{UVTHeaderLightBlue}{RGB}{84, 141, 212}
 \definecolor{UVTHeaderGray}{RGB}{90, 90, 90}
 \definecolor{UVTFooterGray}{RGB}{166, 166, 166}
 
@@ -254,8 +255,13 @@
 }
 \fancyhead[R]{%
 \begin{textblock*}{\textwidth}(1.5in, 0.7in)
+\ifthenelse{\equal{\uvt@department}{uvt}}{
+    {\tiny\textcolor{UVTHeaderLightBlue}{\MakeUppercase{\@fromuniversity}}} \\
+    {\footnotesize\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromdept}}}%
+}{
     {\tiny\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromuniversity}}} \\
     {\footnotesize\textcolor{UVTHeaderBlue}{\MakeUppercase{\@fromdept}}}%
+}
 \end{textblock*}
 }
 
