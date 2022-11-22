@@ -74,7 +74,7 @@ to add more!).
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
 easily overwritten using
 ```latex
-\logofile<figures/my-dept-logo.png>
+\logofile{figures/my-dept-logo.png}
 ```
 
 ## What it looks like
