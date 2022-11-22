@@ -1,5 +1,5 @@
 TEXMK?=latexrun
-TEXFLAGS?=--latex-cmd pdflatex -O latex.out
+TEXFLAGS?=--latex-cmd xelatex -O latex.out
 
 all: template.pdf assets/template.png
 

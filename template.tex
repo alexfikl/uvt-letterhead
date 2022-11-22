@@ -1,10 +1,15 @@
 \documentclass[11pt]{article}
 
 \usepackage{uvt-letterhead}
+\usepackage{ifxetex}
 \usepackage{lipsum}
 
-% NOTE: mathpazo is a Palatino-like font
-\usepackage[sc]{mathpazo}
+\IfFontExistsTF{Montserrat}{
+\setmainfont{Montserrat}[
+    FontFace={mb}{n}{Font=Montserrat-SemiBold},
+    ItalicFont=Montserrat-Italic,
+    BoldFont=Montserrat-ExtraBold]}{
+}
 
 % NOTE: toggle the following lines to switch to Romanian
 % \usepackage[romanian]{babel}

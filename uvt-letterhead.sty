@@ -42,8 +42,13 @@
 
 % <<< packages
 
-% generic formatting
+\RequirePackage{iftex}
 \RequirePackage[T1]{fontenc}
+\ifxetex
+    \RequirePackage{fontspec}
+\fi
+
+% generic formatting
 \RequirePackage[rgb]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
