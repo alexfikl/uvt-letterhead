@@ -28,6 +28,7 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
 | `myriadpro`                       | Load the *Myriad Pro* fonts           |
+| `department=<value>`              | Use predefined department info (header and footer) |
 | `layoutgrid`                      | Adds a debug grid to check alignment  |
 
 The standard branding colors are given below.
@@ -55,27 +56,25 @@ The following commands are available to define the department, author, etc.
 | `\fromdeptemail{<text>}`          | Department email (footer)             |
 | `\fromdeptweb{<text>}`            | Department website (footer)           |
 
-For the `\fromdept*` commands, there are also some predefined departments.
-Using these commands sets all the `\fromdept*` values to the official ones
-and the logo to `\logofile{assets/uvt-logo-<deptname>.png}`.
-This list could use some help from interested parties!
+The `\fromdept*` commands can be used to overwrite department information set
+using `department=name` or to define custom departments that are not yet included.
+The following departments are currently defined (and help is very appreciated
+to add more!).
 
 | Command               | Description                                        |
 | :-                    | :-                                                 |
-| `\fromdeptarte`       | Faculty of Arts and Design                         |
-| `\fromdeptcbg`        | Faculty of Chemistry, Biology, Geography           |
-| `\fromdeptdrept`      | Faculty of Law                                     |
-| `\fromdeptfeaa`       | Faculty of Economy and Business Administration     |
-| `\fromdeptfizica`     | Faculty of Physics                                 |
-| `\fromdeptfmi`        | Faculty of Mathematics and Computer Science        |
+| arte                  | Faculty of Arts and Design                         |
+| cbg                   | Faculty of Chemistry, Biology, Geography           |
+| drept                 | Faculty of Law                                     |
+| feaa                  | Faculty of Economy and Business Administration     |
+| fizica                | Faculty of Physics                                 |
+| fmi                   | Faculty of Mathematics and Computer Science        |
+| uvt                   | Dean / Main office                                 |
 
-You can of course still define your own custom department information and change
-the logo. For example, to use the math department details and the default logo
-write:
-
+Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
+easily overwritten using
 ```latex
-\fromdeptfmi
-\logofile{assets/uvt-logo.png}
+\logofile<figures/my-dept-logo.png>
 ```
 
 ## What it looks like
