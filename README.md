@@ -4,6 +4,10 @@ This is a reproduction of the UVT (West University of Timișoara) letterhead in
 Latex. It uses the UVT [branding](https://www.uvt.ro/en/dcimi/identitate-vizuala/)
 and [replicates this document](https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit).
 
+This is still a work in progress and the instructions on university branding are
+not very thorough, so feature requests or bug reports to improve this template
+are **very welcome**!
+
 ## How to use
 
 Copy `uvt-letterhead.sty`, `template.tex`, and `assets/` to your working directory.
@@ -55,6 +59,15 @@ This list could use some help from interested parties!
 | `\fromdeptfeaa`       | Faculty of Economy and Business Administration     |
 | `\fromdeptfizica`     | Faculty of Physics                                 |
 | `\fromdeptfmi`        | Faculty of Mathematics and Computer Science        |
+
+You can of course still define your own custom department information and change
+the logo. For example, to use the math department details and the default logo
+write:
+
+```latex
+\fromdeptfmi
+\logofile{assets/uvt-logo.png}
+```
 
 ## What it looks like
 
