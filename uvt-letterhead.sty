@@ -53,10 +53,9 @@
 \RequirePackage[
     headheight=1.51in,
     headsep=12pt,
-    heightrounded,
     top=1.51in,
     left=0.98in,
-    bottom=1.08in,
+    bottom=1.34in,
     right=0.79in]{geometry}
 % nicer links
 \RequirePackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
@@ -187,21 +186,20 @@
 % <<< header / footer
 
 \pagestyle{fancy}
-% \fancyheadoffset{-0.9in}
 
 \renewcommand{\headrule}{%
 \vspace{-0.75in}
 \hfill\begin{tikzpicture}
-    \node at (-0.75in, 0.25in) {\includegraphics[width=0.175\linewidth]{\@logofile}};
     \shade[left color=white, right color=UVTLightBlue, dashed]
-        (0, 0) rectangle (6.99in, 0.04in);
+        (0, 0) rectangle (7.7in, 0.04in);
 \end{tikzpicture}
 }
 
 \fancyfoot{}
-\fancyfoot[C]{
+\fancyfoot[C]{%
 \begin{center}
 \tiny
+\doublespacing
 \textcolor{UVTFooterGray}{
     \@fromdeptaddress \\
     \textsc{Telefon}: \@fromdeptphone \\
