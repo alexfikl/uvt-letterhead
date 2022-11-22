@@ -42,7 +42,8 @@ The following commands are available to define the department, author, etc.
 | `\fromdeptweb{<text>}`            | Department website (footer)           |
 
 For the `\fromdept*` commands, there are also some predefined departments.
-Using these commands sets all the `\fromdept*` values to the official ones.
+Using these commands sets all the `\fromdept*` values to the official ones
+and the logo to `\logofile{assets/uvt-log-<deptname>.png}`.
 This list could use some help from interested parties!
 
 | Command               | Description                                           |
