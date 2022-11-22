@@ -14,7 +14,8 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 
 | Option                            | Description                           |
 | :-                                | :-                                    |
-| `doublespacing`                   | Use double spacing paragraphs         |
+| `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
+| `layoutgrid`                      | Adds a debug grid to check alignment  |
 
 The standard branding colors are given below.
 
