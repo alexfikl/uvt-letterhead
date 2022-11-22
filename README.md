@@ -61,7 +61,7 @@ using `department=name` or to define custom departments that are not yet include
 The following departments are currently defined (and help is very appreciated
 to add more!).
 
-| Command               | Description                                        |
+| Keyword               | Department                                         |
 | :-                    | :-                                                 |
 | arte                  | Faculty of Arts and Design                         |
 | cbg                   | Faculty of Chemistry, Biology, Geography           |
