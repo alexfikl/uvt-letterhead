@@ -28,6 +28,7 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
 | `myriadpro`                       | Load the *Myriad Pro* fonts           |
+| `headerlogo`                      | Place the department logo in header instead of footer |
 | `department=<value>`              | Use predefined department info (header and footer) |
 | `layoutgrid`                      | Adds a debug grid to check alignment  |
 
@@ -49,8 +50,10 @@ The following commands are available to define the department, author, etc.
 | `\fromname{<text>}`               | Author name (closing)                 |
 | `\fromemail{<text>}`              | Author email (closing) (optional)     |
 | `\fromweb{<text>}`                | Author website (closing) (optional)   |
+| `\fromuniversity{<text>}`         | University name                       |
+| `\fromuniversitylogo{<filename>}` | Logo for the university               |
 | `\fromdept{<text>}`               | Department name (header)              |
-| `\logofile{<filename>}`           | Department logo (header)              |
+| `\fromdeptlogo{<filename>}`       | Department logo (header)              |
 | `\fromdeptaddress{<text>}`        | Department address (footer)           |
 | `\fromdeptphone{<text>}`          | Department phone (footer)             |
 | `\fromdeptemail{<text>}`          | Department email (footer)             |
@@ -74,7 +77,7 @@ to add more!).
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
 easily overwritten using
 ```latex
-\logofile{figures/my-dept-logo.png}
+\fromdeptlogo{figures/my-dept-logo.png}
 ```
 
 ## What it looks like

@@ -39,10 +39,13 @@
 \DeclareBoolOption[false]{doublespacing}
 % enable Myriad Pro
 \DeclareBoolOption[false]{myriadpro}
-% debug layout
-\DeclareBoolOption[false]{layoutgrid}
+% double spacing
+\DeclareBoolOption[false]{headerlogo}
 % specify department
 \DeclareStringOption[uvt]{department}
+
+% debug layout
+\DeclareBoolOption[false]{layoutgrid}
 
 % handle default options
 \DeclareDefaultOption{\PackageWarning{uvt-letterhead}{Unknown option `\CurrentOption`}}
@@ -67,13 +70,23 @@
 \RequirePackage{setspace}
 
 % fix page geometry
+\ifuvt@headerlogo
 \RequirePackage[
-    headheight=2in,
+    headheight=2.045in,
     headsep=0.85in,
-    top=2in,
+    top=2.045in,
     left=0.98in,
-    bottom=1.34in,
+    bottom=1.2in,
     right=0.79in]{geometry}
+\else
+\RequirePackage[
+    headheight=2.045in,
+    headsep=0.85in,
+    top=2.045in,
+    left=0.98in,
+    bottom=1.93in,
+    right=0.79in]{geometry}
+\fi
 % nicer links
 \RequirePackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
 
@@ -151,13 +164,14 @@
 \NewDocumentCommand \fromweb        { m } {\def\@fromweb{#1}}
 
 % department
-\NewDocumentCommand \logofile       { m } {\def\@logofile{#1}}
 \NewDocumentCommand \fromuniversity { m } {\def\@fromuniversity{#1}}
+\NewDocumentCommand \fromuniversitylogo {m} {\def\@fromuniversitylogo{#1}}
 \NewDocumentCommand \fromdept       { m } {\def\@fromdept{#1}}
 \NewDocumentCommand \fromdeptaddress{ m } {\def\@fromdeptaddress{#1}}
 \NewDocumentCommand \fromdeptphone  { m } {\def\@fromdeptphone{#1}}
 \NewDocumentCommand \fromdeptemail  { m } {\def\@fromdeptemail{#1}}
 \NewDocumentCommand \fromdeptweb    { m } {\def\@fromdeptweb{#1}}
+\NewDocumentCommand \fromdeptlogo   { m } {\def\@fromdeptlogo{#1}}
 
 % >>>
 
@@ -166,49 +180,49 @@
 \fromuniversity{Universitatea de Vest din Timișoara}
 
 \ifthenelse{\equal{\uvt@department}{arte}}{
-    \logofile{assets/uvt-logo-arte.png}
+    \fromdeptlogo{assets/uvt-logo-arte.png}
     \fromdept{Facultatea de Arte și Design}
     \fromdeptaddress{str. Oituz 4, 300086, Timișoara, România}
     \fromdeptphone{+40 0256-592-906}
     \fromdeptemail{secretaria.arte@e-uvt.ro}
     \fromdeptweb{https://arte.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{cbg}}{
-    \logofile{assets/uvt-logo-cbg.png}
+    \fromdeptlogo{assets/uvt-logo-cbg.png}
     \fromdept{Facultatea de Chimie, Biologie, Geografie}
     \fromdeptaddress{str. Pestalozzi 16A, 300115, Timișoara, România}
     \fromdeptphone{+40 0256-592-622}
     \fromdeptemail{secretaria.cbg@e-uvt.ro}
     \fromdeptweb{https://cbg.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{drept}}{
-    \logofile{assets/uvt-logo-drept.png}
+    \fromdeptlogo{assets/uvt-logo-drept.png}
     \fromdept{Facultatea de Drept}
     \fromdeptaddress{Blvd. Eroilor de la Tisa 9A, 300575, Timișoara, România}
     \fromdeptphone{+40 0256-592-400}
     \fromdeptemail{drept@e-uvt.ro}
     \fromdeptweb{https://drept.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{feaa}}{
-    \logofile{assets/uvt-logo-feaa.png}
+    \fromdeptlogo{assets/uvt-logo-feaa.png}
     \fromdept{Facultatea de Economie și de Administrare a Afacerilor}
     \fromdeptaddress{str. Pestalozzi 16, 300115, Timișoara, România}
     \fromdeptphone{+40 0256-592-506}
     \fromdeptemail{secretariat.feaa@e-uvt.ro}
     \fromdeptweb{https://feaa.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fizica}}{
-    \logofile{assets/uvt-logo-fizica.png}
+    \fromdeptlogo{assets/uvt-logo-fizica.png}
     \fromdept{Facultatea de Fizică}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-298}
     \fromdeptemail{secretaria.fizica@e-uvt.ro}
     \fromdeptweb{https://physics.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fmi}}{
-    \logofile{assets/uvt-logo-fmi.png}
+    \fromdeptlogo{assets/uvt-logo-fmi.png}
     \fromdept{Facultatea de Matematică și Informatică}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-155}
     \fromdeptemail{secretariat.mateinfo@e-uvt.ro}
     \fromdeptweb{https://math.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{uvt}}{
-    \logofile{assets/uvt-logo.png}
+    \fromdeptlogo{assets/uvt-logo.png}
     \fromuniversity{Ministerul Educației Naționale}
     \fromdept{Universitatea de Vest din Timișoara}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
@@ -218,6 +232,8 @@
 }{
     \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
 }}}}}}}
+
+\fromuniversitylogo{assets/uvt-logo.png}
 
 % >>>
 
@@ -237,7 +253,12 @@
 \fancyfoot[C]{%
 \begin{center}
 \tiny
-\doublespacing
+\ifuvt@headerlogo
+    \onehalfspacing
+\else
+    \onehalfspacing
+    \includegraphics[width=0.1\textwidth]{\@fromdeptlogo} \\
+\fi
 \textcolor{UVTFooterGray}{
     \@fromdeptaddress \\
     \textit{Telefon}: \@fromdeptphone \\
@@ -249,12 +270,16 @@
 
 \fancyhead{}
 \fancyhead[L]{%
-    \begin{textblock*}{\textwidth}(0.15in, 0.2in)
-        \includegraphics[width=0.2\textwidth]{\@logofile}
-    \end{textblock*}
+\begin{textblock*}{\textwidth}(0in, 0in)
+\ifuvt@headerlogo
+    \includegraphics[width=0.2\textwidth]{\@fromdeptlogo}
+\else
+    \includegraphics[width=0.2\textwidth]{\@fromuniversitylogo}
+\fi
+\end{textblock*}
 }
 \fancyhead[R]{%
-\begin{textblock*}{\textwidth}(1.5in, 0.7in)
+\begin{textblock*}{\textwidth}(1.48in, 0.72in)
 \ifthenelse{\equal{\uvt@department}{uvt}}{
     {\footnotesize\textcolor{UVTHeaderLightBlue}{\MakeUppercase{\@fromuniversity}}} \\
     {\small\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromdept}}}%
