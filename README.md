@@ -6,9 +6,8 @@ and [replicates this document](https://docs.google.com/document/d/1qyRK3fjVANnRF
 A full description of the various parts of the branding can be found in the
 [Official Manual](https://www.uvt.ro/wp-content/uploads/2020/07/MANUAL-IDENTITATE-NEW-WEB-FINAL-2016-.pdf).
 
-This is still a work in progress and the instructions on university branding are
-not very thorough, so feature requests or bug reports to improve this template
-are **very welcome**!
+This template style is fairly complete and working well, but any feature requests
+or bug reports to improve it are **very welcome**!
 
 ## How to use
 
