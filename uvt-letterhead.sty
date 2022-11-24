@@ -46,6 +46,7 @@
 
 % debug layout
 \DeclareBoolOption[false]{layoutgrid}
+\DeclareBoolOption[false]{showframe}
 
 % handle default options
 \DeclareDefaultOption{\PackageWarning{uvt-letterhead}{Unknown option `\CurrentOption`}}
@@ -116,6 +117,10 @@
 \fi
 
 % enable this to better check sizing
+\ifuvt@showframe
+    \geometry{showframe}
+\fi
+
 \ifuvt@layoutgrid
     \RequirePackage[
         grid, gridBG,
@@ -162,6 +167,7 @@
 \NewDocumentCommand \fromname       { m } {\def\@fromname{#1}}
 \NewDocumentCommand \fromemail      { m } {\def\@fromemail{#1}}
 \NewDocumentCommand \fromweb        { m } {\def\@fromweb{#1}}
+\NewDocumentCommand \fromoffice     { m } {\def\@fromoffice{#1}}
 
 % department
 \NewDocumentCommand \fromuniversity { m } {\def\@fromuniversity{#1}}
@@ -295,7 +301,13 @@
 % <<< opening
 
 \AtBeginDocument{%
-    \hfill\textbf{\@ifundefined{@fromdate}{\today}{\@fromdate}}
+\@ifundefined{@fromoffice}{}{
+\begin{textblock*}{\textwidth}(1.48in, 1.39in)
+    \hfill
+    \textcolor{UVTOrange}{\MakeUppercase{\@fromoffice}}
+\end{textblock*}
+}
+    \hfill\textit{\@ifundefined{@fromdate}{\today}{\@fromdate}}
 }
 
 % >>>
