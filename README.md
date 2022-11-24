@@ -12,10 +12,10 @@ are **very welcome**!
 
 ## How to use
 
-Copy `uvt-letterhead.sty`, `template.tex`, and `assets/` to your working directory.
-You will need `sig.png` or some other signature image if you want to use one.
-Modify `template.tex` as appropriate and build with `pdflatex` (or `xelatex`
-or `lualatex` for the adventurous).
+Copy `uvt-letterhead.sty`, `template.tex`, and the relevant logos from `assets/`
+to your working directory. You will need `signature.png` or some other signature
+image if you want to use one. Modify `template.tex` as appropriate and build with
+`pdflatex` (or `xelatex` or `lualatex` for the adventurous).
 
 Note that, by default this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
 font. This font is available for personal and commercial use and can be easily
