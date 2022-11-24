@@ -158,7 +158,7 @@
 
 % closing
 \NewDocumentCommand \closing        { m } {\def\@closing{#1}}
-\NewDocumentCommand \signaturefile  { m } {\def\@signaturefile{#1}}
+\NewDocumentCommand \fromsignature  { m } {\def\@fromsignature{#1}}
 \NewDocumentCommand \fromname       { m } {\def\@fromname{#1}}
 \NewDocumentCommand \fromemail      { m } {\def\@fromemail{#1}}
 \NewDocumentCommand \fromweb        { m } {\def\@fromweb{#1}}
@@ -180,43 +180,43 @@
 \fromuniversity{Universitatea de Vest din Timișoara}
 
 \ifthenelse{\equal{\uvt@department}{arte}}{
-    \fromdeptlogo{assets/uvt-logo-arte.png}
     \fromdept{Facultatea de Arte și Design}
+    \fromdeptlogo{assets/uvt-logo-arte.png}
     \fromdeptaddress{str. Oituz 4, 300086, Timișoara, România}
     \fromdeptphone{+40 0256-592-906}
     \fromdeptemail{secretaria.arte@e-uvt.ro}
     \fromdeptweb{https://arte.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{cbg}}{
-    \fromdeptlogo{assets/uvt-logo-cbg.png}
     \fromdept{Facultatea de Chimie, Biologie, Geografie}
+    \fromdeptlogo{assets/uvt-logo-cbg.png}
     \fromdeptaddress{str. Pestalozzi 16A, 300115, Timișoara, România}
     \fromdeptphone{+40 0256-592-622}
     \fromdeptemail{secretaria.cbg@e-uvt.ro}
     \fromdeptweb{https://cbg.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{drept}}{
-    \fromdeptlogo{assets/uvt-logo-drept.png}
     \fromdept{Facultatea de Drept}
+    \fromdeptlogo{assets/uvt-logo-drept.png}
     \fromdeptaddress{Blvd. Eroilor de la Tisa 9A, 300575, Timișoara, România}
     \fromdeptphone{+40 0256-592-400}
     \fromdeptemail{drept@e-uvt.ro}
     \fromdeptweb{https://drept.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{feaa}}{
-    \fromdeptlogo{assets/uvt-logo-feaa.png}
     \fromdept{Facultatea de Economie și de Administrare a Afacerilor}
+    \fromdeptlogo{assets/uvt-logo-feaa.png}
     \fromdeptaddress{str. Pestalozzi 16, 300115, Timișoara, România}
     \fromdeptphone{+40 0256-592-506}
     \fromdeptemail{secretariat.feaa@e-uvt.ro}
     \fromdeptweb{https://feaa.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fizica}}{
-    \fromdeptlogo{assets/uvt-logo-fizica.png}
     \fromdept{Facultatea de Fizică}
+    \fromdeptlogo{assets/uvt-logo-fizica.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-298}
     \fromdeptemail{secretaria.fizica@e-uvt.ro}
     \fromdeptweb{https://physics.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fmi}}{
-    \fromdeptlogo{assets/uvt-logo-fmi.png}
     \fromdept{Facultatea de Matematică și Informatică}
+    \fromdeptlogo{assets/uvt-logo-fmi.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-155}
     \fromdeptemail{secretariat.mateinfo@e-uvt.ro}
@@ -311,8 +311,8 @@
         \medskip
     }
 
-    \@ifundefined{@signaturefile}{}{
-        \noindent\includegraphics[width=0.35\textwidth]{\@signaturefile}
+    \@ifundefined{@fromsignature}{}{
+        \noindent\includegraphics[width=0.35\textwidth]{\@fromsignature}
         \medskip
     }
 

@@ -46,7 +46,7 @@ The following commands are available to define the department, author, etc.
 | :-                                | :-                                    |
 | `\fromdate{<text>}`               | Date (default `\today`)               |
 | `\closing{<text>}`                | Closing text (e.g. `Sincerely`) (optional)|
-| `\signaturefile{<filename>}`      | Signature file (closing) (optional)   |
+| `\fromsignature{<filename>}`      | Signature file (closing) (optional)   |
 | `\fromname{<text>}`               | Author name (closing)                 |
 | `\fromemail{<text>}`              | Author email (closing) (optional)     |
 | `\fromweb{<text>}`                | Author website (closing) (optional)   |
