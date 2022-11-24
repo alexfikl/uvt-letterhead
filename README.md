@@ -62,8 +62,9 @@ The following commands are available to define the department, author, etc.
 
 The `\fromdept*` commands can be used to overwrite department information set
 using `department=name` or to define custom departments that are not yet included.
-The following departments are currently defined (and help is very appreciated
-to add more!).
+The following departments are currently defined. Notably, this does not include
+any of the administrative offices that also have logos in the official branding.
+Help to add these is very appreciated!
 
 | Keyword               | Department                                         |
 | :-                    | :-                                                 |
@@ -71,8 +72,13 @@ to add more!).
 | cbg                   | Faculty of Chemistry, Biology, Geography           |
 | drept                 | Faculty of Law                                     |
 | feaa                  | Faculty of Economy and Business Administration     |
+| fefs                  | Faculty of Sports                                  |
 | fizica                | Faculty of Physics                                 |
 | fmi                   | Faculty of Mathematics and Computer Science        |
+| fmt                   | Faculty of Music and Theater                       |
+| fsp                   | Faculty of Sociology and Psychology                |
+| lit                   | Faculty of Letters, History and Teology            |
+| pfc                   | Faculty of Political Science, Philosophy and Communication Sciences |
 | uvt                   | Dean / Main office                                 |
 
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be

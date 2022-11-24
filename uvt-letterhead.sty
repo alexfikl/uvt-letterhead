@@ -190,14 +190,14 @@
     \fromdeptlogo{assets/uvt-logo-arte.png}
     \fromdeptaddress{str. Oituz 4, 300086, Timișoara, România}
     \fromdeptphone{+40 0256-592-906}
-    \fromdeptemail{secretaria.arte@e-uvt.ro}
+    \fromdeptemail{secretariat.arte@e-uvt.ro}
     \fromdeptweb{https://arte.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{cbg}}{
     \fromdept{Facultatea de Chimie, Biologie, Geografie}
     \fromdeptlogo{assets/uvt-logo-cbg.png}
     \fromdeptaddress{str. Pestalozzi 16A, 300115, Timișoara, România}
     \fromdeptphone{+40 0256-592-622}
-    \fromdeptemail{secretaria.cbg@e-uvt.ro}
+    \fromdeptemail{secretariat.cbg@e-uvt.ro}
     \fromdeptweb{https://cbg.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{drept}}{
     \fromdept{Facultatea de Drept}
@@ -213,12 +213,19 @@
     \fromdeptphone{+40 0256-592-506}
     \fromdeptemail{secretariat.feaa@e-uvt.ro}
     \fromdeptweb{https://feaa.uvt.ro}
+}{\ifthenelse{\equal{\uvt@department}{fefs}}{
+    \fromdept{Facultatea de Educație Fizică și Sport}
+    \fromdeptlogo{assets/uvt-logo-fefs.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
+    \fromdeptphone{+40 0256-592-129}
+    \fromdeptemail{secretariat.sport@e-uvt.ro}
+    \fromdeptweb{https://sport.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fizica}}{
     \fromdept{Facultatea de Fizică}
     \fromdeptlogo{assets/uvt-logo-fizica.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-298}
-    \fromdeptemail{secretaria.fizica@e-uvt.ro}
+    \fromdeptemail{secretariat.fizica@e-uvt.ro}
     \fromdeptweb{https://physics.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fmi}}{
     \fromdept{Facultatea de Matematică și Informatică}
@@ -227,6 +234,34 @@
     \fromdeptphone{+40 0256-592-155}
     \fromdeptemail{secretariat.mateinfo@e-uvt.ro}
     \fromdeptweb{https://math.uvt.ro}
+}{\ifthenelse{\equal{\uvt@department}{fmt}}{
+    \fromdept{Facultatea de Muzică și Teatru}
+    \fromdeptlogo{assets/uvt-logo-fmt.png}
+    \fromdeptaddress{Blvd. Piața Libertății 1, 300077, Timișoara, România}
+    \fromdeptphone{+40 0256-592-650}
+    \fromdeptemail{muzicateatru.secretariat@e-uvt.ro}
+    \fromdeptweb{https://fmt.uvt.ro}
+}{\ifthenelse{\equal{\uvt@department}{fsp}}{
+    \fromdept{Facultatea de Socielogie și Psihologie}
+    \fromdeptlogo{assets/uvt-logo-fsp.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
+    \fromdeptphone{+40 0256-592-320}
+    \fromdeptemail{secretariat.sociopsiho@e-uvt.ro}
+    \fromdeptweb{https://fsp.uvt.ro}
+}{\ifthenelse{\equal{\uvt@department}{lit}}{
+    \fromdept{Facultatea de Litere, Istorie și Teologie}
+    \fromdeptlogo{assets/uvt-logo-lit.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
+    \fromdeptphone{+40 0256-592-164}
+    \fromdeptemail{secretariat.litere@e-uvt.ro}
+    \fromdeptweb{https://litere.uvt.ro}
+}{\ifthenelse{\equal{\uvt@department}{pfc}}{
+    \fromdept{Facultatea de Științe Politice, Filosofie și Științe Ale Comunicării}
+    \fromdeptlogo{assets/uvt-logo-pfc.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
+    \fromdeptphone{+40 0256-592-132}
+    \fromdeptemail{secretariat.pfc@e-uvt.ro}
+    \fromdeptweb{https://pfc.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{uvt}}{
     \fromdeptlogo{assets/uvt-logo.png}
     \fromuniversity{Ministerul Educației Naționale}
@@ -237,7 +272,7 @@
     \fromdeptweb{https://uvt.ro}
 }{
     \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
-}}}}}}}
+}}}}}}}}}}}}
 
 \fromuniversitylogo{assets/uvt-logo.png}
 
