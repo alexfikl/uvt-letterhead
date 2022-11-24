@@ -50,6 +50,7 @@ The following commands are available to define the department, author, etc.
 | `\fromname{<text>}`               | Author name (closing)                 |
 | `\fromemail{<text>}`              | Author email (closing) (optional)     |
 | `\fromweb{<text>}`                | Author website (closing) (optional)   |
+| `\fromoffice{<text>}`             | Author office / sub-department (header) (optional)|
 | `\fromuniversity{<text>}`         | University name                       |
 | `\fromuniversitylogo{<filename>}` | Logo for the university               |
 | `\fromdept{<text>}`               | Department name (header)              |
