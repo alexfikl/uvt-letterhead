@@ -259,6 +259,7 @@
 \fancyfoot[C]{%
 \begin{center}
 \tiny
+\sffamily
 \ifuvt@headerlogo
     \onehalfspacing
 \else
@@ -287,11 +288,11 @@
 \fancyhead[R]{%
 \begin{textblock*}{\textwidth}(1.48in, 0.72in)
 \ifthenelse{\equal{\uvt@department}{uvt}}{
-    {\footnotesize\textcolor{UVTHeaderLightBlue}{\MakeUppercase{\@fromuniversity}}} \\
-    {\small\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromdept}}}%
+    {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\MakeUppercase{\@fromuniversity}}} \\
+    {\small\sffamily\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromdept}}}%
 }{
-    {\footnotesize\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromuniversity}}} \\
-    {\small\textcolor{UVTHeaderBlue}{\MakeUppercase{\@fromdept}}}%
+    {\footnotesize\sffamily\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromuniversity}}} \\
+    {\small\sffamily\textcolor{UVTHeaderBlue}{\MakeUppercase{\@fromdept}}}%
 }
 \end{textblock*}
 }
@@ -302,8 +303,9 @@
 
 \AtBeginDocument{%
 \@ifundefined{@fromoffice}{}{
-\begin{textblock*}{\textwidth}(1.48in, 1.39in)
+\begin{textblock*}{\textwidth}(1.48in, 1.35in)
     \hfill
+    \sffamily
     \textcolor{UVTOrange}{\MakeUppercase{\@fromoffice}}
 \end{textblock*}
 }
