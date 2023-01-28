@@ -1,7 +1,28 @@
 TEXMK?=latexrun
 TEXFLAGS?=--latex-cmd xelatex -O latex.out
 
-all: template.pdf assets/template.png
+all: template assets
+
+help: 								## Show this help
+	@echo -e "Specify a command. The choices are:\n"
+	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[0;36m%-12s\033[m %s\n", $$1, $$2}'
+	@echo ""
+.PHONY: help
+
+template: template.pdf				## Compile template example
+.PHONY: template
+
+assets: assets/template.png			## Compile assets for example
+.PHONY: template
+
+clean:								## Remove temporary compilation files
+	rm -rf latex.out \
+	rm -rf *.aux *.log *.out
+.PHONY: clean
+
+purge: clean						## Remove all generated files
+	rm -rf template.pdf assets/template.png
+.PHONY: purge
 
 template.pdf: template.tex uvt-letterhead.sty
 	$(TEXMK) $(TEXFLAGS) $<
@@ -16,14 +37,3 @@ assets/template.png: template.pdf
 		-flatten \
 		-sharpen 0x1.0 \
 		$@
-
-clean:
-	rm -rf latex.out \
-	rm -rf *.aux *.log *.out
-
-purge: clean
-	rm -rf template.pdf assets/template.png
-
-
-.PHONY: all clean purge
-
