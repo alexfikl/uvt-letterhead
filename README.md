@@ -19,14 +19,16 @@ image if you want to use one. Modify `template.tex` as appropriate and build wit
 Note that, by default this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
 font. This font is available for personal and commercial use and can be easily
 loaded with the `XeLaTeX` or `LuaLaTeX` engines. To get it working on `PDFLaTeX`,
-use the [FontPro](https://github.com/sebschub/FontPro) distribution.
+use the [FontPro](https://github.com/sebschub/FontPro) distribution. If you cannot
+obtain the font (or the installation does not work for some reason), it can
+be disabled with the `nomyriadpro` option.
 
 The package defines the following options used as `\usepacakge[opts]{uvt-letterhead}`.
 
 | Option                            | Description                           |
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
-| `myriadpro`                       | Load the *Myriad Pro* fonts           |
+| `nomyriadpro`                     | Do not load the *Myriad Pro* fonts           |
 | `headerlogo`                      | Place the department logo in header instead of footer |
 | `department=<value>`              | Use predefined department info (header and footer) |
 | `layoutgrid`                      | Adds a debug grid to check alignment  |

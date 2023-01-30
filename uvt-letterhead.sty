@@ -38,7 +38,7 @@
 % double spacing
 \DeclareBoolOption[false]{doublespacing}
 % enable Myriad Pro
-\DeclareBoolOption[false]{myriadpro}
+\DeclareBoolOption[false]{nomyriadpro}
 % double spacing
 \DeclareBoolOption[false]{headerlogo}
 % specify department
@@ -63,7 +63,7 @@
 \fi
 
 % generic formatting
-\RequirePackage[rgb]{xcolor}
+\RequirePackage[rgb, table]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
 
@@ -103,16 +103,13 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[absolute]{textpos}
 
-\ifuvt@myriadpro
-    \ifxetex
-        \setmainfont[
-            UprightFont=Myriad Pro-Regular,
-            ItalicFont=Myriad Pro-Italic,
-            BoldFont=Myriad Pro-Semibold,
-            ]{Myriad Pro}
-    \else
+\ifuvt@nomyriadpro\else
+    \ifpdftex
         \usepackage[onlytext, smallfamily, lf]{MyriadPro}
         \renewcommand{\familydefault}{\sfdefault}
+    \else
+        \usepackage{fontspec}
+        \setmainfont{Myriad Pro}
     \fi
 \fi
 
