@@ -46,7 +46,8 @@ The following helper macros are defined for some standard functionality.
 | Macro                             | Description                           |
 | :-                                | :-                                    |
 | `\uvtdate`                        | Current date formatted in `DD.MM.YYYY`|
-| `\uvtcloseletter`                 | Adds a standard letter signature on the right |
+| `\uvtopenletter`                  | Adds a standard letter opening on the left   |
+| `\uvtcloseletter`                 | Adds a standard letter signature on the left |
 | `\uvtcloseform`                   | Adds date on the left and name on the right |
 
 The following commands are available to define the department, author, etc.

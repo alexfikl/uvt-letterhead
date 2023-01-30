@@ -89,7 +89,7 @@
     right=0.79in]{geometry}
 \fi
 % nicer links
-\RequirePackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\RequirePackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
 
 % nicer command definitions
 \RequirePackage{xparse}
@@ -338,6 +338,27 @@
     \textcolor{UVTOrange}{\MakeUppercase{\@fromoffice}}
 }
 \end{textblock*}
+}
+
+% >>>
+
+% <<< opening
+
+\NewDocumentCommand \uvtopenletter {} {
+    \@ifundefined{@fromname}{}{
+        \noindent \@fromname \\
+    }
+    \@ifundefined{@fromemail}{}{
+        \noindent \textit{E-mail}: \href{mailto:\@fromemail}{\@fromemail} \\
+    }
+    \@ifundefined{@fromweb}{}{
+        \noindent \textit{Website}: \href{\@fromweb}{\@fromweb} \\
+    }
+    \textit{\@fromuniversity} \\
+    \textit{\@fromdept} \\
+    \@ifundefined{@fromoffice}{}{
+        \textit{\@fromoffice}
+    }
 }
 
 % >>>
