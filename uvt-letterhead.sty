@@ -57,8 +57,9 @@
 % <<< packages
 
 % load a nice font package
-\RequirePackage[T1]{fontenc}
-\ifxetex
+\ifpdftex
+    \RequirePackage[T1]{fontenc}
+\else
     \RequirePackage{fontspec}
 \fi
 
@@ -108,7 +109,6 @@
         \usepackage[onlytext, smallfamily, lf]{MyriadPro}
         \renewcommand{\familydefault}{\sfdefault}
     \else
-        \usepackage{fontspec}
         \setmainfont{Myriad Pro}
     \fi
 \fi
