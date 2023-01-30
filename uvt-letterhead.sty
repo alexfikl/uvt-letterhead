@@ -259,6 +259,14 @@
     \fromdeptphone{+40 0256-592-132}
     \fromdeptemail{secretariat.pfc@e-uvt.ro}
     \fromdeptweb{https://pfc.uvt.ro}
+}{\ifthenelse{\equal{\uvt@department}{icam}}{
+    \fromdeptlogo{assets/uvt-logo-icam.png}
+    \fromuniversity{ICAM -- Institutul de Cercetări Avansate de Mediu}
+    \fromdept{Departamentul de Cercetare în Matematică și Informatică}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
+    \fromdeptphone{+40 0256-592-309}
+    \fromdeptemail{icam@e-uvt.ro}
+    \fromdeptweb{https://icam.uvt.ro/}
 }{\ifthenelse{\equal{\uvt@department}{uvt}}{
     \fromdeptlogo{assets/uvt-logo.png}
     \fromuniversity{Ministerul Educației}
@@ -269,7 +277,7 @@
     \fromdeptweb{https://uvt.ro}
 }{
     \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
-}}}}}}}}}}}}
+}}}}}}}}}}}}}
 
 \fromuniversitylogo{assets/uvt-logo.png}
 

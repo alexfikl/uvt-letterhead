@@ -89,6 +89,7 @@ Help to add these is very appreciated!
 | fsp                   | Faculty of Sociology and Psychology                |
 | lit                   | Faculty of Letters, History and Teology            |
 | pfc                   | Faculty of Political Science, Philosophy and Communication Sciences |
+| icam                  | ICAM                                               |
 | uvt                   | Dean / Main office                                 |
 
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
