@@ -41,6 +41,14 @@ The standard branding colors are given below.
 | `UVTDarkBlue`                     | ![#024A76](https://placehold.co/15x15/024A76/024A76.png) `(3, 75, 119)`   |
 | `UVTOrange`                       | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)` |
 
+The following helper macros are defined for some standard functionality.
+
+| Macro                             | Description                           |
+| :-                                | :-                                    |
+| `\uvtdate`                        | Current date formatted in `DD.MM.YYYY`|
+| `\uvtcloseletter`                 | Adds a standard letter signature on the right |
+| `\uvtcloseform`                   | Adds date on the left and name on the right |
+
 The following commands are available to define the department, author, etc.
 
 | Command                           | Description                           |

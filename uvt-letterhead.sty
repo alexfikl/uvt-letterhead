@@ -279,11 +279,17 @@
 
 \pagestyle{fancy}
 
-\renewcommand{\headrule}{%
-\hspace{0.5in}
-\begin{tikzpicture}
-    \shade[left color=white, right color=UVTLightBlue, dashed]
-        (0, 0) rectangle (7in, 0.04in);
+\renewcommand{\headrule}{
+\begin{tikzpicture}[remember picture, overlay]
+\node [
+    rectangle, left color=white, right color=UVTLightBlue,
+    anchor=north,
+    minimum width=\paperwidth,
+    outer sep=0,
+    inner sep=0,
+    yshift=-1.15in,
+    xshift=1.7in,
+    minimum height=0.15cm] (box) at (current page.north) {};
 \end{tikzpicture}
 }
 
@@ -292,16 +298,16 @@
 \begin{center}
 \tiny
 \sffamily
+\onehalfspacing
 \ifuvt@headerlogo
-    \onehalfspacing
+    \vspace{0.3cm}
 \else
-    \onehalfspacing
-    \includegraphics[width=0.1\textwidth]{\@fromdeptlogo} \\
+    \includegraphics[scale=0.1]{\@fromdeptlogo} \\
 \fi
 \textcolor{UVTFooterGray}{
     \@fromdeptaddress \\
     \textit{Telefon}: \@fromdeptphone \\
-    \textit{Email}: \href{mailto:\@fromdeptemail}{\@fromdeptemail} \\
+    \textit{E-mail}: \href{mailto:\@fromdeptemail}{\@fromdeptemail} \\
     \href{\@fromdeptweb}{\@fromdeptweb}
 }
 \end{center}
@@ -311,9 +317,9 @@
 \fancyhead[L]{%
 \begin{textblock*}{\textwidth}(0in, 0in)
 \ifuvt@headerlogo
-    \includegraphics[width=0.2\textwidth]{\@fromdeptlogo}
+    \includegraphics[scale=0.23]{\@fromdeptlogo}
 \else
-    \includegraphics[width=0.2\textwidth]{\@fromuniversitylogo}
+    \includegraphics[scale=0.5]{\@fromuniversitylogo}
 \fi
 \end{textblock*}
 }
@@ -325,50 +331,56 @@
 }{
     {\footnotesize\sffamily\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromuniversity}}} \\
     {\small\sffamily\textcolor{UVTHeaderBlue}{\MakeUppercase{\@fromdept}}}%
-}
-\end{textblock*}
-}
-
-% >>>
-
-% <<< opening
-
-\AtBeginDocument{%
+} \\
 \@ifundefined{@fromoffice}{}{
-\begin{textblock*}{\textwidth}(1.48in, 1.35in)
-    \hfill
+    \vspace{0.9cm}
     \sffamily
     \textcolor{UVTOrange}{\MakeUppercase{\@fromoffice}}
-\end{textblock*}
 }
-    \hfill\textit{\@ifundefined{@fromdate}{\today}{\@fromdate}}
+\end{textblock*}
 }
 
 % >>>
 
 % <<< closing
 
-\AtEndDocument{%
-    \bigskip
-    \bigskip
+\NewDocumentCommand \uvtdate {} {\the\day.\the\month.\the\year}
 
+\NewDocumentCommand \uvtcloseletter {} {
     \@ifundefined{@closing}{}{
-        \noindent\@closing,
+        \noindent \@closing,
         \medskip
     }
 
     \@ifundefined{@fromsignature}{}{
-        \noindent\includegraphics[width=0.35\textwidth]{\@fromsignature}
+        \medskip
+        \noindent \includegraphics[scale=0.35]{\@fromsignature}
         \medskip
     }
 
-    \noindent\@fromname \\
+    \@ifundefined{@fromname}{}{
+        \noindent \@fromname \\
+    }
     \@ifundefined{@fromemail}{}{
-        \textit{Email}: \href{mailto:\@fromemail}{\@fromemail} \\
+        \noindent \textit{E-mail}: \href{mailto:\@fromemail}{\@fromemail} \\
     }
     \@ifundefined{@fromweb}{}{
-        \textit{Website}: \href{\@fromweb}{\@fromweb}
+        \noindent \textit{Website}: \href{\@fromweb}{\@fromweb}
     }
+}
+
+\NewDocumentCommand \uvtcloseform {} {
+    \begin{tabular}{l}
+    Data: \\
+    \textbf{\uvtdate}
+    \end{tabular}
+    \hfill
+    \begin{tabular}{ll}
+        Nume, prenume: & \textbf{\@fromname} \\
+        Semnătura: &
+        \@ifundefined{@fromsignature}{}{
+        \includegraphics[scale=0.3]{\@fromsignature}}
+    \end{tabular}
 }
 
 % >>>
