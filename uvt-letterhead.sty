@@ -67,9 +67,14 @@
 \RequirePackage[rgb, table]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
+% handle string keyval options
+\RequirePackage{ifthen}
 
 % used to set doublesplacing
 \RequirePackage{setspace}
+
+% NOTE: if using the main logo, there should be no footer logo
+\ifthenelse{\equal{\uvt@department}{uvt}}{\uvt@headerlogotrue}{}
 
 % fix page geometry
 \ifuvt@headerlogo
@@ -94,8 +99,6 @@
 
 % nicer command definitions
 \RequirePackage{xparse}
-% handle string keyval options
-\RequirePackage{ifthen}
 % indent first paragraph in a section
 \RequirePackage{indentfirst}
 % use microtype to improve spacing
@@ -176,11 +179,15 @@
 \NewDocumentCommand \fromdeptweb    { m } {\def\@fromdeptweb{#1}}
 \NewDocumentCommand \fromdeptlogo   { m } {\def\@fromdeptlogo{#1}}
 
+% hacks
+\NewDocumentCommand \uvtheaderlogooffset { m } {\def\@uvtheaderlogooffset{#1}}
+
 % >>>
 
 % <<< supported departments
 
 \fromuniversity{Universitatea de Vest din Timișoara}
+\uvtheaderlogooffset{0.25cm}
 
 \ifthenelse{\equal{\uvt@department}{arte}}{
     \fromdept{Facultatea de Arte și Design}
@@ -267,6 +274,7 @@
     \fromdeptphone{+40 0256-592-309}
     \fromdeptemail{icam@e-uvt.ro}
     \fromdeptweb{https://icam.uvt.ro/}
+    \uvtheaderlogooffset{0.2cm}
 }{\ifthenelse{\equal{\uvt@department}{uvt}}{
     \fromdeptlogo{assets/uvt-logo.png}
     \fromuniversity{Ministerul Educației}
@@ -275,6 +283,7 @@
     \fromdeptphone{+40 0256-592-300}
     \fromdeptemail{secretariat@e-uvt.ro}
     \fromdeptweb{https://uvt.ro}
+    \uvtheaderlogooffset{0cm}
 }{
     \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
 }}}}}}}}}}}}}
@@ -325,9 +334,10 @@
 \fancyhead[L]{%
 \begin{textblock*}{\textwidth}(0in, 0in)
 \ifuvt@headerlogo
-    \includegraphics[scale=0.23]{\@fromdeptlogo}
+    \vspace{\@uvtheaderlogooffset}
+    \includegraphics[scale=0.2]{\@fromdeptlogo}
 \else
-    \includegraphics[scale=0.5]{\@fromuniversitylogo}
+    \includegraphics[scale=0.2]{\@fromuniversitylogo}
 \fi
 \end{textblock*}
 }
