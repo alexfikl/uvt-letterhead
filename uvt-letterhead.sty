@@ -109,10 +109,10 @@
 
 \ifuvt@nomyriadpro\else
     \ifpdftex
-        \usepackage[onlytext, smallfamily, lf]{MyriadPro}
+        \IfFileExists{MyriadPro.sty}{\usepackage[onlytext, smallfamily, lf]{MyriadPro}}{}
         \renewcommand{\familydefault}{\sfdefault}
     \else
-        \setmainfont{Myriad Pro}
+        \IfFontExistsTF{Myriad Pro}{\setmainfont{Myriad Pro}}{}
     \fi
 \fi
 
