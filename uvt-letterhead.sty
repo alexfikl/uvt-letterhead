@@ -109,10 +109,13 @@
 
 \ifuvt@nomyriadpro\else
     \ifpdftex
-        \IfFileExists{MyriadPro.sty}{\usepackage[onlytext, smallfamily, lf]{MyriadPro}}{}
+        \IfFileExists{MyriadPro.sty}{
+            \usepackage[onlytext, smallfamily, lf]{MyriadPro}}{
+            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available to pdfLaTeX}}
         \renewcommand{\familydefault}{\sfdefault}
     \else
-        \IfFontExistsTF{Myriad Pro}{\setmainfont{Myriad Pro}}{}
+        \IfFontExistsTF{Myriad Pro}{\setmainfont{Myriad Pro}}{
+            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available}}
     \fi
 \fi
 
