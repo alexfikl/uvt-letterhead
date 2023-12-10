@@ -17,11 +17,15 @@ image if you want to use one. Modify `template.tex` as appropriate and build wit
 `pdflatex` (or `xelatex` or `lualatex` for the adventurous).
 
 Note that, by default this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
-font. This font is available for personal and commercial use and can be easily
-loaded with the `XeLaTeX` or `LuaLaTeX` engines. To get it working on `PDFLaTeX`,
-use the [FontPro](https://github.com/sebschub/FontPro) distribution. If you cannot
-obtain the font (or the installation does not work for some reason), it can
-be disabled with the `nomyriadpro` option.
+font. This font is generally not available for free, but can be purchased from
+Adobe or a [reseller](https://www.fontspring.com/fonts/adobe/myriad-pro). The
+OTF fonts can be directly loaded by the `XeLaTeX` or `LuaLaTeX` engines. To
+get it working on `PDFLaTeX`, use the [FontPro](https://github.com/sebschub/FontPro)
+distribution. If you cannot obtain the font (or the installation does not work
+for some reason), it can be disabled with the `nomyriadpro` option. In general,
+we recommend using a free sans serif font instead, e.g `\usepackage{helvet}` for
+the Helvetica look-alike Nimbus Sans L or `\usepackage{paratype}` for the PT Sans
+fonts that resemble Myriad Pro better.
 
 The package defines the following options used as `\usepacakge[opts]{uvt-letterhead}`.
 
