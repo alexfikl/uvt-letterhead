@@ -392,16 +392,18 @@
 }
 
 \NewDocumentCommand \uvtcloseform {} {
-    \begin{tabular}{l}
+    \begin{tabular}[t]{l}
     Data: \\
     \textbf{\uvtdate}
-    \end{tabular}
-    \hfill
-    \begin{tabular}{ll}
+    \end{tabular}%
+    \hfill%
+    \begin{tabular}[t]{ll}
         Nume, prenume: & \textbf{\@fromname} \\
         Semnătura: &
         \@ifundefined{@fromsignature}{}{
-        \includegraphics[scale=0.3]{\@fromsignature}}
+        \raisebox{\dimexpr10pt-\totalheight\relax}{
+        \includegraphics[scale=0.3]{\@fromsignature}
+        }}
     \end{tabular}
 }
 
