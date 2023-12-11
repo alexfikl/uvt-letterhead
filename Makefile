@@ -26,6 +26,7 @@ purge: clean						## Remove all generated files
 
 template.pdf: template.tex uvt-letterhead.sty
 	$(TEXMK) $(TEXFLAGS) $<
+	$(TEXMK) $(TEXFLAGS) $<
 
 assets/template.png: template.pdf
 	convert \
