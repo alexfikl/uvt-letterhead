@@ -1,10 +1,10 @@
 # UVT Letterhead in LaTeX
 
 This is a reproduction of the UVT (West University of Timișoara) letterhead in
-Latex. It uses the UVT [branding](https://www.uvt.ro/en/dcimi/identitate-vizuala/)
+Latex. It uses the UVT [branding](https://dci.uvt.ro/identitate-vizuala)
 and [replicates this document](https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit).
 A full description of the various parts of the branding can be found in the
-[Official Manual](https://www.uvt.ro/wp-content/uploads/2020/07/MANUAL-IDENTITATE-NEW-WEB-FINAL-2016-.pdf).
+[Official Manual](https://www.dci.uvt.ro/wp-content/uploads/2019/03/MANUAL-IDENTITATE-NEW-WEB-FINAL-2016-.pdf).
 
 This template style is fairly complete and working well, but any feature requests
 or bug reports to improve it are **very welcome**!

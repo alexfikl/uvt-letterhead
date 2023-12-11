@@ -9,7 +9,7 @@
 %   \usepackage{uvt-letterhead}
 %
 % References:
-%   Colors and Logos: https://www.uvt.ro/en/dcimi/identitate-vizuala/
+%   Colors and Logos: https://dci.uvt.ro/identitate-vizuala
 %
 % Acknowledgement:
 %   The skeleton of this style file was copied from
@@ -76,24 +76,6 @@
 % NOTE: if using the main logo, there should be no footer logo
 \ifthenelse{\equal{\uvt@department}{uvt}}{\uvt@headerlogotrue}{}
 
-% fix page geometry
-\ifuvt@headerlogo
-\RequirePackage[
-    headheight=2.045in,
-    headsep=0.85in,
-    top=2.045in,
-    left=0.98in,
-    bottom=1.2in,
-    right=0.79in]{geometry}
-\else
-\RequirePackage[
-    headheight=2.045in,
-    headsep=0.85in,
-    top=2.045in,
-    left=0.98in,
-    bottom=1.93in,
-    right=0.79in]{geometry}
-\fi
 % nicer links
 \RequirePackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
 
@@ -144,7 +126,7 @@
 
 % <<< colors
 
-% NOTE: https://www.uvt.ro/en/dcimi/identitate-vizuala/
+% NOTE: https://dci.uvt.ro/identitate-vizuala
 \definecolor{UVTLightBlue}{RGB}{52, 113, 183}
 \definecolor{UVTDarkBlue}{RGB}{3, 75, 119}
 \definecolor{UVTOrange}{RGB}{228, 172, 36}
@@ -302,39 +284,38 @@
 \begin{tikzpicture}[remember picture, overlay]
 \node [
     rectangle, left color=white, right color=UVTLightBlue,
-    anchor=north,
-    minimum width=\paperwidth,
+    anchor=north east,
+    minimum width=0.8\paperwidth,
     outer sep=0,
     inner sep=0,
     yshift=-1.15in,
-    xshift=1.7in,
-    minimum height=0.15cm] (box) at (current page.north) {};
+    minimum height=0.15cm] (box) at (current page.north east) {};
 \end{tikzpicture}
 }
 
 \fancyfoot{}
 \fancyfoot[C]{%
-\begin{center}
 \tiny
 \sffamily
 \onehalfspacing
-\ifuvt@headerlogo
-    \vspace{0.3cm}
-\else
-    \includegraphics[scale=0.1]{\@fromdeptlogo} \\
+\ifuvt@headerlogo\else
+\begin{textblock*}{\paperwidth}(0in, 0.88\paperheight)
+\includegraphics[scale=0.1]{\@fromdeptlogo}
+\end{textblock*}
 \fi
+\begin{textblock*}{\paperwidth}(0in, 0.955\paperheight)
 \textcolor{UVTFooterGray}{
     \@fromdeptaddress \\
     \textit{Telefon}: \@fromdeptphone \\
     \textit{E-mail}: \href{mailto:\@fromdeptemail}{\@fromdeptemail} \\
     \href{\@fromdeptweb}{\@fromdeptweb}
 }
-\end{center}
+\end{textblock*}
 }
 
 \fancyhead{}
 \fancyhead[L]{%
-\begin{textblock*}{\textwidth}(0in, 0in)
+\begin{textblock*}{\paperwidth}(0in, 0in)
 \ifuvt@headerlogo
     \vspace{\@uvtheaderlogooffset}
     \includegraphics[scale=0.2]{\@fromdeptlogo}
@@ -344,7 +325,7 @@
 \end{textblock*}
 }
 \fancyhead[R]{%
-\begin{textblock*}{\textwidth}(1.48in, 0.72in)
+\begin{textblock*}{\paperwidth}(-0.4in, 0.72in)
 \ifthenelse{\equal{\uvt@department}{uvt}}{
     {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\MakeUppercase{\@fromuniversity}}} \\
     {\small\sffamily\textcolor{UVTHeaderGray}{\MakeUppercase{\@fromdept}}}%
