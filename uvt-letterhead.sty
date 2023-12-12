@@ -299,11 +299,11 @@
 \sffamily
 \onehalfspacing
 \ifuvt@headerlogo\else
-\begin{textblock*}{\paperwidth}(0in, 0.88\paperheight)
+\begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-2.5cm)
 \includegraphics[scale=0.1]{\@fromdeptlogo}
 \end{textblock*}
 \fi
-\begin{textblock*}{\paperwidth}(0in, 0.955\paperheight)
+\begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-0.25cm)
 \textcolor{UVTFooterGray}{
     \@fromdeptaddress \\
     \textit{Telefon}: \@fromdeptphone \\
@@ -392,12 +392,12 @@
 }
 
 \NewDocumentCommand \uvtcloseform {} {
-    \noindent \begin{tabular}[t]{l}
+    \noindent \begin{tabular}[t]{@{}l@{}}
     Data: \\
     \textbf{\uvtdate}
     \end{tabular}%
     \hfill%
-    \begin{tabular}[t]{ll}
+    \begin{tabular}[t]{@{}ll@{}}
         Nume, prenume: & \textbf{\@fromname} \\
         Semnătura: &
         \@ifundefined{@fromsignature}{}{
