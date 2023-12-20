@@ -259,6 +259,13 @@
     \fromdeptemail{icam@e-uvt.ro}
     \fromdeptweb{https://icam.uvt.ro/}
     \uvtheaderlogooffset{0.2cm}
+}{\ifthenelse{\equal{\uvt@department}{csud}}{
+    \fromdeptlogo{assets/uvt-logo-csud.png}
+    \fromdept{Consiliului Studiilor Universitare de Doctorat}
+    \fromdeptaddress{str. Oituz, nr. 4C, 300223, Timișoara, România}
+    \fromdeptphone{+40 0256-592-315}
+    \fromdeptemail{doctorat@e-uvt.ro}
+    \fromdeptweb{https://www.uvt.ro/cercetare/doctorat/csud}
 }{\ifthenelse{\equal{\uvt@department}{uvt}}{
     \fromdeptlogo{assets/uvt-logo.png}
     \fromuniversity{Ministerul Educației}
@@ -270,7 +277,7 @@
     \uvtheaderlogooffset{0cm}
 }{
     \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
-}}}}}}}}}}}}}
+}}}}}}}}}}}}}}
 
 \fromuniversitylogo{assets/uvt-logo.png}
 

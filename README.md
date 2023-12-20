@@ -94,6 +94,7 @@ Help to add these is very appreciated!
 | lit                   | Faculty of Letters, History and Teology            |
 | pfc                   | Faculty of Political Science, Philosophy and Communication Sciences |
 | icam                  | ICAM                                               |
+| csud                  | University Doctoral Studies Council                |
 | uvt                   | Dean / Main office                                 |
 
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
