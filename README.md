@@ -117,4 +117,4 @@ the original remains.
 
 ## License
 
-MIT
+Creative Commons Attribution 4.0 International
