@@ -16,17 +16,6 @@ to your working directory. You will need `signature.png` or some other signature
 image if you want to use one. Modify `template.tex` as appropriate and build with
 `pdflatex` (or `xelatex` or `lualatex` for the adventurous).
 
-Note that, by default this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
-font. This font is generally not available for free, but can be purchased from
-Adobe or a [reseller](https://www.fontspring.com/fonts/adobe/myriad-pro). The
-OTF fonts can be directly loaded by the `XeLaTeX` or `LuaLaTeX` engines. To
-get it working on `PDFLaTeX`, use the [FontPro](https://github.com/sebschub/FontPro)
-distribution. If you cannot obtain the font (or the installation does not work
-for some reason), it can be disabled with the `nomyriadpro` option. In general,
-we recommend using a free sans serif font instead, e.g `\usepackage{helvet}` for
-the Helvetica look-alike Nimbus Sans L or `\usepackage{paratype}` for the PT Sans
-fonts that resemble Myriad Pro better.
-
 The package defines the following options used as `\usepacakge[opts]{uvt-letterhead}`.
 
 | Option                            | Description                           |
@@ -43,7 +32,7 @@ The standard branding colors are given below.
 | :-                                | :-
 | `UVTLightBlue`                    | ![#3471B8](https://placehold.co/15x15/3471B8/3471B8.png) `(52, 113, 183)` |
 | `UVTDarkBlue`                     | ![#024A76](https://placehold.co/15x15/024A76/024A76.png) `(3, 75, 119)`   |
-| `UVTOrange`                       | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)` |
+| `UVTYellow`                       | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)` |
 
 The following helper macros are defined for some standard functionality.
 
@@ -102,6 +91,24 @@ easily overwritten using
 ```latex
 \fromdeptlogo{figures/my-dept-logo.png}
 ```
+
+## Fonts
+
+Note that, by default this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
+font. This font is generally not available for free, but can be purchased from
+Adobe or a [reseller](https://www.fontspring.com/fonts/adobe/myriad-pro). The
+OTF fonts can be directly loaded by the `XeLaTeX` or `LuaLaTeX` engines. To
+get it working on `PDFLaTeX`, use the [FontPro](https://github.com/sebschub/FontPro)
+distribution. If you cannot obtain the font (or the installation does not work
+for some reason), it can be disabled with the `nomyriadpro` option. In general,
+we recommend using a free sans serif font instead, e.g `\usepackage{helvet}` for
+the Helvetica look-alike Nimbus Sans L or `\usepackage{paratype}` for the PT Sans
+fonts that resemble Myriad Pro better.
+
+If you are using `XeLaTeX` or `LuaLaTeX`, there are many other nice fonts to
+keep in mind that would work well. For example: Carlito (a Calibri clone),
+Caladea (a Cambria clone), Montserrat (inspired by Gotham), Adobe Source Sans,
+and many others. A nice font will always make your letter look nicer!
 
 ## What it looks like
 
