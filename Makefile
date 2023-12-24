@@ -12,7 +12,7 @@ help: 								## Show this help
 template: template.pdf				## Compile template example
 .PHONY: template
 
-assets: assets/template.png			## Compile assets for example
+assets: images/template.png			## Compile assets for example
 .PHONY: template
 
 clean:								## Remove temporary compilation files
@@ -21,14 +21,14 @@ clean:								## Remove temporary compilation files
 .PHONY: clean
 
 purge: clean						## Remove all generated files
-	rm -rf template.pdf assets/template.png
+	rm -rf template.pdf images/template.png
 .PHONY: purge
 
 template.pdf: template.tex uvt-letterhead.sty
 	$(TEXMK) $(TEXFLAGS) $<
 	$(TEXMK) $(TEXFLAGS) $<
 
-assets/template.png: template.pdf
+images/template.png: template.pdf
 	convert \
 		-verbose \
 		-density 300 \

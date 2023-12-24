@@ -113,7 +113,7 @@ and many others. A nice font will always make your letter look nicer!
 ## What it looks like
 
 [Full PDF](template.pdf)
-![template](assets/template.png "template")
+![template](images/template.png "template")
 
 ## Acknowledgement
 
