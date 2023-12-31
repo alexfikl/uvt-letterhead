@@ -2,6 +2,7 @@
 
 \usepackage[department=fmi]{uvt-letterhead}
 
+\usepackage{ifpdf}
 \usepackage{babel}
 \usepackage{lipsum}
 
@@ -10,7 +11,13 @@
 \geometry{headheight=6cm, top=6cm, left=2.5cm, right=2.5cm, bottom=4cm}
 
 % NOTE: if Myriad Pro is not available use another sans serif font
-% \usepackage{helvet}
+\ifmyriadproenabled\else
+    \ifpdftex
+        \usepackage{helvet}
+    \else
+        \setsansfont{Nimbus Sans}
+    \fi
+\fi
 
 % NOTE: toggle the following lines to switch to Romanian
 % \usepackage[romanian]{babel}

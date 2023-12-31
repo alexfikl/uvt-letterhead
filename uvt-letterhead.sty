@@ -90,13 +90,24 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[absolute]{textpos}
 
-\ifuvt@nomyriadpro\else
+\newif\ifmyriadproenabled
+\ifuvt@nomyriadpro
+    \myriadproenabledfalse
+\else
     \ifpdftex
         \IfFileExists{MyriadPro.sty}{
-            \usepackage[onlytext, smallfamily, lf]{MyriadPro}}{
+            \usepackage[onlytext, smallfamily, lf]{MyriadPro}
+            \myriadproenabledtrue
+        }{
+            \myriadproenabledfalse
             \PackageWarning{uvt-letterhead}{Myriad Pro font is not available to pdfLaTeX. Use the nomyriadpro option to silence this warning.}}
     \else
-        \IfFontExistsTF{Myriad Pro}{\setmainfont{Myriad Pro}}{
+        \IfFontExistsTF{Myriad Pro}{
+            \setmainfont{Myriad Pro}
+            \setsansfont{Myriad Pro}
+            \myriadproenabledtrue
+        }{
+            \myriadproenabledfalse
             \PackageWarning{uvt-letterhead}{Myriad Pro font is not available. Use the nomyriadpro option to silence this warning.}}
     \fi
 \fi
