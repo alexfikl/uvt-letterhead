@@ -21,7 +21,7 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | Option                            | Description                           |
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
-| `nomyriadpro`                     | Do not load the *Myriad Pro* fonts           |
+| `nomyriadpro`                     | Do not load the *Myriad Pro* fonts (default loads if available) |
 | `headerlogo`                      | Place the department logo in header instead of footer |
 | `department=<value>`              | Use predefined department info (header and footer) |
 | `layoutgrid`                      | Adds a debug grid to check alignment  |
@@ -44,15 +44,18 @@ The following helper macros are defined for some standard functionality.
 | `\uvtcloseform`                   | Adds date on the left and name on the right |
 
 The following commands are available to define the department, author, etc.
+The entries marked *letter* refer to the letter oppening or closing statement,
+the entries marked *header* will apear in the header, and the entries marked
+*footer* will appear in the footer.
 
 | Command                           | Description                           |
 | :-                                | :-                                    |
 | `\fromdate{<text>}`               | Date (default `\today`)               |
 | `\closing{<text>}`                | Closing text (e.g. `Sincerely`) (optional)|
-| `\fromsignature{<filename>}`      | Signature file (closing) (optional)   |
-| `\fromname{<text>}`               | Author name (closing)                 |
-| `\fromemail{<text>}`              | Author email (closing) (optional)     |
-| `\fromweb{<text>}`                | Author website (closing) (optional)   |
+| `\fromsignature{<filename>}`      | Signature file (letter) (optional)    |
+| `\fromname{<text>}`               | Author name (letter)                  |
+| `\fromemail{<text>}`              | Author email (letter) (optional)      |
+| `\fromweb{<text>}`                | Author website (letter) (optional)    |
 | `\fromoffice{<text>}`             | Author office / sub-department (header) (optional)|
 | `\fromuniversity{<text>}`         | University name                       |
 | `\fromuniversitylogo{<filename>}` | Logo for the university               |
