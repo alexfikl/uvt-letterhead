@@ -278,6 +278,15 @@
     \fromdeptphone{+40 0256-592-315}
     \fromdeptemail{doctorat@e-uvt.ro}
     \fromdeptweb{https://www.uvt.ro/cercetare/doctorat/csud}
+}{\ifthenelse{\equal{\uvt@department}{uvt80}}{
+    \fromdeptlogo{assets/uvt-logo-80.png}
+    \fromuniversity{Ministerul Educației}
+    \fromdept{Universitatea de Vest din Timișoara}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
+    \fromdeptphone{+40 0256-592-300}
+    \fromdeptemail{secretariat@e-uvt.ro}
+    \fromdeptweb{https://uvt.ro}
+    \uvtheaderlogooffset{0cm}
 }{\ifthenelse{\equal{\uvt@department}{uvt}}{
     \fromdeptlogo{assets/uvt-logo.png}
     \fromuniversity{Ministerul Educației}
@@ -289,7 +298,7 @@
     \uvtheaderlogooffset{0cm}
 }{
     \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
-}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}
 
 \fromuniversitylogo{assets/uvt-logo.png}
 
