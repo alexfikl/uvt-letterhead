@@ -14,7 +14,11 @@ template: template.pdf				## Compile template example
 .PHONY: template
 
 assets: images/template.png			## Compile assets for example
-.PHONY: template
+.PHONY: assets
+
+typos:								## Run typos over writeups
+	typos --sort
+.PHONY: typos
 
 clean:								## Remove temporary compilation files
 	rm -rf latex.out \

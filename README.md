@@ -45,7 +45,7 @@ The following helper macros are defined for some standard functionality.
 
 The following commands are available to define the department, author, etc.
 The entries marked *letter* refer to the letter oppening or closing statement,
-the entries marked *header* will apear in the header, and the entries marked
+the entries marked *header* will appear in the header, and the entries marked
 *footer* will appear in the footer.
 
 | Command                           | Description                           |
