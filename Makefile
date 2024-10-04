@@ -1,5 +1,6 @@
-TEXMK?=latexrun
-TEXFLAGS?=--latex-cmd xelatex -O latex.out
+TEXMK?=latexmk
+OUTDIR?=latex.out
+TEXFLAGS?=-pdflua -output-directory=$(OUTDIR)
 
 all: template assets
 
@@ -27,6 +28,7 @@ purge: clean						## Remove all generated files
 template.pdf: template.tex uvt-letterhead.sty
 	$(TEXMK) $(TEXFLAGS) $<
 	$(TEXMK) $(TEXFLAGS) $<
+	@cp $(OUTDIR)/$@ .
 
 images/template.png: template.pdf
 	convert \
