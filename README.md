@@ -88,6 +88,7 @@ Help to add these is very appreciated!
 | icam                  | ICAM                                               |
 | csud                  | University Doctoral Studies Council                |
 | uvt                   | Dean / Main office                                 |
+| uvt80                 | Dean / Main office (80 year anniversary logo)      |
 
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
 easily overwritten using
