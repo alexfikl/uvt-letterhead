@@ -83,8 +83,8 @@ Help to add these is very appreciated!
 | fmi                   | Faculty of Mathematics and Computer Science        |
 | fmt                   | Faculty of Music and Theater                       |
 | fsp                   | Faculty of Sociology and Psychology                |
-| lit                   | Faculty of Letters, History and Teology            |
-| pfc                   | Faculty of Political Science, Philosophy and Communication Sciences |
+| lift                  | Faculty of Letters, History, Philosophy and Teology |
+| fsgc                  | Faculty of Political Science and Communication     |
 | icam                  | ICAM                                               |
 | csud                  | University Doctoral Studies Council                |
 | uvt                   | Dean / Main office                                 |
