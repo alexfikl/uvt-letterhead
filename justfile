@@ -26,6 +26,12 @@ assets: template
         -sharpen 0x1.0 \
         images/template.png
 
+[doc("Update license text")]
+license:
+    python -m reuse download CC-BY-4.0
+    cp LICENSES/CC-BY-4.0.txt LICENSE
+    @rm -rf LICENSES
+
 [doc("Remove temporary compilation files")]
 clean:
     rm -rf {{ TEXOUTDIR }}
