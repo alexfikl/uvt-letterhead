@@ -1,14 +1,14 @@
 TEXMK := "latexmk"
 TEXOUTDIR := "latex.out"
-TEXFLAGS := "-pdflua"
+TEXFLAGS := "-pdflua -output-directory=" + TEXOUTDIR
 
 _default:
     @just --list
 
 [private]
 pdf basename:
-    {{ TEXMK }} {{ TEXFLAGS }} -output-directory={{ TEXOUTDIR }} {{ basename }}.tex
-    {{ TEXMK }} {{ TEXFLAGS }} -output-directory={{ TEXOUTDIR }} {{ basename }}.tex
+    {{ TEXMK }} {{ TEXFLAGS }} {{ basename }}.tex
+    {{ TEXMK }} {{ TEXFLAGS }} {{ basename }}.tex
     @cp {{ TEXOUTDIR }}/{{ basename }}.pdf .
 
 [doc("Build template example")]
