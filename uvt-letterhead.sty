@@ -90,25 +90,22 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[absolute]{textpos}
 
-\newif\ifmyriadproenabled
 \ifuvt@nomyriadpro
-    \myriadproenabledfalse
+    \usepackage{helvet}
 \else
     \ifpdftex
         \IfFileExists{MyriadPro.sty}{
             \usepackage[onlytext, smallfamily, lf]{MyriadPro}
-            \myriadproenabledtrue
         }{
-            \myriadproenabledfalse
-            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available to pdfLaTeX. Use the nomyriadpro option to silence this warning.}}
+            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available to pdfLaTeX. Use the nomyriadpro option to silence this warning.}
+            \usepackage{helvet}}
     \else
         \IfFontExistsTF{Myriad Pro}{
             \setmainfont{Myriad Pro}
             \setsansfont{Myriad Pro}
-            \myriadproenabledtrue
         }{
-            \myriadproenabledfalse
-            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available. Use the nomyriadpro option to silence this warning.}}
+            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available. Use the nomyriadpro option to silence this warning.}
+            \usepackage{helvet}}
     \fi
 \fi
 \renewcommand{\familydefault}{\sfdefault}
