@@ -1,7 +1,7 @@
 # UVT Letterhead in LaTeX
 
-This is a reproduction of the UVT (West University of Timișoara) letterhead in
-LaTeX. It uses the UVT [branding](https://dci.uvt.ro/identitate-vizuala)
+This is an implementation of the UVT (West University of Timișoara) letterhead in
+LaTeX. It uses the [official UVT branding](https://dci.uvt.ro/identitate-vizuala)
 and [replicates this document](https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit).
 A full description of the various parts of the branding can be found in the
 [Official Manual](https://www.dci.uvt.ro/wp-content/uploads/2019/03/MANUAL-IDENTITATE-NEW-WEB-FINAL-2016-.pdf).
@@ -12,8 +12,8 @@ or bug reports to improve it are **very welcome**!
 ## How to use
 
 Copy `uvt-letterhead.sty`, `template.tex`, and the relevant logos from `assets/`
-to your working directory. You will need `signature.png` or some other signature
-image if you want to use one. Modify `template.tex` as appropriate and build with
+to your working directory. Some commands also need a `signature.png` image to
+display one (usually at the end). Modify `template.tex` as appropriate and build with
 `PDFLaTeX` (or `XeLaTeX` or `LuaLaTeX` for the adventurous).
 
 The package defines the following options used as `\usepacakge[opts]{uvt-letterhead}`.
@@ -104,15 +104,26 @@ Adobe or a [reseller](https://www.fontspring.com/fonts/adobe/myriad-pro). The
 OTF fonts can be directly loaded by the `XeLaTeX` or `LuaLaTeX` engines. To
 get it working on `PDFLaTeX`, use the [FontPro](https://github.com/sebschub/FontPro)
 distribution. If you cannot obtain the font (or the installation does not work
-for some reason), it can be disabled with the `nomyriadpro` option. In general,
-we recommend using a free sans serif font instead, e.g `\usepackage{helvet}` for
-the Helvetica look-alike Nimbus Sans L or `\usepackage{paratype}` for the PT Sans
-fonts that resemble Myriad Pro better.
+for some reason), it can be disabled with the `nomyriadpro` option. When the font
+is not found, the class falls back to using `\usepackage{helvet}`, which loads a
+Helvetica look-alike called Nimbus Sans L.
 
 If you are using `XeLaTeX` or `LuaLaTeX`, there are many other nice fonts to
 keep in mind that would work well. For example: Carlito (a Calibri clone),
 Caladea (a Cambria clone), Montserrat (inspired by Gotham), Adobe Source Sans,
 and many others. A nice font will always make your letter look nicer!
+
+## Language
+
+The class provides translations to English and Romanian for all the default
+strings (faculty names and such). This can be turned on by using the Babel package
+as follows
+```latex
+\usepackage[romanian]{babel}
+\selectlanguage{romanian}
+```
+
+Translation fixes and support for additional languages is very welcome!
 
 ## What it looks like
 
