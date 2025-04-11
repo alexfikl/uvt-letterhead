@@ -9,6 +9,11 @@ A full description of the various parts of the branding can be found in the
 This template style is fairly complete and working well, but any feature requests
 or bug reports to improve it are **very welcome**!
 
+Templates in the same series:
+* [UVT Letterhead Template](https://github.com/alexfikl/uvt-letterhead)
+* [UVT Beamer Presentation Template](https://github.com/alexfikl/uvt-beamer)
+* [UVT Conference Poster Template](https://github.com/alexfikl/uvt-poster)
+
 ## How to use
 
 Copy `uvt-letterhead.sty`, `template.tex`, and the relevant logos from `assets/`
