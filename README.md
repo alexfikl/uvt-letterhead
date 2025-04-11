@@ -2,7 +2,8 @@
 
 > [!NOTE]
 > This template style is fairly complete and working well, but any feature requests
-> or bug reports to improve it are **very welcome**!
+> or bug reports to improve it are **very welcome**! Issues regarding the style
+> and differences from the official version are most important.
 
 This is an implementation of the UVT (West University of Timișoara) letterhead in
 LaTeX. It uses the [official UVT branding](https://dci.uvt.ro/identitate-vizuala)
@@ -30,6 +31,7 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | `nomyriadpro`                     | Do not load the *Myriad Pro* fonts (default loads if available) |
 | `headerlogo`                      | Place the department logo in header instead of footer |
 | `department=<value>`              | Use predefined department info (header and footer) |
+| `showframe`                       | Shows a frame around page elements (margins, etc.) |
 | `layoutgrid`                      | Adds a debug grid to check alignment  |
 
 The standard branding colors are given below.
