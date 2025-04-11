@@ -1,13 +1,14 @@
 # UVT Letterhead in LaTeX
 
+> [!NOTE]
+> This template style is fairly complete and working well, but any feature requests
+> or bug reports to improve it are **very welcome**!
+
 This is an implementation of the UVT (West University of Timișoara) letterhead in
 LaTeX. It uses the [official UVT branding](https://dci.uvt.ro/identitate-vizuala)
 and [replicates this document](https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit).
 A full description of the various parts of the branding can be found in the
 [Official Manual](https://www.dci.uvt.ro/wp-content/uploads/2019/03/MANUAL-IDENTITATE-NEW-WEB-FINAL-2016-.pdf).
-
-This template style is fairly complete and working well, but any feature requests
-or bug reports to improve it are **very welcome**!
 
 Templates in the same series:
 * [UVT Letterhead Template](https://github.com/alexfikl/uvt-letterhead)
