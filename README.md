@@ -66,7 +66,7 @@ the entries marked *header* will appear in the header, and the entries marked
 | `\fromuniversity{<text>}`         | University name                       |
 | `\fromuniversitylogo{<filename>}` | Logo for the university               |
 | `\fromdept{<text>}`               | Department name (header)              |
-| `\fromdeptlogo{<filename>}`       | Department logo (header)              |
+| `\fromdeptlogo{<filename>}`       | Department logo (header or footer)    |
 | `\fromdeptaddress{<text>}`        | Department address (footer)           |
 | `\fromdeptphone{<text>}`          | Department phone (footer)             |
 | `\fromdeptemail{<text>}`          | Department email (footer)             |
@@ -104,7 +104,7 @@ easily overwritten using
 
 ## Fonts
 
-Note that, by default this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
+Note that, by default, this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
 font. This font is generally not available for free, but can be purchased from
 Adobe or a [reseller](https://www.fontspring.com/fonts/adobe/myriad-pro). The
 OTF fonts can be directly loaded by the `XeLaTeX` or `LuaLaTeX` engines. To
