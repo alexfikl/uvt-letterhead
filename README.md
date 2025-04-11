@@ -16,6 +16,11 @@ Templates in the same series:
 * [UVT Beamer Presentation Template](https://github.com/alexfikl/uvt-beamer)
 * [UVT Conference Poster Template](https://github.com/alexfikl/uvt-poster)
 
+## What it looks like
+
+[Full PDF](template.pdf)
+![template](images/template.png "template")
+
 ## How to use
 
 Copy `uvt-letterhead.sty`, `template.tex`, and the relevant logos from `assets/`
@@ -132,11 +137,6 @@ as follows
 ```
 
 Translation fixes and support for additional languages is very welcome!
-
-## What it looks like
-
-[Full PDF](template.pdf)
-![template](images/template.png "template")
 
 ## Acknowledgement
 
