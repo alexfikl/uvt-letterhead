@@ -6,7 +6,7 @@
 > and differences from the official version are most important.
 
 [![GitHub Actions Workflow Status](https://github.com/inducer/modepy/actions/workflows/ci.yml/badge.svg)](https://github.com/alexfikl/uvt-letterhead/actions/workflows/ci.yml)
-[![Open in Overleaf][https://img.shields.io/static/v1?label=LaTeX&message=Open-in-Overleaf&color=47a141&style=flat&logo=overleaf]][https://www.overleaf.com/docs?snip_uri=https://github.com/alexfikl/uvt-letterhead/archive/refs/heads/main.zip]
+[![Open in Overleaf](https://img.shields.io/static/v1?label=LaTeX&message=Open-in-Overleaf&color=47a141&style=flat&logo=overleaf)](https://www.overleaf.com/docs?snip_uri=https://github.com/alexfikl/uvt-letterhead/archive/refs/heads/main.zip)
 
 This is an implementation of the UVT (West University of Timișoara) letterhead in
 LaTeX. It uses the [official UVT branding](https://dci.uvt.ro/identitate-vizuala)
