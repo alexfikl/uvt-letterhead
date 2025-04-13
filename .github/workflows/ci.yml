@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        engine: ['pdf', 'pdflua']
+        engine: ['pdflatex', 'lualatex']
         texlive_version: ['2022', '2023', '2024']
 
     steps:
@@ -35,5 +35,5 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: template.tex
-          args: -${{ matrix.engine }} -file-line-error -halt-on-error -interaction=nonstopmode
           texlive_version: ${{ matrix.texlive_version }}
+          latexmk_use_lualatex: ${{ matrix.engine == 'lualatex' }}
