@@ -363,7 +363,7 @@
     \onehalfspacing
     \ifuvt@headerlogo\else
         \begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-2.5cm)
-        \includegraphics[scale=0.1]{\@fromdeptlogo}
+        \includegraphics[width=0.1\paperwidth]{\@fromdeptlogo}
         \end{textblock*}
     \fi
     \begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-0.25cm)
@@ -381,9 +381,9 @@
     \begin{textblock*}{\paperwidth}(0in, 0in)
     \ifuvt@headerlogo
         \vspace{\@uvtheaderlogooffset}
-        \includegraphics[scale=0.2]{\@fromdeptlogo}
+        \includegraphics[height=1.675in]{\@fromdeptlogo}
     \else
-        \includegraphics[scale=0.2]{\@fromuniversitylogo}
+        \includegraphics[height=1.675in]{\@fromuniversitylogo}
     \fi
     \end{textblock*}
 }
@@ -439,7 +439,7 @@
 
     \@ifundefined{@fromsignature}{}{
         \medskip
-        \noindent \includegraphics[scale=0.35]{\@fromsignature}
+        \noindent \@fromsignature
         \medskip
     }
 
@@ -465,7 +465,7 @@
         \translate{Signature}: &
         \@ifundefined{@fromsignature}{}{
         \raisebox{\dimexpr10pt-\totalheight\relax}{
-        \includegraphics[scale=0.3]{\@fromsignature}
+        \@fromsignature
         }}
     \end{tabular}
 }
