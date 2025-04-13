@@ -358,50 +358,50 @@
 
 \fancyfoot{}
 \fancyfoot[C]{%
-\tiny
-\sffamily
-\onehalfspacing
-\ifuvt@headerlogo\else
-\begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-2.5cm)
-\includegraphics[scale=0.1]{\@fromdeptlogo}
-\end{textblock*}
-\fi
-\begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-0.25cm)
-\textcolor{UVTFooterGray}{
-    \@fromdeptaddress \\
-    \textit{\translate{Phone}}: \@fromdeptphone \\
-    \textit{\translate{Email}}: \href{mailto:\@fromdeptemail}{\@fromdeptemail} \\
-    \href{\@fromdeptweb}{\@fromdeptweb}
-}
-\end{textblock*}
+    \tiny
+    \sffamily
+    \onehalfspacing
+    \ifuvt@headerlogo\else
+        \begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-2.5cm)
+        \includegraphics[scale=0.1]{\@fromdeptlogo}
+        \end{textblock*}
+    \fi
+    \begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-0.25cm)
+        \textcolor{UVTFooterGray}{
+            \@fromdeptaddress \\
+            \textit{\translate{Phone}}: \@fromdeptphone \\
+            \textit{\translate{Email}}: \href{mailto:\@fromdeptemail}{\@fromdeptemail} \\
+            \href{\@fromdeptweb}{\@fromdeptweb}
+        }
+    \end{textblock*}
 }
 
 \fancyhead{}
 \fancyhead[L]{%
-\begin{textblock*}{\paperwidth}(0in, 0in)
-\ifuvt@headerlogo
-    \vspace{\@uvtheaderlogooffset}
-    \includegraphics[scale=0.2]{\@fromdeptlogo}
-\else
-    \includegraphics[scale=0.2]{\@fromuniversitylogo}
-\fi
-\end{textblock*}
+    \begin{textblock*}{\paperwidth}(0in, 0in)
+    \ifuvt@headerlogo
+        \vspace{\@uvtheaderlogooffset}
+        \includegraphics[scale=0.2]{\@fromdeptlogo}
+    \else
+        \includegraphics[scale=0.2]{\@fromuniversitylogo}
+    \fi
+    \end{textblock*}
 }
 \fancyhead[R]{%
-\begin{textblock*}{\paperwidth}(-0.4in, 0.72in)
-\ifthenelse{\equal{\uvt@department}{uvt}}{
-    {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversity}} \\
-    {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
-}{
-    {\footnotesize\sffamily\textcolor{UVTHeaderGray}{\@fromuniversityupper}} \\
-    {\small\sffamily\textcolor{UVTHeaderBlue}{\@fromdeptupper}}%
-} \\
-\@ifundefined{@fromoffice}{}{
-    \vspace{0.9cm}
-    \sffamily
-    \textcolor{UVTYellow}{\MakeUppercase{\@fromoffice}}
-}
-\end{textblock*}
+    \begin{textblock*}{\paperwidth}(-0.4in, 0.72in)
+    \ifthenelse{\equal{\uvt@department}{uvt}}{
+        {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversity}} \\
+        {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
+    }{
+        {\footnotesize\sffamily\textcolor{UVTHeaderGray}{\@fromuniversityupper}} \\
+        {\small\sffamily\textcolor{UVTHeaderBlue}{\@fromdeptupper}}%
+    } \\
+    \@ifundefined{@fromoffice}{}{
+        \vspace{0.9cm}
+        \sffamily
+        \textcolor{UVTYellow}{\MakeUppercase{\@fromoffice}}
+    }
+    \end{textblock*}
 }
 
 % >>>
