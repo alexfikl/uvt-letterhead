@@ -20,3 +20,20 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: crate-ci/typos@master
+
+  build:
+    name: Build (${{ matrix.engine }}-${{ matrix.texlive_version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        engine: ['pdf', 'pdflua']
+        texlive_version: ['2022', '2023', '2024']
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile LaTeX template
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: template.tex
+          args: -${{ matrix.engine }} -file-line-error -halt-on-error -interaction=nonstopmode
+          texlive_version: ${{ matrix.texlive_version }}
