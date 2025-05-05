@@ -38,7 +38,7 @@
 
 % double spacing
 \DeclareBoolOption[false]{doublespacing}
-% enable Myriad Pro
+% disable Myriad Pro
 \DeclareBoolOption[false]{nomyriadpro}
 % double spacing
 \DeclareBoolOption[false]{headerlogo}
@@ -103,9 +103,8 @@
             \PackageWarning{uvt-letterhead}{Myriad Pro font is not available to pdfLaTeX. Use the nomyriadpro option to silence this warning.}
             \usepackage{helvet}}
     \else
-        \IfFontExistsTF{Myriad Pro}{
-            \setmainfont{Myriad Pro}
-            \setsansfont{Myriad Pro}
+        \IfFontExistsTF{MyriadPro}{
+            \setsansfont[Ligatures=TeX]{MyriadPro}
         }{
             \PackageWarning{uvt-letterhead}{Myriad Pro font is not available. Use the nomyriadpro option to silence this warning.}
             \usepackage{helvet}}
