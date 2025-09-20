@@ -76,10 +76,7 @@
 % used to set doublesplacing
 \RequirePackage{setspace}
 % translations
-\RequirePackage{translator}
-
-% NOTE: if using the main logo, there should be no footer logo
-\ifthenelse{\equal{\uvt@department}{uvt}}{\uvt@headerlogotrue}{}
+\RequirePackage{translations}
 
 % nicer links
 \RequirePackage{hyperref}
@@ -144,6 +141,9 @@
     pdfborder={0 0 0},
 }
 
+% NOTE: if using the main logo, there should be no footer logo
+\ifthenelse{\equal{\uvt@department}{uvt}}{\uvt@headerlogotrue}{}
+
 % >>>
 
 % <<< colors
@@ -179,11 +179,11 @@
 % NOTE: this hackery for uppercasing is required to make the translation work
 % https://tex.stackexchange.com/a/84670
 \NewDocumentCommand \fromuniversity { m } {
-    \def\@fromuniversity{\translate{#1}}
-    \def\@fromuniversityupper{\translatelet\trans@fromuniversityupper{#1}\MakeUppercase{\trans@fromuniversityupper}}}
+    \def\@fromuniversity{\GetTranslation{#1}}
+    \def\@fromuniversityupper{\MakeUppercase{\GetTranslation{#1}}}}
 \NewDocumentCommand \fromdept       { m } {
-    \def\@fromdept{\translate{#1}}
-    \def\@fromdeptupper{\translatelet\trans@fromdeptupper{#1}\MakeUppercase{\trans@fromdeptupper}}}
+    \def\@fromdept{\GetTranslation{#1}}
+    \def\@fromdeptupper{\MakeUppercase{\GetTranslation{#1}}}}
 
 \NewDocumentCommand \fromuniversitylogo {m} {\def\@fromuniversitylogo{#1}}
 \NewDocumentCommand \fromdeptaddress{ m } {\def\@fromdeptaddress{#1}}
@@ -199,40 +199,78 @@
 
 % <<< translations
 
-\@ifpackageloaded{babel}{
-    \newtranslation[to=romanian]{West University of Timișoara}{Universitatea de Vest din Timișoara}
-    \newtranslation[to=romanian]{Ministry of Education}{Ministerul Educației}
-    \newtranslation[to=romanian]{Faculty of Arts and Design}{Facultatea de Arte și Design}
-    \newtranslation[to=romanian]{Faculty of Chemistry, Biology, and Geography}{Facultatea de Chimie, Biologie, Geografie}
-    \newtranslation[to=romanian]{Faculty of Law}{Facultatea de Drept}
-    \newtranslation[to=romanian]{Faculty of Economics and Business Administration}{Facultatea de Economie și de Administrare a Afacerilor}
-    \newtranslation[to=romanian]{Faculty of Physical Education and Sports}{Facultatea de Educație Fizică și Sport}
-    \newtranslation[to=romanian]{Faculty of Physics}{Facultatea de Fizică}
-    \newtranslation[to=romanian]{Faculty of Mathematics and Computer Science}{Facultatea de Matematică și Informatică}
-    \newtranslation[to=romanian]{Faculty of Music and Theater}{Facultatea de Muzică și Teatru}
-    \newtranslation[to=romanian]{Faculty of Sociology and Psychology}{Facultatea de Sociologie și Psihologie}
-    \newtranslation[to=romanian]{Faculty of Literature, History, Philosophy, and Theology}{Facultatea de Litere, Istorie, Filosofie și Teologie}
-    \newtranslation[to=romanian]{Faculty of Political Science and Communication}{Facultatea de Științe Ale Guvernării și Comunicării}
-    \newtranslation[to=romanian]{ICAM -- Institute for Advanced Environmental Research}{ICAM -- Institutul de Cercetări Avansate de Mediu}
-    \newtranslation[to=romanian]{University Doctoral Studies Council}{Consiliului Studiilor Universitare de Doctorat}
+\DeclareTranslationFallback{West University of Timișoara}{West University of Timișoara}
+\DeclareTranslation{Romanian}{West University of Timișoara}{Universitatea de Vest din Timișoara}
 
-    \newtranslation[to=romanian]{Phone}{Telefon}
-    \newtranslation[to=romanian]{Email}{E-mail}
-    \newtranslation[to=romanian]{Website}{Website}
-    \newtranslation[to=romanian]{Date}{Data}
-    \newtranslation[to=romanian]{Name (Last, First)}{Nume, prenume}
-    \newtranslation[to=romanian]{Signature}{Semnătura}
-}{}
+\DeclareTranslationFallback{Ministry of Education}{Ministry of Education}
+\DeclareTranslation{Romanian}{Ministry of Education}{Ministerul Educației}
+
+\DeclareTranslationFallback{Faculty of Arts and Design}{Faculty of Arts and Design}
+\DeclareTranslation{Romanian}{Faculty of Arts and Design}{Facultatea de Arte și Design}
+
+\DeclareTranslationFallback{Faculty of Chemistry, Biology, and Geography}{Faculty of Chemistry, Biology, and Geography}
+\DeclareTranslation{Romanian}{Faculty of Chemistry, Biology, and Geography}{Facultatea de Chimie, Biologie, Geografie}
+
+\DeclareTranslationFallback{Faculty of Law}{Faculty of Law}
+\DeclareTranslation{Romanian}{Faculty of Law}{Facultatea de Drept}
+
+\DeclareTranslationFallback{Faculty of Economics and Business Administration}{Faculty of Economics and Business Administration}
+\DeclareTranslation{Romanian}{Faculty of Economics and Business Administration}{Facultatea de Economie și de Administrare a Afacerilor}
+
+\DeclareTranslationFallback{Faculty of Physical Education and Sports}{Faculty of Physical Education and Sports}
+\DeclareTranslation{Romanian}{Faculty of Physical Education and Sports}{Facultatea de Educație Fizică și Sport}
+
+\DeclareTranslationFallback{Faculty of Physics}{Faculty of Physics}
+\DeclareTranslation{Romanian}{Faculty of Physics}{Facultatea de Fizică}
+
+\DeclareTranslationFallback{Faculty of Mathematics and Computer Science}{Faculty of Mathematics and Computer Science}
+\DeclareTranslation{Romanian}{Faculty of Mathematics and Computer Science}{Facultatea de Matematică și Informatică}
+
+\DeclareTranslationFallback{Faculty of Music and Theater}{Faculty of Music and Theater}
+\DeclareTranslation{Romanian}{Faculty of Music and Theater}{Facultatea de Muzică și Teatru}
+
+\DeclareTranslationFallback{Faculty of Sociology and Psychology}{Faculty of Sociology and Psychology}
+\DeclareTranslation{Romanian}{Faculty of Sociology and Psychology}{Facultatea de Sociologie și Psihologie}
+
+\DeclareTranslationFallback{Faculty of Literature, History, Philosophy, and Theology}{Faculty of Literature, History, Philosophy, and Theology}
+\DeclareTranslation{Romanian}{Faculty of Literature, History, Philosophy, and Theology}{Facultatea de Litere, Istorie, Filosofie și Teologie}
+
+\DeclareTranslationFallback{Faculty of Political Science and Communication}{Faculty of Political Science and Communication}
+\DeclareTranslation{Romanian}{Faculty of Political Science and Communication}{Facultatea de Științe Ale Guvernării și Comunicării}
+
+\DeclareTranslationFallback{ICAM -- Institute for Advanced Environmental Research}{ICAM -- Institute for Advanced Environmental Research}
+\DeclareTranslation{Romanian}{ICAM -- Institute for Advanced Environmental Research}{ICAM -- Institutul de Cercetări Avansate de Mediu}
+
+\DeclareTranslationFallback{University Doctoral Studies Council}{University Doctoral Studies Council}
+\DeclareTranslation{Romanian}{University Doctoral Studies Council}{Consiliului Studiilor Universitare de Doctorat}
+
+\DeclareTranslation{Romanian}{Phone}{Telefon}
+\DeclareTranslation{Romanian}{Phone}{Telefon}
+
+\DeclareTranslationFallback{Email}{Email}
+\DeclareTranslation{Romanian}{Email}{E-mail}
+
+\DeclareTranslationFallback{Website}{Website}
+\DeclareTranslation{Romanian}{Website}{Website}
+
+\DeclareTranslationFallback{Date}{Date}
+\DeclareTranslation{Romanian}{Date}{Data}
+
+\DeclareTranslationFallback{Name (First, Last)}{Name (First, Last)}
+\DeclareTranslation{Romanian}{Name (First, Last)}{Nume (Prenume, nume)}
+
+\DeclareTranslationFallback{Signature}{Signature}
+\DeclareTranslation{Romanian}{Signature}{Semnătura}
 
 % >>>
 
 % <<< supported departments
 
-\fromuniversity{West University of Timișoara}
 \uvtheaderlogooffset{0.25cm}
 
 \ifthenelse{\equal{\uvt@department}{arte}}{
     \fromdept{Faculty of Arts and Design}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-arte.png}
     \fromdeptaddress{str. Oituz 4, 300086, Timișoara, România}
     \fromdeptphone{+40 0256-592-900}
@@ -240,6 +278,7 @@
     \fromdeptweb{https://arte.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{cbg}}{
     \fromdept{Faculty of Chemistry, Biology, and Geography}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-cbg.png}
     \fromdeptaddress{str. Pestalozzi 16A, 300115, Timișoara, România}
     \fromdeptphone{+40 0256-592-622}
@@ -247,6 +286,7 @@
     \fromdeptweb{https://cbg.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{drept}}{
     \fromdept{Faculty of Law}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-drept.png}
     \fromdeptaddress{Blvd. Eroilor de la Tisa 9A, 300575, Timișoara, România}
     \fromdeptphone{+40 0256-592-400}
@@ -254,6 +294,7 @@
     \fromdeptweb{https://drept.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{feaa}}{
     \fromdept{Faculty of Economics and Business Administration}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-feaa.png}
     \fromdeptaddress{str. Pestalozzi 16, 300115, Timișoara, România}
     \fromdeptphone{+40 0256-592-506}
@@ -261,6 +302,7 @@
     \fromdeptweb{https://feaa.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fefs}}{
     \fromdept{Faculty of Physical Education and Sports}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fefs.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-129}
@@ -268,6 +310,7 @@
     \fromdeptweb{https://sport.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fizica}}{
     \fromdept{Faculty of Physics}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fizica.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-298}
@@ -275,6 +318,7 @@
     \fromdeptweb{https://physics.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fmi}}{
     \fromdept{Faculty of Mathematics and Computer Science}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fmi.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-155}
@@ -282,6 +326,7 @@
     \fromdeptweb{https://math.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fmt}}{
     \fromdept{Faculty of Music and Theater}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fmt.png}
     \fromdeptaddress{Blvd. Piața Libertății 1, 300077, Timișoara, România}
     \fromdeptphone{+40 0256-592-650}
@@ -289,6 +334,7 @@
     \fromdeptweb{https://fmt.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fsp}}{
     \fromdept{Faculty of Sociology and Psychology}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fsp.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-320}
@@ -296,6 +342,7 @@
     \fromdeptweb{https://fsp.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{lift}}{
     \fromdept{Faculty of Literature, History, Philosophy, and Theology}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-lift.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-164}
@@ -303,39 +350,42 @@
     \fromdeptweb{https://lift.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{fsgc}}{
     \fromdept{}
+    \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fsgc.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-132}
     \fromdeptemail{secretariat.fsgc@e-uvt.ro}
     \fromdeptweb{https://pfc.uvt.ro}
 }{\ifthenelse{\equal{\uvt@department}{icam}}{
-    \fromdeptlogo{assets/uvt-logo-icam.png}
     \fromdept{ICAM -- Institute for Advanced Environmental Research}
+    \fromuniversity{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo-icam.png}
     \fromdeptaddress{Str. Oituz nr 4, 300086, Timișoara, România}
     \fromdeptphone{+40 0256-592-309}
     \fromdeptemail{icam@e-uvt.ro}
     \fromdeptweb{https://icam.uvt.ro/}
     \uvtheaderlogooffset{0.2cm}
 }{\ifthenelse{\equal{\uvt@department}{csud}}{
-    \fromdeptlogo{assets/uvt-logo-csud.png}
     \fromdept{University Doctoral Studies Council}
+    \fromuniversity{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo-csud.png}
     \fromdeptaddress{str. Paris, nr. 1, P12, 300003, Timișoara, România}
     \fromdeptphone{+40 0256-592-315}
     \fromdeptemail{doctorat@e-uvt.ro}
     \fromdeptweb{https://www.uvt.ro/cercetare/doctorat/csud}
 }{\ifthenelse{\equal{\uvt@department}{uvt80}}{
-    \fromdeptlogo{assets/uvt-logo-80.png}
     \fromuniversity{Ministry of Education}
     \fromdept{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo-80.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-111}
     \fromdeptemail{secretariat.uvt@e-uvt.ro}
     \fromdeptweb{https://uvt.ro}
     \uvtheaderlogooffset{0cm}
 }{\ifthenelse{\equal{\uvt@department}{uvt}}{
-    \fromdeptlogo{assets/uvt-logo.png}
     \fromuniversity{Ministry of Education}
     \fromdept{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, 300223, Timișoara, România}
     \fromdeptphone{+40 0256-592-111}
     \fromdeptemail{secretariat.uvt@e-uvt.ro}
@@ -388,8 +438,8 @@
     \begin{textblock*}{\paperwidth}(0cm, \dimexpr\paperheight-\footskip-0.25cm)
         \textcolor{UVTFooterGray}{
             \@fromdeptaddress \\
-            \textit{\translate{Phone}}: \@fromdeptphone \\
-            \textit{\translate{Email}}: \href{mailto:\@fromdeptemail}{\textcolor{UVTFooterGray}{\@fromdeptemail}} \\
+            \textit{\GetTranslation{Phone}}: \@fromdeptphone \\
+            \textit{\GetTranslation{Email}}: \href{mailto:\@fromdeptemail}{\textcolor{UVTFooterGray}{\@fromdeptemail}} \\
             \href{\@fromdeptweb}{\textcolor{UVTFooterGray}{\@fromdeptweb}}
         }
     \end{textblock*}
@@ -432,10 +482,10 @@
         \noindent \@fromname \\
     }
     \@ifundefined{@fromemail}{}{
-        \noindent \textit{\translate{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\
+        \noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\
     }
     \@ifundefined{@fromweb}{}{
-        \noindent \textit{\translate{Website}}: \href{\@fromweb}{\@fromweb} \\
+        \noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\@fromweb} \\
     }
     \textit{\@fromuniversity} \\
     \textit{\@fromdept} \\
@@ -466,22 +516,22 @@
         \noindent \@fromname \\
     }
     \@ifundefined{@fromemail}{}{
-        \noindent \textit{\translate{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\
+        \noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\
     }
     \@ifundefined{@fromweb}{}{
-        \noindent \textit{\translate{Website}}: \href{\@fromweb}{\@fromweb}
+        \noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\@fromweb}
     }
 }
 
 \NewDocumentCommand \uvtcloseform {} {
     \noindent \begin{tabular}[t]{@{}l@{}}
-    \translate{Date}: \\
+    \GetTranslation{Date}: \\
     \textbf{\uvtdate}
     \end{tabular}%
     \hfill%
     \begin{tabular}[t]{@{}ll@{}}
-        \translate{Name (First, Last)}: & \textbf{\@fromname} \\
-        \translate{Signature}: &
+        \GetTranslation{Name (First, Last)}: & \textbf{\@fromname} \\
+        \GetTranslation{Signature}: &
         \@ifundefined{@fromsignature}{}{
         \raisebox{\dimexpr10pt-\totalheight\relax}{
         \@fromsignature
