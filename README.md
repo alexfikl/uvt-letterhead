@@ -95,8 +95,8 @@ Help to add these is very appreciated!
 | drept                 | Faculty of Law                                     |
 | feaa                  | Faculty of Economy and Business Administration     |
 | fefs                  | Faculty of Sports                                  |
-| fizica                | Faculty of Physics                                 |
-| fmi                   | Faculty of Mathematics and Computer Science        |
+| ffm                   | Faculty of Physics and Mathematics                 |
+| info                  | Faculty of Computer Science                        |
 | fmt                   | Faculty of Music and Theater                       |
 | fsp                   | Faculty of Sociology and Psychology                |
 | lift                  | Faculty of Letters, History, Philosophy and Teology |
