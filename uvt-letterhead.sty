@@ -220,7 +220,7 @@
     \newtranslation[to=romanian]{Email}{E-mail}
     \newtranslation[to=romanian]{Website}{Website}
     \newtranslation[to=romanian]{Date}{Data}
-    \newtranslation[to=romanian]{Name (First, Last)}{Nume, prenume}
+    \newtranslation[to=romanian]{Name (Last, First)}{Nume, prenume}
     \newtranslation[to=romanian]{Signature}{Semnătura}
 }{}
 
@@ -461,10 +461,10 @@
         \noindent \@fromname \\
     }
     \@ifundefined{@fromemail}{}{
-        \noindent \textit{E-mail}: \href{mailto:\@fromemail}{\@fromemail} \\
+        \noindent \textit{\translate{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\
     }
     \@ifundefined{@fromweb}{}{
-        \noindent \textit{Website}: \href{\@fromweb}{\@fromweb}
+        \noindent \textit{\translate{Website}}: \href{\@fromweb}{\@fromweb}
     }
 }
 
