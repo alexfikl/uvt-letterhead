@@ -81,7 +81,7 @@
 \ifthenelse{\equal{\uvt@department}{uvt}}{\uvt@headerlogotrue}{}
 
 % nicer links
-\RequirePackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\RequirePackage{hyperref}
 
 % nicer command definitions
 \RequirePackage{xparse}
@@ -128,10 +128,19 @@
 \fi
 
 
-\AtBeginDocument{
-    % customize PDF bookmarks a bit
-    \RequirePackage{bookmark}
-    \bookmarksetup{numbered}
+% customize pdf metadata
+\RequirePackage{bookmark}
+\hypersetup{
+    % metadata
+    pdftitle={UVT Letter},
+    pdfauthor={},
+    pdfsubject={},
+    pdfkeywords={UVT, letterhead},
+    % bookmarks
+    bookmarksnumbered,
+    % links
+    colorlinks=false,
+    pdfborder={0 0 0},
 }
 
 % >>>
