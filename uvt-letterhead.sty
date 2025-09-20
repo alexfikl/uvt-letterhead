@@ -363,9 +363,11 @@
 \RenewDocumentCommand \headrule {} {
 \begin{tikzpicture}[remember picture, overlay]
 \node [
-    rectangle, left color=white, right color=UVTLightBlue,
+    rectangle,
+    left color=white,
+    right color=UVTLightBlue,
     anchor=north east,
-    minimum width=0.8\paperwidth,
+    minimum width=0.75\paperwidth,
     outer sep=0,
     inner sep=0,
     yshift=\uvt@headruleoffset,
@@ -398,9 +400,9 @@
     \begin{textblock*}{\paperwidth}(0cm, 0cm)
     \ifuvt@headerlogo
         \vspace{\@uvtheaderlogooffset}
-        \includegraphics[height=1.675in]{\@fromdeptlogo}
+        \includegraphics[height=4.255cm]{\@fromdeptlogo}
     \else
-        \includegraphics[height=1.675in]{\@fromuniversitylogo}
+        \includegraphics[height=4.255cm]{\@fromuniversitylogo}
     \fi
     \end{textblock*}
 }
