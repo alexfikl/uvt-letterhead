@@ -357,7 +357,10 @@
 \setlength{\headheight}{28pt}
 \addtolength{\headsep}{6pt}
 
-\renewcommand{\headrule}{
+\newlength\uvt@headruleoffset
+\setlength\uvt@headruleoffset{\dimexpr -\topmargin -0.2cm -\headheight -\headsep \relax}
+
+\RenewDocumentCommand \headrule {} {
 \begin{tikzpicture}[remember picture, overlay]
 \node [
     rectangle, left color=white, right color=UVTLightBlue,
@@ -365,7 +368,7 @@
     minimum width=0.8\paperwidth,
     outer sep=0,
     inner sep=0,
-    yshift=-2.92cm,
+    yshift=\uvt@headruleoffset,
     minimum height=0.15cm] (box) at (current page.north east) {};
 \end{tikzpicture}
 }
