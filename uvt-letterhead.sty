@@ -7,7 +7,7 @@
 %   https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit
 %
 % Usage:
-%   \usepackage{uvt-letterhead}
+%   \usepackage[department=<dept>]{uvt-letterhead}
 %
 % References:
 %   Colors and Logos: https://dci.uvt.ro/identitate-vizuala
@@ -95,20 +95,20 @@
 \RequirePackage[absolute]{textpos}
 
 \ifuvt@nomyriadpro
-    \usepackage{helvet}
+    \RequirePackage{helvet}
 \else
     \ifpdftex
         \IfFileExists{MyriadPro.sty}{
-            \usepackage[onlytext, smallfamily, lf]{MyriadPro}
+            \RequirePackage[onlytext, smallfamily, lf]{MyriadPro}
         }{
             \PackageWarning{uvt-letterhead}{Myriad Pro font is not available to pdfLaTeX. Use the nomyriadpro option to silence this warning.}
-            \usepackage{helvet}}
+            \RequirePackage{helvet}}
     \else
         \IfFontExistsTF{MyriadPro}{
             \setsansfont[Ligatures=TeX]{MyriadPro}
         }{
             \PackageWarning{uvt-letterhead}{Myriad Pro font is not available. Use the nomyriadpro option to silence this warning.}
-            \usepackage{helvet}}
+            \RequirePackage{helvet}}
     \fi
 \fi
 \renewcommand{\familydefault}{\sfdefault}
@@ -429,7 +429,7 @@
     \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
 }
 
-\setkeys{uvtdept}{\uvt@department,unknown}
+\setkeys{uvtdept}{\uvt@department}
 
 % >>>
 
