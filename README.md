@@ -98,7 +98,8 @@ Help to add these is very appreciated!
 | ffm                   | Faculty of Physics and Mathematics                 |
 | info                  | Faculty of Computer Science                        |
 | fmt                   | Faculty of Music and Theater                       |
-| fsp                   | Faculty of Sociology and Psychology                |
+| fsas                  | Faculty of Sociology and Social Work               |
+| fpse                  | Faculty of Psychology and Educational Sciences     |
 | lift                  | Faculty of Letters, History, Philosophy and Teology |
 | fsgc                  | Faculty of Political Science and Communication     |
 | icam                  | ICAM                                               |
