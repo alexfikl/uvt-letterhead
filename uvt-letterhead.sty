@@ -11,6 +11,7 @@
 %
 % References:
 %   Colors and Logos: https://dci.uvt.ro/identitate-vizuala
+%                     https://www.uvt.ro/dcimi/identitate-vizuala/
 %
 % Acknowledgement:
 %   The skeleton of this style file was copied from
@@ -462,9 +463,13 @@
         {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversityupper}} \\
         {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
     }{
+    \ifthenelse{\equal{\uvt@department}{uvt80}}{
+        {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversityupper}} \\
+        {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
+    }{
         {\footnotesize\sffamily\textcolor{UVTHeaderGray}{\@fromuniversityupper}} \\
         {\small\sffamily\textcolor{UVTHeaderBlue}{\@fromdeptupper}}%
-    } \\
+    }} \\
     \@ifundefined{@fromoffice}{}{
         \vspace{0.9cm}
         \sffamily
