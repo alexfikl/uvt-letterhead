@@ -96,12 +96,12 @@ Help to add these is very appreciated!
 | feaa                  | Faculty of Economy and Business Administration     |
 | fefs                  | Faculty of Sports                                  |
 | ffm                   | Faculty of Physics and Mathematics                 |
-| info                  | Faculty of Computer Science                        |
 | fmt                   | Faculty of Music and Theater                       |
-| fsas                  | Faculty of Sociology and Social Work               |
 | fpse                  | Faculty of Psychology and Educational Sciences     |
-| lift                  | Faculty of Letters, History, Philosophy and Teology |
+| fsas                  | Faculty of Sociology and Social Work               |
 | fsgc                  | Faculty of Political Science and Communication     |
+| info                  | Faculty of Computer Science                        |
+| lift                  | Faculty of Letters, History, Philosophy and Teology |
 | icam                  | ICAM                                               |
 | csud                  | University Doctoral Studies Council                |
 | uvt                   | Dean / Main office                                 |
