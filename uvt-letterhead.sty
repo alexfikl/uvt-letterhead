@@ -1,4 +1,4 @@
-% SPDX-FileCopyrightText: 2022-2023 Alexandru Fikl <alexfikl@gmail.com>
+% SPDX-FileCopyrightText: 2022-2025 Alexandru Fikl <alexfikl@gmail.com>
 % SPDX-License-Identifier: CC-BY-4.0
 
 % This package reproduces the UVT (West University of Timișoara) letterhead
@@ -36,17 +36,18 @@
     prefix=uvt@
 }
 
-% double spacing
+% doublespacing: use double instead of single spacing
 \DeclareBoolOption[false]{doublespacing}
-% disable Myriad Pro
+% nomyriadpro: disable even trying to load Myriad Pro
 \DeclareBoolOption[false]{nomyriadpro}
-% double spacing
+% headerlogo: set logo in header instead of in footer
 \DeclareBoolOption[false]{headerlogo}
-% specify department
+% department: name of the department
 \DeclareStringOption[uvt]{department}
 
-% debug layout
+% layoutgrid: show a grid in cm
 \DeclareBoolOption[false]{layoutgrid}
+% showframe: enable showing a frame around page elements
 \DeclareBoolOption[false]{showframe}
 
 % handle default options
