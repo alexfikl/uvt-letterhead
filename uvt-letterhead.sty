@@ -73,6 +73,8 @@
 \RequirePackage{tikz}
 % handle string keyval options
 \RequirePackage{ifthen}
+% department defintions
+\RequirePackage{xkeyval}
 
 % used to set doublesplacing
 \RequirePackage{setspace}
@@ -268,8 +270,9 @@
 % <<< supported departments
 
 \uvtheaderlogooffset{0.25cm}
+\fromuniversitylogo{assets/uvt-logo.png}
 
-\ifthenelse{\equal{\uvt@department}{arte}}{
+\define@key{uvtdept}{arte}[true]{%
     \fromdept{Faculty of Arts and Design}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-arte.png}
@@ -277,7 +280,9 @@
     \fromdeptphone{+40 0256-592-900}
     \fromdeptemail{info@e-uvt.ro}
     \fromdeptweb{https://arte.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{cbg}}{
+}
+
+\define@key{uvtdept}{cbg}[true]{%
     \fromdept{Faculty of Chemistry, Biology, and Geography}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-cbg.png}
@@ -285,7 +290,9 @@
     \fromdeptphone{+40 0256-592-622}
     \fromdeptemail{secretariat.cbg@e-uvt.ro}
     \fromdeptweb{https://cbg.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{drept}}{
+}
+
+\define@key{uvtdept}{drept}[true]{%
     \fromdept{Faculty of Law}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-drept.png}
@@ -293,7 +300,9 @@
     \fromdeptphone{+40 0256-592-400}
     \fromdeptemail{drept@e-uvt.ro}
     \fromdeptweb{https://drept.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{feaa}}{
+}
+
+\define@key{uvtdept}{feaa}[true]{%
     \fromdept{Faculty of Economics and Business Administration}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-feaa.png}
@@ -301,7 +310,9 @@
     \fromdeptphone{+40 0256-592-506}
     \fromdeptemail{secretariat.feaa@e-uvt.ro}
     \fromdeptweb{https://feaa.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{fefs}}{
+}
+
+\define@key{uvtdept}{fefs}[true]{%
     \fromdept{Faculty of Physical Education and Sports}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fefs.png}
@@ -309,7 +320,9 @@
     \fromdeptphone{+40 0256-592-129}
     \fromdeptemail{secretariat.sport@e-uvt.ro}
     \fromdeptweb{https://sport.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{fizica}}{
+}
+
+\define@key{uvtdept}{fizica}[true]{%
     \fromdept{Faculty of Physics}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fizica.png}
@@ -317,7 +330,9 @@
     \fromdeptphone{+40 0256-592-298}
     \fromdeptemail{secretariat.fizica@e-uvt.ro}
     \fromdeptweb{https://physics.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{fmi}}{
+}
+
+\define@key{uvtdept}{fmi}[true]{%
     \fromdept{Faculty of Mathematics and Computer Science}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fmi.png}
@@ -325,7 +340,9 @@
     \fromdeptphone{+40 0256-592-155}
     \fromdeptemail{secretariat.mateinfo@e-uvt.ro}
     \fromdeptweb{https://math.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{fmt}}{
+}
+
+\define@key{uvtdept}{fmt}[true]{%
     \fromdept{Faculty of Music and Theater}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fmt.png}
@@ -333,7 +350,9 @@
     \fromdeptphone{+40 0256-592-650}
     \fromdeptemail{muzicateatru.secretariat@e-uvt.ro}
     \fromdeptweb{https://fmt.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{fsp}}{
+}
+
+\define@key{uvtdept}{fsp}[true]{%
     \fromdept{Faculty of Sociology and Psychology}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fsp.png}
@@ -341,7 +360,9 @@
     \fromdeptphone{+40 0256-592-320}
     \fromdeptemail{secretariat.sociopsiho@e-uvt.ro}
     \fromdeptweb{https://fsp.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{lift}}{
+}
+
+\define@key{uvtdept}{lift}[true]{%
     \fromdept{Faculty of Literature, History, Philosophy, and Theology}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-lift.png}
@@ -349,7 +370,9 @@
     \fromdeptphone{+40 0256-592-164}
     \fromdeptemail{secretariat.litere@e-uvt.ro}
     \fromdeptweb{https://lift.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{fsgc}}{
+}
+
+\define@key{uvtdept}{fsgc}[true]{%
     \fromdept{}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-fsgc.png}
@@ -357,7 +380,9 @@
     \fromdeptphone{+40 0256-592-132}
     \fromdeptemail{secretariat.fsgc@e-uvt.ro}
     \fromdeptweb{https://pfc.uvt.ro}
-}{\ifthenelse{\equal{\uvt@department}{icam}}{
+}
+
+\define@key{uvtdept}{icam}[true]{%
     \fromdept{ICAM -- Institute for Advanced Environmental Research}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-icam.png}
@@ -366,7 +391,9 @@
     \fromdeptemail{icam@e-uvt.ro}
     \fromdeptweb{https://icam.uvt.ro/}
     \uvtheaderlogooffset{0.2cm}
-}{\ifthenelse{\equal{\uvt@department}{csud}}{
+}
+
+\define@key{uvtdept}{csud}[true]{%
     \fromdept{University Doctoral Studies Council}
     \fromuniversity{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-csud.png}
@@ -374,7 +401,9 @@
     \fromdeptphone{+40 0256-592-315}
     \fromdeptemail{doctorat@e-uvt.ro}
     \fromdeptweb{https://www.uvt.ro/cercetare/doctorat/csud}
-}{\ifthenelse{\equal{\uvt@department}{uvt80}}{
+}
+
+\define@key{uvtdept}{uvt80}[true]{%
     \fromuniversity{Ministry of Education}
     \fromdept{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo-80.png}
@@ -383,7 +412,9 @@
     \fromdeptemail{secretariat.uvt@e-uvt.ro}
     \fromdeptweb{https://uvt.ro}
     \uvtheaderlogooffset{0cm}
-}{\ifthenelse{\equal{\uvt@department}{uvt}}{
+}
+
+\define@key{uvtdept}{uvt}[true]{%
     \fromuniversity{Ministry of Education}
     \fromdept{West University of Timișoara}
     \fromdeptlogo{assets/uvt-logo.png}
@@ -392,11 +423,13 @@
     \fromdeptemail{secretariat.uvt@e-uvt.ro}
     \fromdeptweb{https://uvt.ro}
     \uvtheaderlogooffset{0cm}
-}{
-    \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
-}}}}}}}}}}}}}}}
+}
 
-\fromuniversitylogo{assets/uvt-logo.png}
+\define@key{uvtdept}{unknown}[true]{%
+    \PackageError{uvt-letterhead}{Unknown department `\uvt@department`}{}
+}
+
+\setkeys{uvtdept}{\uvt@department,unknown}
 
 % >>>
 
