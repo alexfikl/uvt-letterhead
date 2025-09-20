@@ -121,7 +121,7 @@
 \ifuvt@layoutgrid
     \RequirePackage[
         grid, gridBG,
-        gridunit=in,
+        gridunit=cm,
         gridcolor=gray!70,
         subgridcolor=gray!70,
         texcoord]{eso-pic}
@@ -364,7 +364,7 @@
     minimum width=0.8\paperwidth,
     outer sep=0,
     inner sep=0,
-    yshift=-1.15in,
+    yshift=-2.92cm,
     minimum height=0.15cm] (box) at (current page.north east) {};
 \end{tikzpicture}
 }
@@ -375,11 +375,11 @@
     \sffamily
     \setstretch{1.15}
     \ifuvt@headerlogo\else
-        \begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-2.5cm)
+        \begin{textblock*}{\paperwidth}(0cm, \dimexpr\paperheight-\footskip-2.5cm)
         \includegraphics[width=0.1\paperwidth]{\@fromdeptlogo}
         \end{textblock*}
     \fi
-    \begin{textblock*}{\paperwidth}(0in, \dimexpr\paperheight-\footskip-0.25cm)
+    \begin{textblock*}{\paperwidth}(0cm, \dimexpr\paperheight-\footskip-0.25cm)
         \textcolor{UVTFooterGray}{
             \@fromdeptaddress \\
             \textit{\translate{Phone}}: \@fromdeptphone \\
@@ -391,7 +391,7 @@
 
 \fancyhead{}
 \fancyhead[L]{%
-    \begin{textblock*}{\paperwidth}(0in, 0in)
+    \begin{textblock*}{\paperwidth}(0cm, 0cm)
     \ifuvt@headerlogo
         \vspace{\@uvtheaderlogooffset}
         \includegraphics[height=1.675in]{\@fromdeptlogo}
@@ -401,7 +401,7 @@
     \end{textblock*}
 }
 \fancyhead[R]{%
-    \begin{textblock*}{\paperwidth}(-0.4in, 0.72in)
+    \begin{textblock*}{\paperwidth}(-1cm, 1.82cm)
     \ifthenelse{\equal{\uvt@department}{uvt}}{
         {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversity}} \\
         {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
