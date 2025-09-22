@@ -454,9 +454,6 @@
 \setlength{\headheight}{28pt}
 \addtolength{\headsep}{6pt}
 
-\newlength\uvt@headruleoffset
-\setlength\uvt@headruleoffset{\dimexpr -\topmargin -0.2cm -\headheight -\headsep \relax}
-
 \renewcommand{\headrule}{
 \begin{tikzpicture}[remember picture, overlay]
 \node [
@@ -467,7 +464,7 @@
     minimum width=0.75\paperwidth,
     outer sep=0,
     inner sep=0,
-    yshift=\uvt@headruleoffset,
+    yshift=-0.1\paperheight,
     minimum height=0.15cm] (box) at (current page.north east) {};
 \end{tikzpicture}
 }
@@ -497,14 +494,14 @@
     \begin{textblock*}{\paperwidth}(0cm, 0cm)
     \ifuvt@headerlogo
         \vspace{\@uvtheaderlogooffset}
-        \includegraphics[height=4.255cm]{\@fromdeptlogo}
+        \includegraphics[width=0.2\paperwidth]{\@fromdeptlogo}
     \else
-        \includegraphics[height=4.255cm]{\@fromuniversitylogo}
+        \includegraphics[width=0.2\paperwidth]{\@fromuniversitylogo}
     \fi
     \end{textblock*}
 }
 \fancyhead[R]{%
-    \begin{textblock*}{\paperwidth}(-1cm, 1.82cm)
+    \begin{textblock*}{\paperwidth}(-1cm, 0.06\paperheight)
     \ifthenelse{\equal{\uvt@department}{uvt}}{
         {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversityupper}} \\
         {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
