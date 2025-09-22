@@ -37,10 +37,10 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
 | `nomyriadpro`                     | Do not load the *Myriad Pro* fonts (default loads if available) |
-| `headerlogo`                      | Place the department logo in header instead of footer (ignored for `uvt` department) |
+| `headerlogo`                      | Place the department logo in header (ignored for `uvt` department) |
 | `department=<value>`              | Use predefined department info (header and footer) |
-| `showframe`                       | Shows a frame around page elements (margins, etc.) |
-| `layoutgrid`                      | Adds a debug grid to check alignment  |
+| `showframe`                       | [DEBUG] Shows a frame around page elements (margins, etc.) |
+| `layoutgrid`                      | [DEBUG] Adds a debug grid to check alignment  |
 
 The standard branding colors are given below.
 
