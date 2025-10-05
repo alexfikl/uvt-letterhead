@@ -60,7 +60,7 @@ The following helper macros are defined for some standard functionality.
 | `\uvtcloseform`                   | Adds date on the left and name on the right |
 
 The following commands are available to define the department, author, etc.
-The entries marked *letter* refer to the letter oppening or closing statement,
+The entries marked *letter* refer to the letter opening or closing statement,
 the entries marked *header* will appear in the header, and the entries marked
 *footer* will appear in the footer.
 
