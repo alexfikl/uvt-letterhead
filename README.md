@@ -68,8 +68,9 @@ the entries marked *header* will appear in the header, and the entries marked
 | :-                                | :-                                    |
 | `\fromdate{<text>}`               | Date (default `\today`)               |
 | `\closing{<text>}`                | Closing text (e.g. `Sincerely`) (optional)|
-| `\fromsignature{<filename>}`      | Signature file (letter) (optional)    |
 | `\fromname{<text>}`               | Author name (letter)                  |
+| `\fromsignature{<filename>}`      | Signature file (letter) (optional)    |
+| `\fromposition{<text>}`           | Author position (letter) (optional)   |
 | `\fromemail{<text>}`              | Author email (letter) (optional)      |
 | `\fromweb{<text>}`                | Author website (letter) (optional)    |
 | `\fromoffice{<text>}`             | Author office / sub-department (header) (optional)|
