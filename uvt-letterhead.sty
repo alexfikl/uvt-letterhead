@@ -174,6 +174,7 @@
 % top
 \NewDocumentCommand \toaddress      { m } {\def\@toaddress{#1}}
 \NewDocumentCommand \fromdate       { m } {\def\@fromdate{#1}}
+\NewDocumentCommand \fromposition   { m } {\def\@fromposition{#1}}
 
 % closing
 \NewDocumentCommand \closing        { m } {\def\@closing{#1}}
@@ -531,20 +532,29 @@
 % <<< opening
 
 \NewDocumentCommand \uvtopenletter {} {
+\noindent \begin{tabular}{@{}l@{}}
     \@ifundefined{@fromname}{}{
         \noindent \@fromname \\
     }
-    \@ifundefined{@fromemail}{}{
-        \noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\
+    \@ifundefined{@fromposition}{}{
+        \noindent \@fromposition \\
     }
-    \@ifundefined{@fromweb}{}{
-        \noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\@fromweb} \\
-    }
-    \textit{\@fromuniversity} \\
     \textit{\@fromdept} \\
     \@ifundefined{@fromoffice}{}{
-        \textit{\@fromoffice}
+        \textit{\@fromoffice} \\
     }
+    \textit{\@fromuniversity} \\
+    \@ifundefined{@fromweb}{}{
+        \noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\texttt{\@fromweb}} \\
+    }
+    \@ifundefined{@fromemail}{}{
+        \noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\texttt{\@fromemail}} \\
+    }
+    \@ifundefined{@fromdate}{}{
+        \\
+        \noindent \@fromdate \\
+    }
+\end{tabular}
 }
 
 % >>>
