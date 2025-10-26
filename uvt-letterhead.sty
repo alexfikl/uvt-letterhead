@@ -128,22 +128,6 @@
         texcoord]{eso-pic}
 \fi
 
-
-% customize pdf metadata
-\RequirePackage{bookmark}
-\hypersetup{
-    % metadata
-    pdftitle={UVT Letter},
-    pdfauthor={},
-    pdfsubject={},
-    pdfkeywords={UVT, letterhead},
-    % bookmarks
-    bookmarksnumbered,
-    % links
-    colorlinks=false,
-    pdfborder={0 0 0},
-}
-
 % NOTE: if using the main logo, there should be no footer logo
 \ifthenelse{\equal{\uvt@department}{uvt}}{\uvt@headerlogotrue}{}
 
@@ -161,6 +145,27 @@
 \definecolor{UVTHeaderLightBlue}{RGB}{84, 141, 212}
 \definecolor{UVTHeaderGray}{RGB}{90, 90, 90}
 \definecolor{UVTFooterGray}{RGB}{166, 166, 166}
+
+% >>>
+
+% <<< metadata
+
+% customize pdf metadata
+\RequirePackage{bookmark}
+\hypersetup{
+    % metadata
+    pdftitle={UVT Letter},
+    pdfauthor={},
+    pdfsubject={},
+    pdfkeywords={UVT, letterhead},
+    % bookmarks
+    bookmarksnumbered,
+    % links
+    colorlinks=true,
+    urlcolor=UVTDarkBlue,
+    linkcolor=UVTDarkBlue,
+    pdfborder={0 0 0},
+}
 
 % >>>
 
