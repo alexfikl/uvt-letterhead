@@ -96,14 +96,14 @@
 
 \ifuvt@norecommendedfont
     \ifpdftex
-        \RequirePackage{helvet}
+        \RequirePackage{tgheros}
     \else
         \setsansfont{TeX Gyre Heros}
     \fi
 \else
     \ifpdftex
         \PackageWarning{uvt-letterhead}{Helvetica Now font is not available to pdfLaTeX. Use the 'norecommendedfont' option to silence this warning or switch to LuaLaTeX / XeLaTex.}
-        \RequirePackage{helvet}
+        \RequirePackage{tgheros}
     \else
         \IfFontExistsTF{HelveticaNowDisplay}{
             \setsansfont[Ligatures=TeX]{HelveticaNowDisplay}
