@@ -39,8 +39,8 @@
 
 % doublespacing: use double instead of single spacing
 \DeclareBoolOption[false]{doublespacing}
-% nomyriadpro: disable even trying to load Myriad Pro
-\DeclareBoolOption[false]{nomyriadpro}
+% norecommendedfont: disable even trying to load default recommended font
+\DeclareBoolOption[false]{norecommendedfont}
 % headerlogo: set logo in header instead of in footer
 \DeclareBoolOption[false]{headerlogo}
 % department: name of the department
@@ -94,23 +94,21 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[absolute]{textpos}
 
-\ifuvt@nomyriadpro
+\ifuvt@norecommendedfont
     \RequirePackage{helvet}
 \else
     \ifpdftex
-        \IfFileExists{MyriadPro.sty}{
-            \RequirePackage[onlytext, smallfamily, lf]{MyriadPro}
-        }{
-            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available to pdfLaTeX. Use the nomyriadpro option to silence this warning.}
-            \RequirePackage{helvet}}
+        \PackageWarning{uvt-letterhead}{Helvetica Now font is not available to pdfLaTeX. Use the 'norecommendedfont' option to silence this warning or switch to LuaLaTeX / XeLaTex.}
+        \RequirePackage{helvet}
     \else
-        \IfFontExistsTF{MyriadPro}{
-            \setsansfont[Ligatures=TeX]{MyriadPro}
+        \IfFontExistsTF{HelveticaNowDisplay}{
+            \setsansfont[Ligatures=TeX]{HelveticaNowDisplay}
         }{
-            \PackageWarning{uvt-letterhead}{Myriad Pro font is not available. Use the nomyriadpro option to silence this warning.}
+            \PackageWarning{uvt-letterhead}{Helvetica Now font is not available. Use the 'norecommendedfont' option to silence this warning.}
             \RequirePackage{helvet}}
     \fi
 \fi
+
 \renewcommand{\familydefault}{\sfdefault}
 
 % enable this to better check sizing
