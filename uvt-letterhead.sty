@@ -95,7 +95,11 @@
 \RequirePackage[absolute]{textpos}
 
 \ifuvt@norecommendedfont
-    \RequirePackage{helvet}
+    \ifpdftex
+        \RequirePackage{helvet}
+    \else
+        \setsansfont{TeX Gyre Heros}
+    \fi
 \else
     \ifpdftex
         \PackageWarning{uvt-letterhead}{Helvetica Now font is not available to pdfLaTeX. Use the 'norecommendedfont' option to silence this warning or switch to LuaLaTeX / XeLaTex.}
@@ -105,10 +109,9 @@
             \setsansfont[Ligatures=TeX]{HelveticaNowDisplay}
         }{
             \PackageWarning{uvt-letterhead}{Helvetica Now font is not available. Use the 'norecommendedfont' option to silence this warning.}
-            \RequirePackage{helvet}}
+            \setsansfont{TeX Gyre Heros}}
     \fi
 \fi
-
 \renewcommand{\familydefault}{\sfdefault}
 
 % enable this to better check sizing
