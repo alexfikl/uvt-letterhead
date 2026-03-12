@@ -463,65 +463,72 @@
 
 \pagestyle{fancy}
 
-% NOTE: add a bit of padding so that the text does not hit the logo
-\setlength{\headheight}{28pt}
-\addtolength{\headsep}{6pt}
-
-\renewcommand{\headrule}{
-\begin{tikzpicture}[remember picture, overlay]
-\node [
-    rectangle,
-    left color=white,
-    right color=UVTLightBlue,
-    anchor=north east,
-    minimum width=0.75\paperwidth,
-    outer sep=0,
-    inner sep=0,
-    yshift=-0.1\paperheight,
-    minimum height=0.15cm] (box) at (current page.north east) {};
-\end{tikzpicture}
-}
+\renewcommand{\headrule}{}
+\addtolength{\footskip}{-1em}
 
 \fancyfoot{}
 \fancyfoot[C]{%
-    \tiny
+    \footnotesize
     \sffamily
     \setstretch{1.15}
-    \begin{textblock*}{\paperwidth}(0cm, \dimexpr\paperheight-\footskip-0.25cm)
-        \textcolor{UVTFooterGray}{
-            \@fromdeptaddress \\
-            \textit{\GetTranslation{Phone}}: \@fromdeptphone \\
-            \textit{\GetTranslation{Email}}: \href{mailto:\@fromdeptemail}{\textcolor{UVTFooterGray}{\@fromdeptemail}} \\
-            \href{\@fromdeptweb}{\textcolor{UVTFooterGray}{\@fromdeptweb}}
+    \makebox[\textwidth][s]{
+    \parbox[t]{0.45\textwidth}{
+        \textcolor{UVTLetterDarkBlue}{
+            \textbf{\GetTranslation{West University of Timișoara}} \\
+            \@fromdeptaddress
         }
-    \end{textblock*}
+    }
+    \hfill
+    \parbox[t]{0.45\textwidth}{
+        \raggedleft
+        \textcolor{UVTLetterDarkBlue}{
+            \textit{\GetTranslation{Phone}}: \@fromdeptphone \\
+            \textit{\GetTranslation{Email}}: \href{mailto:\@fromdeptemail}{\textcolor{UVTLetterDarkBlue}{\@fromdeptemail}} \\
+            \href{\@fromdeptweb}{\textcolor{UVTLetterDarkBlue}{\@fromdeptweb}}
+        }
+    }
+    }
 }
 
 \fancyhead{}
-\fancyhead[L]{%
-    \begin{textblock*}{\paperwidth}(0cm, 0cm)
-    \vspace{\@uvtheaderlogooffset}
-    \includegraphics[width=0.2\paperwidth]{\@fromdeptlogo}
-    \end{textblock*}
+\fancyhead[C]{
+\begin{tikzpicture}[remember picture, overlay]
+% left boxes
+\fill[UVTLetterDarkBlue]
+    ([xshift=0.66in, yshift=-1.21in]current page.north west)
+    rectangle
+    ([xshift=1.42in, yshift=0pt]current page.north west);
+\fill[UVTLetterDarkGray]
+    ([xshift=0.66in, yshift=-1.21in]current page.north west)
+    rectangle
+    ([xshift=1.42in, yshift=-1.235in]current page.north west);
+
+% right boxes
+\draw[UVTLetterDarkBlue, thick]
+    ([xshift=-0.7in, yshift=-1.21in]current page.north east)
+    -- ++(-5in, 0pt);
+\fill[UVTLetterDarkGray]
+    ([xshift=-0.7in, yshift=-1.18in]current page.north east)
+    rectangle ++(-4in, 0.025in);
+\fill[UVTLetterDarkBlue]
+    ([xshift=-0.7in, yshift=-1.155in]current page.north east)
+    rectangle ++(-4in, 0.025in);
+\end{tikzpicture}
 }
+
 \fancyhead[R]{%
-    \begin{textblock*}{\paperwidth}(-1cm, 0.06\paperheight)
+    \begin{textblock*}{\paperwidth}(-0.7in, 0.06\paperheight)
     \ifthenelse{\equal{\uvt@department}{uvt}}{
-        {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversityupper}} \\
-        {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
+        {\small\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
+        {\small\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
     }{
     \ifthenelse{\equal{\uvt@department}{uvt80}}{
-        {\footnotesize\sffamily\textcolor{UVTHeaderLightBlue}{\@fromuniversityupper}} \\
-        {\small\sffamily\textcolor{UVTHeaderGray}{\@fromdeptupper}}%
+        {\small\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
+        {\small\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
     }{
-        {\footnotesize\sffamily\textcolor{UVTHeaderGray}{\@fromuniversityupper}} \\
-        {\small\sffamily\textcolor{UVTHeaderBlue}{\@fromdeptupper}}%
-    }} \\
-    \@ifundefined{@fromoffice}{}{
-        \vspace{0.9cm}
-        \sffamily
-        \textcolor{UVTYellow}{\MakeUppercase{\@fromoffice}}
-    }
+        {\small\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
+        {\small\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
+    }}
     \end{textblock*}
 }
 
