@@ -1,0 +1,85 @@
+LOGO_UVT_AR := "logo-uvt.rar"
+LOGO_UVT_DEPTS_AR := "logo-uvt-depts.zip"
+LOGO_UVT_ADMIN_AR := "logo-uvt-admin.zip"
+
+WORKDIR := "logos.out"
+WORKDIR_UVT := join(WORKDIR, without_extension(LOGO_UVT_AR))
+WORKDIR_UVT_DEPTS := join(WORKDIR, without_extension(LOGO_UVT_DEPTS_AR))
+WORKDIR_UVT_ADMIN := join(WORKDIR, without_extension(LOGO_UVT_ADMIN_AR))
+
+[doc("Generate all logos")]
+logos: logo_uvt logo_uvt_depts logo_uvt_admin
+
+[private]
+negate input output:
+    magick '{{ input }}' \
+        \( +clone -colorspace gray -negate -threshold 10% \) \
+        -compose CopyOpacity \
+        -composite -fill white -colorize 100 -strip \
+        '{{ output }}'
+
+[private]
+recenter input:
+    magick '{{ input }}' \
+        -trim +repage -gravity center -background transparent \
+        -extent "$(identify -format '%wx%h' '{{ input }}')" \
+        '{{ input }}'
+
+[private]
+recenter_to input:
+    magick '{{ input }}' \
+        -trim +repage -gravity center -background transparent \
+        -extent 2480x2480 \
+        '{{ input }}'
+
+[doc("Generate main UVT logo")]
+logo_uvt zipfile=LOGO_UVT_AR:
+    @echo -e "\e[1;32m>>> Extracting main UVT logo...\e[0m"
+    @mkdir -p {{ WORKDIR_UVT }}
+    unrar e -idq -o+ {{ zipfile }} {{ WORKDIR_UVT }}/
+    @just negate \
+        "{{ WORKDIR_UVT }}/Logo UVT - 2017-14.jpg" \
+        uvt-logo.png
+
+[private]
+retrieve_dept_logo input output:
+    @just negate \
+        '{{ WORKDIR_UVT_DEPTS}}/Logo-uri facultăți/{{ input }}' \
+        '{{ output }}'
+
+[doc("Generate UVT Department logos")]
+logo_uvt_depts:
+    @echo -e "\e[1;32m>>> Extracting UVT Department logos...\e[0m"
+    @mkdir -p {{ WORKDIR_UVT_DEPTS }}
+    unzip -q -n {{ LOGO_UVT_DEPTS_AR }} -d {{ WORKDIR_UVT_DEPTS }}/
+
+    @just retrieve_dept_logo "Logo ARTE/JPG - PRINT/Arte-11.jpg" "uvt-logo-arte.png"
+    @just retrieve_dept_logo "Logo CBG/JPG - PRINT/CBG-15.jpg" "uvt-logo-cbg.png"
+    @just retrieve_dept_logo "Logo DPPD/JPG - PRINT/DPPD-11.jpg" "uvt-logo-dppd.png"
+    @just retrieve_dept_logo "Logo DREPT/JPG -PRINT/DREPT-15.jpg" "uvt-logo-drept.png"
+    @just retrieve_dept_logo "Logo FEAA/JPG - PRINT/FEAA-06.png" "uvt-logo-feaa.png"
+    @just retrieve_dept_logo "Logo FEFS/JPG - PRINT/FEFS-15.jpg" "uvt-logo-fefs.png"
+    @just recenter "uvt-logo-fefs.png"
+    @just retrieve_dept_logo "FFM-Facultatea de Fizică și Matematică/PNG/FFM-10.png" "uvt-logo-ffm.png"
+    @just retrieve_dept_logo "Logo FMT/JPG - PRINT/FMT-10.jpg" "uvt-logo-fmt.png"
+    @just retrieve_dept_logo "FSAS-Facultatea de Sociologie și Asistență Socială/PNG/FSAS-12.png" "uvt-logo-fsas.png"
+    @just retrieve_dept_logo "FPSE-Facultatea de Psihologie și Științe ale Educației/PNG/FPSE-12.png" "uvt-logo-fpse.png"
+    @just retrieve_dept_logo "INFO-Facultatea de Informatică/PNG/INFO_Asset 4.png" "uvt-logo-info.png"
+    @just recenter_to "uvt-logo-info.png"
+    @just retrieve_dept_logo "Logo FLIFT/PNG/FLIFT-12.png" "uvt-logo-flift.png"
+    @just retrieve_dept_logo "Logo FSGC (PFC)/PNG-FSGC/FSGC-12.png" "uvt-logo-fsgc.png"
+
+[private]
+retrieve_admin_logo input output:
+    @just negate \
+        '{{ WORKDIR_UVT_ADMIN}}/Logo-uri administrativ/{{ input }}' \
+        '{{ output }}'
+
+[doc("Generate UVT Administrative logos")]
+logo_uvt_admin:
+    @echo -e "\e[1;32m>>> Extracting UVT Administrative logos...\e[0m"
+    @mkdir -p {{ WORKDIR_UVT_ADMIN }}
+    unzip -q -n {{ LOGO_UVT_ADMIN_AR }} -d {{ WORKDIR_UVT_ADMIN }}/
+
+    @just retrieve_admin_logo "ICAM - PNG/Logo ICAM-10.png" "uvt-logo-icam.png"
+    @just retrieve_admin_logo "CSUD - PNG/Logo CSUD-12.png" "uvt-logo-csud.png"
