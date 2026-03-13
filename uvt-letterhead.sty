@@ -429,21 +429,10 @@
     \fromdeptweb{https://www.uvt.ro/cercetare/doctorat/csud}
 }
 
-\define@key{uvtdept}{uvt80}[true]{%
-    \fromuniversity{Ministry of Education}
-    \fromdept{West University of Timișoara}
-    \fromdeptlogo{assets/uvt-logo-80.png}
-    \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, România}
-    \fromdeptphone{+40 256-592-111}
-    \fromdeptemail{secretariat.uvt@e-uvt.ro}
-    \fromdeptweb{https://uvt.ro}
-    \uvtheaderlogooffset{0cm}
-}
-
 \define@key{uvtdept}{uvt}[true]{%
     \fromuniversity{Ministry of Education}
     \fromdept{West University of Timișoara}
-    \fromdeptlogo{assets/uvt-logo.png}
+    \fromdeptlogo{assets-white/uvt-logo.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, România}
     \fromdeptphone{+40 256-592-111}
     \fromdeptemail{secretariat.uvt@e-uvt.ro}
@@ -524,13 +513,9 @@
         {\small\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
         {\small\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
     }{
-    \ifthenelse{\equal{\uvt@department}{uvt80}}{
         {\small\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
         {\small\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
-    }{
-        {\small\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
-        {\small\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
-    }}
+    }
     \end{textblock*}
 }
 
