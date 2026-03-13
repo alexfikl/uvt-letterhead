@@ -458,27 +458,28 @@
 \renewcommand{\headrule}{}
 
 \fancyfoot{}
-\fancyfoot[C]{%
-    \scriptsize
-    \sffamily
-    \setstretch{1.15}
-    \makebox[\textwidth][s]{
-    \parbox[t]{0.45\textwidth}{
-        \textcolor{UVTLetterDarkBlue}{
+\fancyfoot[L]{%
+\scriptsize
+\sffamily
+\setstretch{1.15}
+\parbox[t]{\textwidth}{%
+    \parbox[t]{0.45\textwidth}{%
+        \raggedright
+        \textcolor{UVTLetterDarkBlue}{%
             \textbf{\GetTranslation{West University of Timișoara}} \\
             \@fromdeptaddress
-        }
-    }
+        }%
+    }%
     \hfill
-    \parbox[t]{0.45\textwidth}{
+    \parbox[t]{0.45\textwidth}{%
         \raggedleft
-        \textcolor{UVTLetterDarkBlue}{
+        \textcolor{UVTLetterDarkBlue}{%
             \textit{\GetTranslation{Phone}}: \@fromdeptphone \\
             \textit{\GetTranslation{Email}}: \href{mailto:\@fromdeptemail}{\textcolor{UVTLetterDarkBlue}{\@fromdeptemail}} \\
             \href{\@fromdeptweb}{\textcolor{UVTLetterDarkBlue}{\@fromdeptweb}}
-        }
-    }
-    }
+        }%
+    }%
+}%
 }
 
 \fancyhead{}
