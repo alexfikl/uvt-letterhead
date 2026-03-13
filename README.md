@@ -10,9 +10,9 @@
 
 This is an implementation of the UVT (West University of Timișoara) letterhead in
 LaTeX. It uses the [official UVT branding](https://dci.uvt.ro/identitate-vizuala)
-and [replicates this document](https://docs.google.com/document/d/1qyRK3fjVANnRFPRCYI8VLL42Ay-z07ZM/edit).
+and [replicates these documents](https://uvt.ro/wp-content/uploads/2026/03/Antet-UVT-SLF2026-RO-EN.zip).
 A full description of the various parts of the branding can be found in the
-[Official Manual](https://www.dci.uvt.ro/wp-content/uploads/2019/03/MANUAL-IDENTITATE-NEW-WEB-FINAL-2016-.pdf).
+[Official Manual](https://drive.google.com/file/d/1JLAV3fAorLa279_DEjc4P217ss7pFPwf/view?usp=drive_link).
 
 Templates in the same series:
 * [UVT Letterhead Template](https://github.com/alexfikl/uvt-letterhead)
@@ -36,8 +36,7 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | Option                            | Description                           |
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
-| `nomyriadpro`                     | Do not load the *Myriad Pro* fonts (default loads if available) |
-| `headerlogo`                      | Place the department logo in header (ignored for `uvt` department) |
+| `helveticanow`                    | Try to load the *Helvetica Now Display* fonts |
 | `department=<value>`              | Use predefined department info (header and footer) |
 | `showframe`                       | [DEBUG] Shows a frame around page elements (margins, etc.) |
 | `layoutgrid`                      | [DEBUG] Adds a debug grid to check alignment  |
@@ -46,8 +45,9 @@ The standard branding colors are given below.
 
 | Color                             | RGB
 | :-                                | :-
-| `UVTLightBlue`                    | ![#3471B8](https://placehold.co/15x15/3471B8/3471B8.png) `(52, 113, 183)` |
-| `UVTDarkBlue`                     | ![#024A76](https://placehold.co/15x15/024A76/024A76.png) `(3, 75, 119)`   |
+| `UVTDarkBlue`                     | ![#033A89](https://placehold.co/15x15/033A89/033A89.png) `(3, 58, 137)`   |
+| `UVTSkyBlue`                      | ![#2588E7](https://placehold.co/15x15/2588E7/2588E7.png) `(37, 136, 231)` |
+| `UVTLightBlue`                    | ![#AED9F8](https://placehold.co/15x15/AED9F8/AED9F8.png) `(174, 217, 248)` |
 | `UVTYellow`                       | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)` |
 
 The following helper macros are defined for some standard functionality.
@@ -102,11 +102,10 @@ Help to add these is very appreciated!
 | fsas                  | Faculty of Sociology and Social Work               |
 | fsgc                  | Faculty of Political Science and Communication     |
 | info                  | Faculty of Computer Science                        |
-| lift                  | Faculty of Letters, History, Philosophy and Teology |
+| flift                 | Faculty of Letters, History, Philosophy and Teology |
 | icam                  | ICAM                                               |
 | csud                  | University Doctoral Studies Council                |
 | uvt                   | Dean / Main office                                 |
-| uvt80                 | Dean / Main office (80 year anniversary logo)      |
 
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
 easily overwritten using
@@ -114,17 +113,24 @@ easily overwritten using
 \fromdeptlogo{figures/my-dept-logo.png}
 ```
 
+Note that the logos are expected to be square with a white on transparent background.
+Most departments have logos in such a format, but we can always modify them and
+include them here, if necessary.
+
 ## Fonts
 
-Note that, by default, this uses the [Myriad Pro](https://fonts.adobe.com/fonts/myriad)
-font. This font is generally not available for free, but can be purchased from
-Adobe or a [reseller](https://www.fontspring.com/fonts/adobe/myriad-pro). The
-OTF fonts can be directly loaded by the `XeLaTeX` or `LuaLaTeX` engines. To
-get it working on `PDFLaTeX`, use the [FontPro](https://github.com/sebschub/FontPro)
-distribution. If you cannot obtain the font (or the installation does not work
-for some reason), it can be disabled with the `nomyriadpro` option. When the font
-is not found, the class falls back to using `\usepackage{helvet}`, which loads a
-Helvetica look-alike called Nimbus Sans L.
+Note that the Official Manual recommends the [Helvetica Display
+Now](https://www.monotype.com/fonts/helvetica-now) font. This font is generally
+not available for free, but can be purchased from Monotype or a
+[reseller](https://www.myfonts.com/collections/helvetica-now-font-monotype-imaging).
+Ideally, you can get it from the university for official documents. If you
+managed to get it, you will need to use the `XeLaTeX` or `LuaLaTeX` engines to
+load it (since `PDFLaTeX` does not support OTF or TTF fonts).
+
+If you do not have the recommended font, a good alternative is the open source
+`TeX Gyre Heros` font (a quality classic Helvetica clone). This is loaded by
+default by the template if the `helveticanow` option is not given or if the
+font is not found.
 
 If you are using `XeLaTeX` or `LuaLaTeX`, there are many other nice fonts to
 keep in mind that would work well. For example: Carlito (a Calibri clone),
