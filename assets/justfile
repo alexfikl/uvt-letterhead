@@ -83,3 +83,11 @@ logo_uvt_admin:
 
     @just retrieve_admin_logo "ICAM - PNG/Logo ICAM-10.png" "uvt-logo-icam.png"
     @just retrieve_admin_logo "CSUD - PNG/Logo CSUD-12.png" "uvt-logo-csud.png"
+
+[doc("Remove all temporary files and directories")]
+clean:
+    rm -rf {{ WORKDIR }}
+
+[doc("Remove all generated logos")]
+purge: clean
+    rm -rf *.png

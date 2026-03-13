@@ -15,8 +15,8 @@ pdf basename:
 template:
     @just pdf template
 
-[doc("Compile assets for example")]
-assets: template
+[doc("Compile preview for template example")]
+preview: template
     magick \
         -verbose \
         -density 300 \
