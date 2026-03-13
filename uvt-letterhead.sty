@@ -208,9 +208,6 @@
 \NewDocumentCommand \fromdeptweb    { m } {\def\@fromdeptweb{#1}}
 \NewDocumentCommand \fromdeptlogo   { m } {\def\@fromdeptlogo{#1}}
 
-% hacks
-\NewDocumentCommand \uvtheaderlogooffset { m } {\def\@uvtheaderlogooffset{#1}}
-
 % >>>
 
 % <<< translations
@@ -229,6 +226,9 @@
 
 \DeclareTranslationFallback{Faculty of Chemistry, Biology, and Geography}{Faculty of Chemistry, Biology, and Geography}
 \DeclareTranslation{Romanian}{Faculty of Chemistry, Biology, and Geography}{Facultatea de Chimie, Biologie, Geografie}
+
+\DeclareTranslationFallback{Department for the Preparation of Teaching Staff}{Department for the Preparation of Teaching Staff}
+\DeclareTranslation{Romanian}{Department for the Preparation of Teaching Staff}{Departamentul pentru Pregătirea Personalului Didactic}
 
 \DeclareTranslationFallback{Faculty of Law}{Faculty of Law}
 \DeclareTranslation{Romanian}{Faculty of Law}{Facultatea de Drept}
@@ -264,7 +264,7 @@
 \DeclareTranslation{Romanian}{ICAM -- Institute for Advanced Environmental Research}{ICAM -- Institutul de Cercetări Avansate de Mediu}
 
 \DeclareTranslationFallback{University Doctoral Studies Council}{University Doctoral Studies Council}
-\DeclareTranslation{Romanian}{University Doctoral Studies Council}{Consiliului Studiilor Universitare de Doctorat}
+\DeclareTranslation{Romanian}{University Doctoral Studies Council}{Consiliul Studiilor Universitare de Doctorat}
 
 \DeclareTranslationFallback{Phone}{Phone}
 \DeclareTranslation{Romanian}{Phone}{Telefon}
@@ -288,7 +288,6 @@
 
 % <<< supported departments
 
-\uvtheaderlogooffset{0.25cm}
 \fromuniversitylogo{assets/uvt-logo.png}
 
 \define@key{uvtdept}{arte}[true]{%
@@ -309,6 +308,16 @@
     \fromdeptphone{+40 256-592-622}
     \fromdeptemail{secretariat.cbg@e-uvt.ro}
     \fromdeptweb{https://cbg.uvt.ro}
+}
+
+\define@key{uvtdept}{dppd}[true]{%
+    \fromdept{Department for the Preparation of Teaching Staff}
+    \fromuniversity{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo-dppd.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, \GetTranslation{Romania}}
+    \fromdeptphone{+40 256-592-151}
+    \fromdeptemail{victorita.vieru@e-uvt.ro}
+    \fromdeptweb{https://dppd.uvt.ro}
 }
 
 \define@key{uvtdept}{drept}[true]{%
@@ -351,16 +360,6 @@
     \fromdeptweb{https://physics.uvt.ro}
 }
 
-\define@key{uvtdept}{info}[true]{%
-    \fromdept{Faculty of Computer Science}
-    \fromuniversity{West University of Timișoara}
-    \fromdeptlogo{assets/uvt-logo-info.png}
-    \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, \GetTranslation{Romania}}
-    \fromdeptphone{+40 256-592-155}
-    \fromdeptemail{secretariat.mateinfo@e-uvt.ro}
-    \fromdeptweb{https://info.uvt.ro}
-}
-
 \define@key{uvtdept}{fmt}[true]{%
     \fromdept{Faculty of Music and Theater}
     \fromuniversity{West University of Timișoara}
@@ -391,10 +390,20 @@
     \fromdeptweb{https://fsp.uvt.ro}
 }
 
-\define@key{uvtdept}{lift}[true]{%
+\define@key{uvtdept}{info}[true]{%
+    \fromdept{Faculty of Computer Science}
+    \fromuniversity{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo-info.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, \GetTranslation{Romania}}
+    \fromdeptphone{+40 256-592-155}
+    \fromdeptemail{secretariat.mateinfo@e-uvt.ro}
+    \fromdeptweb{https://info.uvt.ro}
+}
+
+\define@key{uvtdept}{flift}[true]{%
     \fromdept{Faculty of Literature, History, Philosophy, and Theology}
     \fromuniversity{West University of Timișoara}
-    \fromdeptlogo{assets/uvt-logo-lift.png}
+    \fromdeptlogo{assets/uvt-logo-flift.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, \GetTranslation{Romania}}
     \fromdeptphone{+40 256-592-164}
     \fromdeptemail{secretariat.litere@e-uvt.ro}
@@ -419,7 +428,6 @@
     \fromdeptphone{+40 256-592-309}
     \fromdeptemail{icam@e-uvt.ro}
     \fromdeptweb{https://icam.uvt.ro/}
-    \uvtheaderlogooffset{0.2cm}
 }
 
 \define@key{uvtdept}{csud}[true]{%
@@ -435,12 +443,11 @@
 \define@key{uvtdept}{uvt}[true]{%
     \fromuniversity{Ministry of Education}
     \fromdept{West University of Timișoara}
-    \fromdeptlogo{assets-white/uvt-logo.png}
+    \fromdeptlogo{assets/uvt-logo.png}
     \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, \GetTranslation{Romania}}
     \fromdeptphone{+40 256-592-111}
     \fromdeptemail{secretariat.uvt@e-uvt.ro}
     \fromdeptweb{https://uvt.ro}
-    \uvtheaderlogooffset{0cm}
 }
 
 \define@key{uvtdept}{unknown}[true]{%
@@ -463,7 +470,7 @@
 \sffamily
 \setstretch{1.15}
 \parbox[t]{\textwidth}{%
-    \parbox[t]{0.45\textwidth}{%
+    \parbox[t]{0.45\linewidth}{%
         \raggedright
         \textcolor{UVTLetterDarkBlue}{%
             \textbf{\GetTranslation{West University of Timișoara}} \\
@@ -471,7 +478,7 @@
         }%
     }%
     \hfill
-    \parbox[t]{0.45\textwidth}{%
+    \parbox[t]{0.45\linewidth}{%
         \raggedleft
         \textcolor{UVTLetterDarkBlue}{%
             \textit{\GetTranslation{Phone}}: \@fromdeptphone \\
@@ -503,10 +510,10 @@
 %     -- ++(-5in, 0pt);
 \fill[UVTLetterDarkGray]
     ([xshift=-0.7in, yshift=-1.21in]current page.north east)
-    rectangle ++(-4in, -0.025in);
+    rectangle ++(-5in, -0.025in);
 \fill[UVTLetterDarkBlue]
     ([xshift=-0.7in, yshift=-1.21in]current page.north east)
-    rectangle ++(-4in, 0.025in);
+    rectangle ++(-5in, 0.025in);
 \end{tikzpicture}
 }
 
