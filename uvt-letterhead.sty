@@ -529,27 +529,26 @@
 
 \NewDocumentCommand \uvtopenletter {} {
 \noindent \begin{tabular}{@{}l@{}}
-    \@ifundefined{@fromname}{}{
-        \noindent \@fromname \\
-    }
-    \@ifundefined{@fromposition}{}{
-        \noindent \@fromposition \\
-    }
+    \@ifundefined{@fromname}
+        {\textbf{John Smith} \\}
+        {\textbf{\@fromname} \\}
+    \@ifundefined{@fromposition}
+        {}
+        {\@fromposition \\}
     \textit{\@fromdept} \\
-    \@ifundefined{@fromoffice}{}{
-        \textit{\@fromoffice} \\
-    }
+    \@ifundefined{@fromoffice}
+        {}
+        {\textit{\@fromoffice} \\}
     \textit{\@fromuniversity} \\
-    \@ifundefined{@fromweb}{}{
-        \noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\texttt{\@fromweb}} \\
-    }
-    \@ifundefined{@fromemail}{}{
-        \noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\texttt{\@fromemail}} \\
-    }
-    \@ifundefined{@fromdate}{}{
-        \\
-        \noindent \@fromdate \\
-    }
+    \@ifundefined{@fromweb}
+        {}
+        {\textit{\GetTranslation{Website}}: \href{\@fromweb}{\texttt{\@fromweb}} \\}
+    \@ifundefined{@fromemail}
+        {}
+        {\textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\texttt{\@fromemail}} \\}
+    \@ifundefined{@fromdate}
+        {}
+        {\\ \@fromdate \\}
 \end{tabular}
 }
 
@@ -560,26 +559,22 @@
 \NewDocumentCommand \uvtdate {} {\the\day.\the\month.\the\year}
 
 \NewDocumentCommand \uvtcloseletter {} {
-    \@ifundefined{@closing}{}{
-        \noindent \@closing,
-        \medskip
-    }
+    \@ifundefined{@closing}
+        {}
+        {\noindent \@closing, \medskip}
 
-    \@ifundefined{@fromsignature}{}{
-        \medskip
-        \noindent \@fromsignature
-        \medskip
-    }
+    \@ifundefined{@fromsignature}
+        {}
+        {\medskip \noindent \@fromsignature \medskip}
 
-    \@ifundefined{@fromname}{}{
-        \noindent \@fromname \\
-    }
-    \@ifundefined{@fromemail}{}{
-        \noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\
-    }
-    \@ifundefined{@fromweb}{}{
-        \noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\@fromweb}
-    }
+    \@ifundefined{@fromname}
+        {}
+        {\noindent \@fromname \\}
+    \@ifundefined{@fromemail}
+        {}
+        {\noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\}
+    \@ifundefined{@fromweb}
+        {}{\noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\@fromweb}}
 }
 
 \NewDocumentCommand \uvtcloseform {} {
@@ -589,11 +584,12 @@
     \end{tabular}%
     \hfill%
     \begin{tabular}[t]{@{}ll@{}}
-        \GetTranslation{Name (First, Last)}: & \textbf{\@fromname} \\
+        \GetTranslation{Name (First, Last)}: &
+            \@ifundefined{@fromname}{\textbf{John Smith}}{\textbf{\@fromname}} \\
         \GetTranslation{Signature}: &
         \@ifundefined{@fromsignature}{}{
-        \raisebox{\dimexpr10pt-\totalheight\relax}{
-        \@fromsignature
+            \raisebox{\dimexpr10pt-\totalheight\relax}{
+            \@fromsignature
         }}
     \end{tabular}
 }
