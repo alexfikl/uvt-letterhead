@@ -94,7 +94,7 @@
 
 \ifuvt@helveticanow
     \ifpdftex
-        \PackageError{uvt-letterhead}{HelveticaNowDisplay font is not available on pdfLaTeX. Remove the 'helveticanow' option to silence this warning or switch to LuaLaTeX / XeLaTex.}
+        \PackageWarning{uvt-letterhead}{HelveticaNowDisplay font is not available on pdfLaTeX. Remove the 'helveticanow' option to silence this warning or switch to LuaLaTeX / XeLaTex.}
         \RequirePackage{tgheros}
     \else
         \IfFontExistsTF{HelveticaNowDisplay}{
