@@ -548,7 +548,7 @@
 
 % <<< closing
 
-\NewDocumentCommand \uvtdate {} {\the\day.\the\month.\the\year}
+\NewDocumentCommand \uvtdate {} {\ifnum\the\day<10 0\fi\the\day.\ifnum\the\month<10 0\fi\the\month.\the\year}
 
 \NewDocumentCommand \uvtcloseletter {} {
     \@ifundefined{@closing}
