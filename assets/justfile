@@ -1,3 +1,26 @@
+# # Instructions
+#
+# The logo archives are downloaded from
+#
+# LOGO_UVT_AR:
+#   At [1], there is a download button with the university logo. Full link is [2]
+# LOGO_UVT_DEPTS_AR:
+#   At [3], go to the bottom and click on "Logo-uri facultăți". This should take
+#   you to a Driver folder containing all the logos. Just download all of it.
+# LOGO_UVT_ADMIN_AR:
+#   At [3], go to the bottom and click on "Logo-uri administrativ". Download all
+#   of them as well.
+#
+# The archive names should be as below and everything else is automatic. Generate
+# all the logos using
+# ```
+# just logos
+# ```
+#
+# [1] https://dci.uvt.ro/identitate-vizuala/
+# [2] https://www.dci.uvt.ro/wp-content/uploads/2019/01/Logo%20UVT%20-%202017.rar
+# [3] https://www.uvt.ro/dcimi/identitate-vizuala/
+
 LOGO_UVT_AR := "logo-uvt.rar"
 LOGO_UVT_DEPTS_AR := "logo-uvt-depts.zip"
 LOGO_UVT_ADMIN_AR := "logo-uvt-admin.zip"
