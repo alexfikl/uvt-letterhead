@@ -528,7 +528,7 @@
 \NewDocumentCommand \uvtopenletter {} {
 \noindent \begin{tabular}{@{}l@{}}
     \@ifundefined{@fromname}
-        {\textbf{John Smith} \\}
+        {}
         {\textbf{\@fromname} \\}
     \@ifundefined{@fromposition}
         {}
@@ -583,7 +583,7 @@
     \hfill%
     \begin{tabular}[t]{@{}ll@{}}
         \GetTranslation{Name (First, Last)}: &
-            \@ifundefined{@fromname}{\textbf{John Smith}}{\textbf{\@fromname}} \\
+            \@ifundefined{@fromname}{}{\textbf{\@fromname}} \\
         \GetTranslation{Signature}: &
         \@ifundefined{@fromsignature}{}{
             \raisebox{\dimexpr10pt-\totalheight\relax}{
