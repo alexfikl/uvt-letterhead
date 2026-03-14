@@ -102,7 +102,7 @@ Help to add these is very appreciated!
 | fmt                   | Faculty of Music and Theater                       |
 | fpse                  | Faculty of Psychology and Educational Sciences     |
 | fsas                  | Faculty of Sociology and Social Work               |
-| fsgc                  | Faculty of Political Science and Communication     |
+| fsgc                  | Faculty of Political Sciences and Communication    |
 | info                  | Faculty of Computer Science                        |
 | flift                 | Faculty of Letters, History, Philosophy and Teology |
 | icam                  | ICAM                                               |
