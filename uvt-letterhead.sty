@@ -168,6 +168,12 @@
     pdfborder={0 0 0},
 }
 
+\AtBeginDocument{%
+    \@ifundefined{@fromname}{}{%
+        \hypersetup{pdfauthor=\@fromname}%
+    }%
+}
+
 % >>>
 
 % <<< commands
