@@ -195,7 +195,6 @@
     \def\@fromdept{\GetTranslation{#1}}
     \def\@fromdeptupper{\MakeUppercase{\GetTranslation{#1}}}}
 
-\NewDocumentCommand \fromuniversitylogo {m} {\def\@fromuniversitylogo{#1}}
 \NewDocumentCommand \fromdeptaddress{ m } {\def\@fromdeptaddress{#1}}
 \NewDocumentCommand \fromdeptphone  { m } {\def\@fromdeptphone{#1}}
 \NewDocumentCommand \fromdeptemail  { m } {\def\@fromdeptemail{#1}}
@@ -281,8 +280,6 @@
 % >>>
 
 % <<< supported departments
-
-\fromuniversitylogo{assets/uvt-logo.png}
 
 \define@key{uvtdept}{arte}[true]{%
     \fromdept{Faculty of Arts and Design}

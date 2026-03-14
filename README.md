@@ -75,7 +75,6 @@ the entries marked *header* will appear in the header, and the entries marked
 | `\fromweb{<text>}`                | Author website (letter) (optional)    |
 | `\fromoffice{<text>}`             | Author office / sub-department (header) (optional)|
 | `\fromuniversity{<text>}`         | University name                       |
-| `\fromuniversitylogo{<filename>}` | Logo for the university               |
 | `\fromdept{<text>}`               | Department name (header)              |
 | `\fromdeptlogo{<filename>}`       | Department logo (header or footer)    |
 | `\fromdeptaddress{<text>}`        | Department address (footer)           |
