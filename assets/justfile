@@ -106,6 +106,13 @@ logo_uvt_admin:
 
     @just retrieve_admin_logo "ICAM - PNG/Logo ICAM-10.png" "uvt-logo-icam.png"
     @just retrieve_admin_logo "CSUD - PNG/Logo CSUD-12.png" "uvt-logo-csud.png"
+    # @just retrieve_admin_logo "DRI - PNG/Logo DRI-11.png" "uvt-logo-dri.png"
+    # @just retrieve_admin_logo "DCSCU - PNG/Logo DCSCU-10.png" "uvt-logo-dcscu.png"
+    # magick '{{ WORKDIR_UVT_ADMIN}}/dmacdi-removebg-preview.png' \
+    #     -alpha on \
+    #     -colorspace gray \
+    #     -fill white -colorize 100 \
+    #     'uvt-logo-dmacdi.png'
 
 [doc("Remove all temporary files and directories")]
 clean:
