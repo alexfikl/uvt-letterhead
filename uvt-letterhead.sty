@@ -265,6 +265,12 @@
 \DeclareTranslationFallback{University Doctoral Studies Council}{University Doctoral Studies Council}
 \DeclareTranslation{Romanian}{University Doctoral Studies Council}{Consiliul Studiilor Universitare de Doctorat}
 
+\DeclareTranslationFallback{International Relations Department}{International Relations Department}
+\DeclareTranslation{Romanian}{International Relations Department}{Departamentul de Relații Internaționale}
+
+\DeclareTranslationFallback{Directorate for the Management of Research-Development-Innovation Activities}{Directorate for the Management of Research-Development-Innovation Activities}
+\DeclareTranslation{Romanian}{Directorate for the Management of Research-Development-Innovation Activities}{Direcția pentru Managementul Activităților de Cercetare-Dezvoltare-Inovare}
+
 \DeclareTranslationFallback{Phone}{Phone}
 \DeclareTranslation{Romanian}{Phone}{Telefon}
 
@@ -437,6 +443,26 @@
     \fromdeptweb{https://www.uvt.ro/cercetare/doctorat/csud}
 }
 
+\define@key{uvtdept}{dri}[true]{%
+    \fromdept{International Relations Department}
+    \fromuniversity{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo-dri.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, \GetTranslation{Romania}}
+    \fromdeptphone{+40 755-240-243}
+    \fromdeptemail{international@e-uvt.ro}
+    \fromdeptweb{https://ri.uvt.ro}
+}
+
+\define@key{uvtdept}{dmacdi}[true]{%
+    \fromdept{Directorate for the Management of Research-Development-Innovation Activities}
+    \fromuniversity{West University of Timișoara}
+    \fromdeptlogo{assets/uvt-logo-dmacdi.png}
+    \fromdeptaddress{Blvd. Vasile Pârvan 4, \\ 300223, Timișoara, \GetTranslation{Romania}}
+    \fromdeptphone{+40 256-592-150}
+    \fromdeptemail{research@e-uvt.ro}
+    \fromdeptweb{https://www.uvt.ro/cercetare}
+}
+
 \define@key{uvtdept}{uvt}[true]{%
     \fromuniversity{Ministry of Education}
     \fromdept{West University of Timișoara}
@@ -515,9 +541,9 @@
 }
 
 \fancyhead[R]{%
-    \begin{textblock*}{\paperwidth}(-0.7in, 0.7in)
-    {\small\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
-    {\small\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
+    \begin{textblock*}{\paperwidth}(-0.7in, 0.8in)
+    {\footnotesize\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
+    {\footnotesize\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
     \end{textblock*}
 }
 

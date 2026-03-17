@@ -107,6 +107,8 @@ Help to add these is very appreciated!
 | flift                 | Faculty of Letters, History, Philosophy and Teology |
 | icam                  | ICAM                                               |
 | csud                  | University Doctoral Studies Council                |
+| dri                   | University International Relations                 |
+| dmacdi                | University Research Management Department          |
 | uvt                   | Dean / Main office                                 |
 
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
