@@ -21,8 +21,7 @@ Templates in the same series:
 
 ## What it Looks Like
 
-[Full PDF](template.pdf)
-![template](images/template.png "template")
+![template](template.png "UVT Letterhead Template Example")
 
 ## How to Use It
 

@@ -24,7 +24,7 @@ preview: template
         -quality 100 \
         -flatten \
         -sharpen 0x1.0 \
-        images/template.png
+        template.png
 
 [doc("Update license text")]
 license:
@@ -43,5 +43,5 @@ clean:
 
 [doc("Remove all generated files")]
 purge: clean
-    rm -rf *.pdf images/template.png
+    rm -rf *.pdf template.png
     rm -rf *.zip
