@@ -4,7 +4,7 @@
 [![Open in Overleaf](https://img.shields.io/static/v1?label=LaTeX&message=Open-in-Overleaf&color=47a141&style=flat&logo=overleaf)](https://www.overleaf.com/docs?snip_uri=https://github.com/alexfikl/uvt-letterhead/archive/refs/heads/main.zip)
 
 > [!NOTE]
-> This template style is fairly complete and working well, but any feature requests
+> This template is fairly complete and working well, but any feature requests
 > or bug reports to improve it are **very welcome**! Issues regarding the style
 > and differences from the official version are most important.
 
