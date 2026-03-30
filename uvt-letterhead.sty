@@ -189,7 +189,6 @@
 \NewDocumentCommand \fromname       { m } {\def\@fromname{#1}}
 \NewDocumentCommand \fromemail      { m } {\def\@fromemail{#1}}
 \NewDocumentCommand \fromweb        { m } {\def\@fromweb{#1}}
-\NewDocumentCommand \fromoffice     { m } {\def\@fromoffice{#1}}
 
 % department
 % NOTE: this hackery for uppercasing is required to make the translation work
@@ -560,9 +559,6 @@
         {}
         {\@fromposition \\}
     \textit{\@fromdept} \\
-    \@ifundefined{@fromoffice}
-        {}
-        {\textit{\@fromoffice} \\}
     \textit{\@fromuniversity} \\
     \@ifundefined{@fromweb}
         {}
