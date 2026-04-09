@@ -41,6 +41,8 @@
 \DeclareBoolOption[false]{doublespacing}
 % helveticanow: enable loading default recommended font
 \DeclareBoolOption[false]{helveticanow}
+% colorize: use official colors for each university
+\DeclareBoolOption[false]{colorize}
 % department: name of the department
 \DeclareStringOption[uvt]{department}
 
@@ -292,6 +294,9 @@
 
 % <<< supported departments
 
+\colorlet{UVTDepartmentPrimary}{UVTDarkBlue}
+\colorlet{UVTDepartmentSecondary}{UVTSkyBlue}
+
 \define@key{uvtdept}{arte}[true]{%
     \fromdept{Faculty of Arts and Design}
     \fromuniversity{West University of Timișoara}
@@ -300,6 +305,9 @@
     \fromdeptphone{+40 256-592-900}
     \fromdeptemail{info@e-uvt.ro}
     \fromdeptweb{https://arte.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{159, 39, 114}
+    \definecolor{UVTDepartmentSecondary}{RGB}{235, 112, 150}
 }
 
 \define@key{uvtdept}{cbg}[true]{%
@@ -310,6 +318,9 @@
     \fromdeptphone{+40 256-592-622}
     \fromdeptemail{secretariat.cbg@e-uvt.ro}
     \fromdeptweb{https://cbg.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{22, 95, 48}
+    \definecolor{UVTDepartmentSecondary}{RGB}{139, 197, 64}
 }
 
 \define@key{uvtdept}{dppd}[true]{%
@@ -330,6 +341,9 @@
     \fromdeptphone{+40 256-592-400}
     \fromdeptemail{drept@e-uvt.ro}
     \fromdeptweb{https://drept.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{91, 73, 60}
+    \definecolor{UVTDepartmentSecondary}{RGB}{196, 154, 108}
 }
 
 \define@key{uvtdept}{feaa}[true]{%
@@ -340,6 +354,9 @@
     \fromdeptphone{+40 256-592-506}
     \fromdeptemail{secretariat.feaa@e-uvt.ro}
     \fromdeptweb{https://feaa.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{20, 49, 124}
+    \definecolor{UVTDepartmentSecondary}{RGB}{59, 103, 244}
 }
 
 \define@key{uvtdept}{fefs}[true]{%
@@ -350,6 +367,9 @@
     \fromdeptphone{+40 256-592-129}
     \fromdeptemail{secretariat.sport@e-uvt.ro}
     \fromdeptweb{https://sport.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{253, 120, 96}
+    \definecolor{UVTDepartmentSecondary}{RGB}{255, 205, 12}
 }
 
 \define@key{uvtdept}{ffm}[true]{%
@@ -360,6 +380,9 @@
     \fromdeptphone{+40 256-592-298}
     \fromdeptemail{secretariat.fizica@e-uvt.ro}
     \fromdeptweb{https://physics.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{67, 95, 110}
+    \definecolor{UVTDepartmentSecondary}{RGB}{116, 194, 222}
 }
 
 \define@key{uvtdept}{fmt}[true]{%
@@ -370,6 +393,10 @@
     \fromdeptphone{+40 256-592-650}
     \fromdeptemail{muzicateatru.secretariat@e-uvt.ro}
     \fromdeptweb{https://fmt.uvt.ro}
+
+    % NOTE: these are flipped in the official manual
+    \definecolor{UVTDepartmentPrimary}{RGB}{158, 28, 43}
+    \definecolor{UVTDepartmentSecondary}{RGB}{241, 92, 87}
 }
 
 \define@key{uvtdept}{fsas}[true]{%
@@ -380,6 +407,9 @@
     \fromdeptphone{+40 256-592-320}
     \fromdeptemail{secretariat.sociopsiho@e-uvt.ro}
     \fromdeptweb{https://fsp.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{9, 79, 84}
+    \definecolor{UVTDepartmentSecondary}{RGB}{137, 221, 161}
 }
 
 \define@key{uvtdept}{fpse}[true]{%
@@ -390,6 +420,9 @@
     \fromdeptphone{+40 256-592-320}
     \fromdeptemail{secretariat.sociopsiho@e-uvt.ro}
     \fromdeptweb{https://fsp.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{104, 1, 101}
+    \definecolor{UVTDepartmentSecondary}{RGB}{214, 35, 147}
 }
 
 \define@key{uvtdept}{info}[true]{%
@@ -400,6 +433,9 @@
     \fromdeptphone{+40 256-592-155}
     \fromdeptemail{secretariat.mateinfo@e-uvt.ro}
     \fromdeptweb{https://info.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{37, 118, 118}
+    \definecolor{UVTDepartmentSecondary}{RGB}{81, 196, 206}
 }
 
 \define@key{uvtdept}{flift}[true]{%
@@ -410,6 +446,9 @@
     \fromdeptphone{+40 256-592-164}
     \fromdeptemail{secretariat.litere@e-uvt.ro}
     \fromdeptweb{https://lift.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{204, 49, 18}
+    \definecolor{UVTDepartmentSecondary}{RGB}{255, 133, 0}
 }
 
 \define@key{uvtdept}{fsgc}[true]{%
@@ -420,6 +459,9 @@
     \fromdeptphone{+40 256-592-132}
     \fromdeptemail{secretariat.fsgc@e-uvt.ro}
     \fromdeptweb{https://fsgc.uvt.ro}
+
+    \definecolor{UVTDepartmentPrimary}{RGB}{53, 88, 176}
+    \definecolor{UVTDepartmentSecondary}{RGB}{90, 201, 237}
 }
 
 \define@key{uvtdept}{icam}[true]{%
@@ -478,6 +520,14 @@
 
 \setkeys{uvtdept}{\uvt@department}
 
+\ifuvt@colorize
+    \colorlet{UVTLetterPrimary}{UVTDepartmentPrimary}
+    \colorlet{UVTLetterSecondary}{UVTDepartmentSecondary}
+\else
+    \colorlet{UVTLetterPrimary}{UVTLetterDarkBlue}
+    \colorlet{UVTLetterSecondary}{UVTLetterDarkGray}
+\fi
+
 % >>>
 
 % <<< header / footer
@@ -494,7 +544,7 @@
 \parbox[t]{\textwidth}{%
     \parbox[t]{0.45\linewidth}{%
         \raggedright
-        \textcolor{UVTLetterDarkBlue}{%
+        \textcolor{UVTLetterPrimary}{%
             \textbf{\GetTranslation{West University of Timișoara}} \\
             \@fromdeptaddress
         }%
@@ -502,10 +552,10 @@
     \hfill
     \parbox[t]{0.45\linewidth}{%
         \raggedleft
-        \textcolor{UVTLetterDarkBlue}{%
+        \textcolor{UVTLetterPrimary}{%
             \textit{\GetTranslation{Phone}}: \@fromdeptphone \\
-            \textit{\GetTranslation{Email}}: \href{mailto:\@fromdeptemail}{\textcolor{UVTLetterDarkBlue}{\@fromdeptemail}} \\
-            \href{\@fromdeptweb}{\textcolor{UVTLetterDarkBlue}{\@fromdeptweb}}
+            \textit{\GetTranslation{Email}}: \href{mailto:\@fromdeptemail}{\textcolor{UVTLetterPrimary}{\@fromdeptemail}} \\
+            \href{\@fromdeptweb}{\textcolor{UVTLetterPrimary}{\@fromdeptweb}}
         }%
     }%
 }%
@@ -515,11 +565,11 @@
 \fancyhead[C]{
 \begin{tikzpicture}[remember picture, overlay]
 % left boxes
-\fill[UVTLetterDarkBlue]
+\fill[UVTLetterPrimary]
     ([xshift=0.66in, yshift=-1.21in]current page.north west)
     rectangle
     ([xshift=1.42in, yshift=0in]current page.north west);
-\fill[UVTLetterDarkGray]
+\fill[UVTLetterSecondary]
     ([xshift=0.66in, yshift=-1.21in]current page.north west)
     rectangle
     ([xshift=1.42in, yshift=-1.235in]current page.north west);
@@ -527,13 +577,10 @@
     {\includegraphics[width=0.76in]{\@fromdeptlogo}};
 
 % right boxes
-% \draw[UVTLetterDarkBlue, thick]
-%     ([xshift=-0.7in, yshift=-1.21in]current page.north east)
-%     -- ++(-5in, 0pt);
-\fill[UVTLetterDarkGray]
+\fill[UVTLetterSecondary]
     ([xshift=-0.7in, yshift=-1.21in]current page.north east)
     rectangle ++(-5in, -0.025in);
-\fill[UVTLetterDarkBlue]
+\fill[UVTLetterPrimary]
     ([xshift=-0.7in, yshift=-1.21in]current page.north east)
     rectangle ++(-5in, 0.025in);
 \end{tikzpicture}
@@ -542,7 +589,7 @@
 \fancyhead[R]{%
     \begin{textblock*}{\paperwidth}(-0.7in, 0.8in)
     {\footnotesize\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
-    {\footnotesize\sffamily\textcolor{UVTLetterDarkBlue}{\textbf{\@fromdeptupper}}}%
+    {\footnotesize\sffamily\textcolor{UVTLetterPrimary}{\textbf{\@fromdeptupper}}}%
     \end{textblock*}
 }
 

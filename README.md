@@ -36,6 +36,7 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | :-                                | :-                                    |
 | `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
 | `helveticanow`                    | Try to load the *Helvetica Now Display* fonts |
+| `colorize`                        | Use official department colors in header graphics |
 | `department=<value>`              | Use predefined department info (header and footer) |
 | `showframe`                       | [DEBUG] Shows a frame around page elements (margins, etc.) |
 | `layoutgrid`                      | [DEBUG] Adds a debug grid to check alignment  |
@@ -51,6 +52,10 @@ The standard branding colors are given below.
 | `UVTAccentWhite`                  | ![#FCF5F7](https://placehold.co/15x15/FCF5F7/FCF5F7.png) `(252, 245, 247)` |
 | `UVTWhite`                        | ![#FFFFFF](https://placehold.co/15x15/FFFFFF/FFFFFF.png) `(255, 255, 255)` |
 | `UVTYellow`                       | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)` |
+| `UVTDepartmentPrimary`            | Primary color used by the department |
+| `UVTDepartmentSecondary`          | Secondary color used by the department |
+| `UVTLetterPrimary`                | Primary color used in letterhead |
+| `UVTLetterSecondary`              | Secondary color used in letterhead |
 
 The following helper macros are defined for some standard functionality.
 
