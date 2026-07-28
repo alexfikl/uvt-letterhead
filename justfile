@@ -6,6 +6,7 @@ _default:
     @just --list
 
 # {{{ pdf
+
 [private]
 pdf basename:
     {{ TEXMK }} {{ TEXFLAGS }} {{ basename }}.tex
