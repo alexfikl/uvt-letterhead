@@ -34,6 +34,11 @@ preview: template
 [doc("Format source files")]
 format: yamlfmt mdformat justfmt
 
+[doc("Format tex files with badness")]
+texfmt:
+    badness format template.tex uvt-letterhead.sty
+    @echo -e "\e[1;32mbadness clean!\e[0m"
+
 [doc("Format YAML files with yamlfmt")]
 yamlfmt:
     yamlfmt -gitignore_excludes .
@@ -50,12 +55,17 @@ justfmt:
     @echo -e "\e[1;32mjust --fmt clean!\e[0m"
 
 [doc("Run all linting checks over the source code")]
-lint: typos
+lint: typos badness
 
 [doc("Check for typos (using typos)")]
 typos:
     typos --sort --files --config typos.toml
     @echo -e "\e[1;32mtypos clean!\e[0m"
+
+[doc("Lint using badness")]
+badness:
+    badness lint template.tex uvt-letterhead.sty
+    @echo -e "\e[1;32mbadness clean!\e[0m"
 
 # }}}
 
