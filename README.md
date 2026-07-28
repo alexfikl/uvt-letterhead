@@ -15,9 +15,10 @@ A full description of the various parts of the branding can be found in the
 [Official Manual](https://drive.google.com/file/d/1JLAV3fAorLa279_DEjc4P217ss7pFPwf/view?usp=drive_link).
 
 Templates in the same series:
-* [UVT Letterhead Template](https://github.com/alexfikl/uvt-letterhead)
-* [UVT Beamer Presentation Template](https://github.com/alexfikl/uvt-beamer)
-* [UVT Conference Poster Template](https://github.com/alexfikl/uvt-poster)
+
+- [UVT Letterhead Template](https://github.com/alexfikl/uvt-letterhead)
+- [UVT Beamer Presentation Template](https://github.com/alexfikl/uvt-beamer)
+- [UVT Conference Poster Template](https://github.com/alexfikl/uvt-poster)
 
 ## What it Looks Like
 
@@ -32,61 +33,61 @@ display one (usually at the end). Modify `template.tex` as appropriate and build
 
 The package defines the following options used as `\usepacakge[opts]{uvt-letterhead}`.
 
-| Option                            | Description                           |
-| :-                                | :-                                    |
-| `doublespacing`                   | Use double spaced paragraphs (default `onehalfspacing`) |
-| `helveticanow`                    | Try to load the *Helvetica Now Display* fonts |
-| `colorize`                        | Use official department colors in header graphics |
-| `department=<value>`              | Use predefined department info (header and footer) |
-| `showframe`                       | [DEBUG] Shows a frame around page elements (margins, etc.) |
-| `layoutgrid`                      | [DEBUG] Adds a debug grid to check alignment  |
+| Option               | Description                                                |
+| :------------------- | :--------------------------------------------------------- |
+| `doublespacing`      | Use double spaced paragraphs (default `onehalfspacing`)    |
+| `helveticanow`       | Try to load the *Helvetica Now Display* fonts              |
+| `colorize`           | Use official department colors in header graphics          |
+| `department=<value>` | Use predefined department info (header and footer)         |
+| `showframe`          | [DEBUG] Shows a frame around page elements (margins, etc.) |
+| `layoutgrid`         | [DEBUG] Adds a debug grid to check alignment               |
 
 The standard branding colors are given below.
 
-| Color                             | RGB
-| :-                                | :-
-| `UVTDarkBlue`                     | ![#033A89](https://placehold.co/15x15/033A89/033A89.png) `(3, 58, 137)`   |
-| `UVTSkyBlue`                      | ![#2588E7](https://placehold.co/15x15/2588E7/2588E7.png) `(37, 136, 231)` |
-| `UVTLightBlue`                    | ![#AED9F8](https://placehold.co/15x15/AED9F8/AED9F8.png) `(174, 217, 248)` |
-| `UVTBlack`                        | ![#121212](https://placehold.co/15x15/121212/121212.png) `(18, 18, 18)` |
-| `UVTAccentWhite`                  | ![#FCF5F7](https://placehold.co/15x15/FCF5F7/FCF5F7.png) `(252, 245, 247)` |
-| `UVTWhite`                        | ![#FFFFFF](https://placehold.co/15x15/FFFFFF/FFFFFF.png) `(255, 255, 255)` |
-| `UVTYellow`                       | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)` |
-| `UVTDepartmentPrimary`            | Primary color used by the department |
-| `UVTDepartmentSecondary`          | Secondary color used by the department |
-| `UVTLetterPrimary`                | Primary color used in letterhead |
-| `UVTLetterSecondary`              | Secondary color used in letterhead |
+| Color                    | RGB                                                                        |
+| :----------------------- | :------------------------------------------------------------------------- |
+| `UVTDarkBlue`            | ![#033A89](https://placehold.co/15x15/033A89/033A89.png) `(3, 58, 137)`    |
+| `UVTSkyBlue`             | ![#2588E7](https://placehold.co/15x15/2588E7/2588E7.png) `(37, 136, 231)`  |
+| `UVTLightBlue`           | ![#AED9F8](https://placehold.co/15x15/AED9F8/AED9F8.png) `(174, 217, 248)` |
+| `UVTBlack`               | ![#121212](https://placehold.co/15x15/121212/121212.png) `(18, 18, 18)`    |
+| `UVTAccentWhite`         | ![#FCF5F7](https://placehold.co/15x15/FCF5F7/FCF5F7.png) `(252, 245, 247)` |
+| `UVTWhite`               | ![#FFFFFF](https://placehold.co/15x15/FFFFFF/FFFFFF.png) `(255, 255, 255)` |
+| `UVTYellow`              | ![#E3AB23](https://placehold.co/15x15/E3AB23/E3AB23.png) `(228, 172, 36)`  |
+| `UVTDepartmentPrimary`   | Primary color used by the department                                       |
+| `UVTDepartmentSecondary` | Secondary color used by the department                                     |
+| `UVTLetterPrimary`       | Primary color used in letterhead                                           |
+| `UVTLetterSecondary`     | Secondary color used in letterhead                                         |
 
 The following helper macros are defined for some standard functionality.
 
-| Macro                             | Description                           |
-| :-                                | :-                                    |
-| `\uvtdate`                        | Current date formatted in `DD.MM.YYYY`|
-| `\uvtopenletter`                  | Adds a standard letter opening on the right |
-| `\uvtcloseletter`                 | Adds a standard letter signature on the left |
-| `\uvtcloseform`                   | Adds date on the left and name on the right |
+| Macro             | Description                                  |
+| :---------------- | :------------------------------------------- |
+| `\uvtdate`        | Current date formatted in `DD.MM.YYYY`       |
+| `\uvtopenletter`  | Adds a standard letter opening on the right  |
+| `\uvtcloseletter` | Adds a standard letter signature on the left |
+| `\uvtcloseform`   | Adds date on the left and name on the right  |
 
 The following commands are available to define the department, author, etc.
 The entries marked *letter* refer to the letter opening or closing statement,
 the entries marked *header* will appear in the header, and the entries marked
 *footer* will appear in the footer.
 
-| Command                           | Description                           |
-| :-                                | :-                                    |
-| `\fromdate{<text>}`               | Date (default `\today`)               |
-| `\closing{<text>}`                | Closing text (e.g. `Sincerely`) (optional)|
-| `\fromname{<text>}`               | Author name (letter)                  |
-| `\fromsignature{<filename>}`      | Signature file (letter) (optional)    |
-| `\fromposition{<text>}`           | Author position (letter) (optional)   |
-| `\fromemail{<text>}`              | Author email (letter) (optional)      |
-| `\fromweb{<text>}`                | Author website (letter) (optional)    |
-| `\fromuniversity{<text>}`         | University name                       |
-| `\fromdept{<text>}`               | Department name (header)              |
-| `\fromdeptlogo{<filename>}`       | Department logo (header or footer)    |
-| `\fromdeptaddress{<text>}`        | Department address (footer)           |
-| `\fromdeptphone{<text>}`          | Department phone (footer)             |
-| `\fromdeptemail{<text>}`          | Department email (footer)             |
-| `\fromdeptweb{<text>}`            | Department website (footer)           |
+| Command                      | Description                                |
+| :--------------------------- | :----------------------------------------- |
+| `\fromdate{<text>}`          | Date (default `\today`)                    |
+| `\closing{<text>}`           | Closing text (e.g. `Sincerely`) (optional) |
+| `\fromname{<text>}`          | Author name (letter)                       |
+| `\fromsignature{<filename>}` | Signature file (letter) (optional)         |
+| `\fromposition{<text>}`      | Author position (letter) (optional)        |
+| `\fromemail{<text>}`         | Author email (letter) (optional)           |
+| `\fromweb{<text>}`           | Author website (letter) (optional)         |
+| `\fromuniversity{<text>}`    | University name                            |
+| `\fromdept{<text>}`          | Department name (header)                   |
+| `\fromdeptlogo{<filename>}`  | Department logo (header or footer)         |
+| `\fromdeptaddress{<text>}`   | Department address (footer)                |
+| `\fromdeptphone{<text>}`     | Department phone (footer)                  |
+| `\fromdeptemail{<text>}`     | Department email (footer)                  |
+| `\fromdeptweb{<text>}`       | Department website (footer)                |
 
 The `\fromdept*` commands can be used to overwrite department information set
 using `department=name` or to define custom departments that are not yet included.
@@ -94,28 +95,29 @@ The following departments are currently defined. Notably, this does not include
 any of the administrative offices that also have logos in the official branding.
 Help to add these is very appreciated!
 
-| Keyword               | Department                                         |
-| :-                    | :-                                                 |
-| arte                  | Faculty of Arts and Design                         |
-| cbg                   | Faculty of Chemistry, Biology, Geography           |
-| drept                 | Faculty of Law                                     |
-| feaa                  | Faculty of Economy and Business Administration     |
-| fefs                  | Faculty of Sports                                  |
-| ffm                   | Faculty of Physics and Mathematics                 |
-| fmt                   | Faculty of Music and Theater                       |
-| fpse                  | Faculty of Psychology and Educational Sciences     |
-| fsas                  | Faculty of Sociology and Social Work               |
-| fsgc                  | Faculty of Political Sciences and Communication    |
-| info                  | Faculty of Computer Science                        |
-| flift                 | Faculty of Letters, History, Philosophy and Teology |
-| icam                  | ICAM                                               |
-| csud                  | University Doctoral Studies Council                |
-| dri                   | University International Relations                 |
-| dmacdi                | University Research Management Department          |
-| uvt                   | Dean / Main office                                 |
+| Keyword | Department                                          |
+| :------ | :-------------------------------------------------- |
+| arte    | Faculty of Arts and Design                          |
+| cbg     | Faculty of Chemistry, Biology, Geography            |
+| drept   | Faculty of Law                                      |
+| feaa    | Faculty of Economy and Business Administration      |
+| fefs    | Faculty of Sports                                   |
+| ffm     | Faculty of Physics and Mathematics                  |
+| fmt     | Faculty of Music and Theater                        |
+| fpse    | Faculty of Psychology and Educational Sciences      |
+| fsas    | Faculty of Sociology and Social Work                |
+| fsgc    | Faculty of Political Sciences and Communication     |
+| info    | Faculty of Computer Science                         |
+| flift   | Faculty of Letters, History, Philosophy and Teology |
+| icam    | ICAM                                                |
+| csud    | University Doctoral Studies Council                 |
+| dri     | University International Relations                  |
+| dmacdi  | University Research Management Department           |
+| uvt     | Dean / Main office                                  |
 
 Their logos are all expected to live in `assets/uvt-logo-<dept>.png`, but can be
 easily overwritten using
+
 ```latex
 \fromdeptlogo{figures/my-dept-logo.png}
 ```
@@ -149,6 +151,7 @@ and many others. A nice font will always make your letter look nicer!
 The class provides translations to English and Romanian for all the default
 strings (faculty names and such). This can be turned on by using the Babel package
 as follows
+
 ```latex
 \usepackage[romanian]{babel}
 \selectlanguage{romanian}
