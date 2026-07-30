@@ -10,7 +10,6 @@ _default:
 [private]
 pdf basename:
     {{ TEXMK }} {{ TEXFLAGS }} {{ basename }}.tex
-    {{ TEXMK }} {{ TEXFLAGS }} {{ basename }}.tex
     @cp {{ TEXOUTDIR }}/{{ basename }}.pdf .
 
 [doc("Build template example")]
@@ -37,7 +36,9 @@ format: yamlfmt mdformat justfmt
 
 [doc("Format tex files with badness")]
 texfmt:
-    badness format template.tex uvt-letterhead.sty
+    badness format \
+        --wrap stable --math-wrap preserve --indent-width 4 \
+        template.tex uvt-letterhead.sty
     @echo -e "\e[1;32mbadness clean!\e[0m"
 
 [doc("Format YAML files with yamlfmt")]
