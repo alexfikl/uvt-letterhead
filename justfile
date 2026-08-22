@@ -71,9 +71,7 @@ badness:
 
 [doc("Check PDF/UA2 compliance with verapdf")]
 ua: template
-    verapdf \
-        --flavour 4f --flavour ua2 --format html --progress \
-        template.pdf > template.html
+    verapdf --flavor 4f --flavor ua2 --format html --progress template.pdf > template.html
     @echo -e "\e[1;32mGenerated 'template.html'!\e[0m"
 
 # }}}
