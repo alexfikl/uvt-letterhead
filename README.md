@@ -126,6 +126,35 @@ Note that the logos are expected to be square with a white on transparent backgr
 Most departments have logos in such a format, but we can always modify them and
 include them here, if necessary.
 
+## Tagging (PDF/UA2 Compliance)
+
+By default, the current template uses the new LaTeX Tagging infrastructure to
+produce PDFs that are a first step towards PDF/UA2 (Universal Accessibility)
+standard compliance. We currently pass the checks from
+[veraPDF](https://verapdf.org/), but this is not sufficient for full
+compliance. The tagged build requires a pretty modern LaTeX toolchain:
+
+- **TeXLive 2025+**, the newer the better (Overleaf has TeXLive 2026).
+- **LuaLaTeX**. PDFLaTeX and XeLaTeX cannot produce the required tagged PDFs.
+  Note that PDFLaTeX can produce PDF/UA2 documents, but they do not pass the
+  `veraPDF` checks at this point.
+
+Other things to keep in mind when using tagged PDFs:
+
+- Many common packages are not compatible with tagging. See the
+  [official Tagging Status page](https://latex3.github.io/tagging-project/tagging-status/)
+  for the compatibility status for most packages. Note that incompatible
+  packages will still work most of the time, but they will not produce PDFs that
+  can actually be used by screen readers or other accessibility software.
+- There are strict requirements around figures and tables that need to be followed.
+  See the [official documentation](https://latex3.github.io/tagging-project/documentation/usage-instructions)
+  and [Overleaf's documentation](https://docs.overleaf.com/writing-and-editing/creating-accessible-pdfs)
+  for more information on the various problems.
+
+The tagged build should be easy to disable. You must delete the `\DocumentMetadata`
+command at the top of the template files and remove the `tagged` argument
+from the document class command.
+
 ## Fonts
 
 Note that the Official Manual recommends the [Helvetica Display
