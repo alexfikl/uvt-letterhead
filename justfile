@@ -69,6 +69,13 @@ badness:
     badness lint template.tex uvt-letterhead.sty
     @echo -e "\e[1;32mbadness clean!\e[0m"
 
+[doc("Check PDF/UA2 compliance with verapdf")]
+ua: template
+    verapdf \
+        --flavour 4f --flavour ua2 --format html --progress \
+        template.pdf > template.html
+    @echo -e "\e[1;32mGenerated 'template.html'!\e[0m"
+
 # }}}
 
 # {{{ develop
