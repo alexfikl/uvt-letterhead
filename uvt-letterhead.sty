@@ -57,6 +57,13 @@
 \DeclareDefaultOption{\PackageWarning{uvt-letterhead}{Unknown option `\CurrentOption`}}
 \ProcessKeyvalOptions*
 
+% warn about tagging before we start
+\ifuvt@tagged
+    \ifpdftex
+        \PackageWarning{uvt-letterhead}{The 'tagged' option requires a modern LuaLaTeX (TeXLive 2025+)}
+    \fi
+\fi
+
 % >>>
 
 % <<< packages
@@ -534,6 +541,13 @@
 
 % <<< header / footer
 
+% mark the header / footer properly when tagged
+\ifuvt@tagged
+    \tagpdfsetup{page/tag-header-footer}
+\fi
+
+\setlength{\headheight}{14pt}
+
 \pagestyle{fancy}
 
 \renewcommand{\headrule}{}
@@ -576,7 +590,11 @@
     rectangle
     ([xshift=1.42in, yshift=-1.235in]current page.north west);
 \node at ([xshift=1.04in, yshift=-0.75in]current page.north west)
-    {\includegraphics[width=0.76in]{\@fromdeptlogo}};
+    {\ifuvt@tagged
+        \includegraphics[width=0.76in, tag=artifact]{\@fromdeptlogo}
+    \else
+        \includegraphics[width=0.76in]{\@fromdeptlogo}
+    \fi};
 
 % right boxes
 \fill[UVTLetterSecondary]
