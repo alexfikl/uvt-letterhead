@@ -39,6 +39,7 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | `helveticanow`       | Try to load the *Helvetica Now Display* fonts              |
 | `colorize`           | Use official department colors in header graphics          |
 | `department=<value>` | Use predefined department info (header and footer)         |
+| `tagged`             | Enable tagging in the template elements                    |
 | `showframe`          | [DEBUG] Shows a frame around page elements (margins, etc.) |
 | `layoutgrid`         | [DEBUG] Adds a debug grid to check alignment               |
 
