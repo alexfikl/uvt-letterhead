@@ -43,6 +43,8 @@
 \DeclareBoolOption[false]{helveticanow}
 % colorize: use official colors for each university
 \DeclareBoolOption[false]{colorize}
+% enable tagging / accessibility functionality for PDF/UA-2
+\DeclareBoolOption[false]{tagged}
 % department: name of the department
 \DeclareStringOption[uvt]{department}
 
@@ -598,6 +600,7 @@
 % <<< opening
 
 \NewDocumentCommand \uvtopenletter {} {
+\ifuvt@tagged\tagpdfsetup{table/tagging=presentation}\fi
 \noindent \begin{tabular}{@{}l@{}}
     \@ifundefined{@fromname}
         {}
@@ -645,6 +648,7 @@
 }
 
 \NewDocumentCommand \uvtcloseform {} {
+    \ifuvt@tagged\tagpdfsetup{table/tagging=presentation}\fi
     \noindent \begin{tabular}[t]{@{}l@{}}
     \GetTranslation{Date}: \\
     \textbf{\uvtdate}
