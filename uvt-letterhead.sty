@@ -183,6 +183,12 @@
     \@ifundefined{@fromname}{}{%
         \hypersetup{pdfauthor=\@fromname}%
     }%
+    \@ifundefined{@fromdept}{}{%
+        % NOTE: \@fromdept wraps the non-expandable \GetTranslation, so expand
+        % it first (this also makes the title follow the active babel language)
+        \edef\uvt@title{\@fromdept}%
+        \hypersetup{pdftitle=UVT Letter -- \uvt@title}%
+    }%
 }
 
 % >>>
