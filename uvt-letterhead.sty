@@ -8,6 +8,16 @@
 %
 % Usage:
 %   \usepackage[department=<dept>]{uvt-letterhead}
+%   \usepackage[department=<dept>, tagged]{uvt-letterhead}
+%
+% Tagging / accessibility (the 'tagged' option):
+%   To produce a PDF/UA-2 tagged PDF, compile with LuaLaTeX (TeX Live 2025+),
+%   load the package with the 'tagged' option, and add, before \documentclass,
+%
+%     \DocumentMetadata{pdfstandard=ua-2, tagging=on}
+%
+%   See https://latex3.github.io/tagging-project/documentation/usage-instructions
+%   for details. Without these the 'tagged' option has no effect.
 %
 % References:
 %   Colors and Logos: https://dci.uvt.ro/identitate-vizuala
@@ -60,7 +70,7 @@
 % warn about tagging before we start
 \ifuvt@tagged
     \ifpdftex
-        \PackageWarning{uvt-letterhead}{The 'tagged' option requires a modern LuaLaTeX (TeXLive 2025+)}
+        \PackageWarning{uvt-letterhead}{The 'tagged' option has no effect with pdfLaTeX. Compile with LuaLaTeX (TeX Live 2025+) to produce a tagged PDF}
     \fi
 \fi
 
@@ -612,6 +622,9 @@
 \end{tikzpicture}
 }
 
+% NOTE: textpos is listed as currently-incompatible with PDF tagging, but it is
+% only used inside the header here, which tagpdf marks as a Pagination artifact,
+% so it does not affect the tag structure (verified with verapdf).
 \fancyhead[R]{%
     \begin{textblock*}{\paperwidth}(-0.7in, 0.8in)
     {\footnotesize\sffamily\textcolor{UVTLetterDarkGray}{\@fromuniversityupper}} \\
