@@ -1,0 +1,130 @@
+<style>
+/* SPDX-FileCopyrightText: 2022-2025 Alexandru Fikl <alexfikl@gmail.com> */
+/* SPDX-License-Identifier: CC-BY-4.0 */
+
+/* Stylesheet embedded in the tagged UVT letterhead PDF (see uvt-letterhead.sty)
+ * and picked up automatically by HTML converters such as ngpdf.com. It targets
+ * the data-pdf-se-type structure these converters emit so that the main text of
+ * the letter looks closer to the printed version. */
+
+:root {
+  --uvt-black: #121212;
+  --uvt-white: #ffffff;
+  --uvt-font: "Helvetica Now Display", "TeX Gyre Heros", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--uvt-white);
+  color: var(--uvt-black);
+  font-family: var(--uvt-font);
+  font-size: 14pt;
+  line-height: 1.5;               /* onehalfspacing */
+}
+
+/* A4-like page with the same margins as the LaTeX template */
+[data-pdf-se-type="Document"] {
+  width: 100%;
+  max-width: 21cm;
+  margin: 0 auto;
+  padding: 2.54cm;
+}
+
+/* Hide the empty spacer paragraphs emitted between blocks. Browsers
+ * auto-close a <p> when a <table> starts inside it, so the wrapper and
+ * spacer paragraphs around the tables become empty and must be removed
+ * (they may contain only whitespace, so a plain :empty is not enough). */
+p[data-pdf-se-type="P"]:empty,
+[data-pdf-se-type-original="LetterOpen"] > p,
+[data-pdf-se-type-original="LetterForm"] > p {
+  display: none;
+}
+
+/* Justify the letter body text */
+p[data-pdf-se-type="P"]:is([class*="justify"], [style*="justify"]) {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* The letter blocks are flex rows so alignment is justify-based */
+[data-pdf-se-type-original="LetterOpen"] {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 0 0 1.5em;
+}
+
+[data-pdf-se-type-original="LetterForm"] {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 4em;
+}
+
+/* Closing text block */
+[data-pdf-se-type-original="LetterClosing"] {
+  margin-top: 2em;
+}
+
+[data-pdf-se-type-original="LetterClosing"] p {
+  margin: 0 0 0.25em;
+}
+
+/* Tables inside the letter blocks */
+[data-pdf-se-type-original="LetterOpen"] table,
+[data-pdf-se-type-original="LetterForm"] table {
+  border-collapse: collapse;
+}
+
+[data-pdf-se-type-original="LetterOpen"] td,
+[data-pdf-se-type-original="LetterForm"] td {
+  padding: 0.15em 0.5em 0.15em 0;
+  vertical-align: middle;
+  text-align: left;
+}
+
+/* Author name and the closing-form date */
+[data-pdf-se-type-original="LetterName"],
+[data-pdf-se-type-original="LetterDate"] {
+  font-weight: 700;
+}
+
+/* Department and university */
+[data-pdf-se-type-original="LetterDepartment"],
+[data-pdf-se-type-original="LetterUniversity"] {
+  font-style: italic;
+}
+
+/* Letter body paragraph spacing */
+[data-pdf-se-type="Part"] > p[data-pdf-se-type="P"] {
+  margin: 0 0 0.75em;
+}
+
+/* Signature image */
+[data-pdf-se-type-original="LetterSignature"] figure {
+  margin: 0;
+}
+
+[data-pdf-se-type-original="LetterSignature"] img {
+  max-height: 2.5em;
+  width: auto;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+</style>

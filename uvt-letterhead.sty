@@ -203,6 +203,37 @@
 
 % >>>
 
+% <<< tagging
+
+% declare the custom roles used by the letter structure
+\ifuvt@tagged
+    \ifdefined\tagpdfstructbegin
+        \let\tagstructbegin\tagpdfstructbegin
+        \let\tagstructend\tagpdfstructend
+    \fi
+
+    \tagpdfsetup { role/new-tag = { LetterOpen/Div } }
+    \tagpdfsetup { role/new-tag = { LetterClosing/Div } }
+    \tagpdfsetup { role/new-tag = { LetterForm/Div } }
+    \tagpdfsetup { role/new-tag = { LetterName/Div } }
+    \tagpdfsetup { role/new-tag = { LetterDepartment/Div } }
+    \tagpdfsetup { role/new-tag = { LetterUniversity/Div } }
+    \tagpdfsetup { role/new-tag = { LetterDate/Div } }
+    \tagpdfsetup { role/new-tag = { LetterSignature/Div } }
+
+    % attach a stylesheet to the tagged PDF so that HTML conversions look pretty
+    \IfFileExists{assets/uvt-letterhead.css}{%
+        \tagpdfsetup{css-list-add = {assets/uvt-letterhead.css}}%
+    }{%
+        \PackageWarning{uvt-letterhead}{Cannot find `assets/uvt-letterhead.css`. HTML conversions of the tagged PDF will not be styled}%
+    }%
+\else
+    \providecommand{\tagstructbegin}[1]{}
+    \providecommand{\tagstructend}{}
+\fi
+
+% >>>
+
 % <<< commands
 
 % top
@@ -637,16 +668,17 @@
 % <<< opening
 
 \NewDocumentCommand \uvtopenletter {} {
+\tagstructbegin{tag=LetterOpen}
 \ifuvt@tagged\tagpdfsetup{table/tagging=presentation}\fi
-\noindent \begin{tabular}{@{}l@{}}
+\noindent \hfill \begin{tabular}{@{}l@{}}
     \@ifundefined{@fromname}
         {}
-        {\textbf{\@fromname} \\}
+        {\tagstructbegin{tag=LetterName}\textbf{\@fromname}\tagstructend \\}
     \@ifundefined{@fromposition}
         {}
         {\@fromposition \\}
-    \textit{\@fromdept} \\
-    \textit{\@fromuniversity} \\
+    \tagstructbegin{tag=LetterDepartment}\textit{\@fromdept}\tagstructend \\
+    \tagstructbegin{tag=LetterUniversity}\textit{\@fromuniversity}\tagstructend \\
     \@ifundefined{@fromweb}
         {}
         {\textit{\GetTranslation{Website}}: \href{\@fromweb}{\texttt{\@fromweb}} \\}
@@ -657,6 +689,7 @@
         {}
         {\\ \@fromdate \\}
 \end{tabular}
+\tagstructend
 }
 
 % >>>
@@ -666,6 +699,7 @@
 \NewDocumentCommand \uvtdate {} {\ifnum\the\day<10 0\fi\the\day.\ifnum\the\month<10 0\fi\the\month.\the\year}
 
 \NewDocumentCommand \uvtcloseletter {} {
+\tagstructbegin{tag=LetterClosing}
     \@ifundefined{@closing}
         {}
         {\noindent \@closing, \medskip}
@@ -682,24 +716,30 @@
         {\noindent \textit{\GetTranslation{Email}}: \href{mailto:\@fromemail}{\@fromemail} \\}
     \@ifundefined{@fromweb}
         {}{\noindent \textit{\GetTranslation{Website}}: \href{\@fromweb}{\@fromweb}}
+\tagstructend
 }
 
 \NewDocumentCommand \uvtcloseform {} {
+\tagstructbegin{tag=LetterForm}
     \ifuvt@tagged\tagpdfsetup{table/tagging=presentation}\fi
     \noindent \begin{tabular}[t]{@{}l@{}}
     \GetTranslation{Date}: \\
-    \textbf{\uvtdate}
+    \tagstructbegin{tag=LetterDate}\textbf{\uvtdate}\tagstructend
     \end{tabular}%
     \hfill%
     \begin{tabular}[t]{@{}ll@{}}
         \GetTranslation{Name (First, Last)}: &
-            \@ifundefined{@fromname}{}{\textbf{\@fromname}} \\
+            \@ifundefined{@fromname}{}{\tagstructbegin{tag=LetterName}\textbf{\@fromname}\tagstructend} \\
         \GetTranslation{Signature}: &
         \@ifundefined{@fromsignature}{}{
+            \tagstructbegin{tag=LetterSignature}
             \raisebox{\dimexpr10pt-\totalheight\relax}{
             \@fromsignature
-        }}
+            }
+            \tagstructend
+        }
     \end{tabular}
+\tagstructend
 }
 
 % >>>

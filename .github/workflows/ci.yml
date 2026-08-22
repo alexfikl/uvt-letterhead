@@ -49,4 +49,3 @@ jobs:
           root_file: template.tex
           texlive_version: ${{ matrix.texlive_version }}
           latexmk_use_lualatex: ${{ matrix.engine == 'lualatex' }}
-
