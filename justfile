@@ -70,9 +70,18 @@ badness:
     @echo -e "\e[1;32mbadness clean!\e[0m"
 
 [doc("Check PDF/UA2 compliance with verapdf")]
-ua: template
-    verapdf --flavor 4f --flavor ua2 --format html --progress template.pdf > template.html
-    @echo -e "\e[1;32mGenerated 'template.html'!\e[0m"
+ua format="html":
+    verapdf --flavor ua2 --progress \
+        --format {{ format }} template.pdf > template-pdf-ua-2.{{ format }}
+    @echo -e "\e[1;32mGenerated 'template-pdf-ua-2.{{ format }}'!\e[0m"
+
+[doc("Check WCAG 2.2 compliance with verapdf")]
+wcag format="html":
+    curl -o .WCAG-2-2-Complete-PDF20.xml \
+        'https://raw.githubusercontent.com/veraPDF/veraPDF-validation-profiles/refs/heads/integration/PDF_UA/WCAG-2-2-Complete-PDF20.xml'
+    verapdf --profile .WCAG-2-2-Complete-PDF20.xml --progress \
+        --format {{ format }} template.pdf > template-wcag-2-2.{{ format }}
+    @echo -e "\e[1;32mGenerated 'template-pdf-wcag-2-2.{{ format }}'!\e[0m"
 
 # }}}
 
