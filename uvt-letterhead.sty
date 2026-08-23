@@ -600,9 +600,13 @@
 
 % <<< header / footer
 
-% mark the header / footer properly when tagged
+% mark the header / footer properly when tagged. The page/tag-header-footer key
+% only exists in tagpdf v0.99s+ (2025-06-27); older releases already mark the
+% header and footer as artifacts by default, so nothing is needed there.
 \ifuvt@tagged
-    \tagpdfsetup{page/tag-header-footer}
+    \IfPackageAtLeastTF{tagpdf}{2025/06/27}
+        {\tagpdfsetup{page/tag-header-footer}}
+        {}
 \fi
 
 \setlength{\headheight}{14pt}
