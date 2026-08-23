@@ -41,8 +41,8 @@ body {
  * spacer paragraphs around the tables become empty and must be removed
  * (they may contain only whitespace, so a plain :empty is not enough). */
 p[data-pdf-se-type="P"]:empty,
-[data-pdf-se-type-original="LetterOpen"] > p,
-[data-pdf-se-type-original="LetterForm"] > p {
+[data-pdf-se-type-original="uvt-letterhead-open"] > p,
+[data-pdf-se-type-original="uvt-letterhead-form"] > p {
   display: none;
 }
 
@@ -53,14 +53,14 @@ p[data-pdf-se-type="P"]:is([class*="justify"], [style*="justify"]) {
 }
 
 /* The letter blocks are flex rows so alignment is justify-based */
-[data-pdf-se-type-original="LetterOpen"] {
+[data-pdf-se-type-original="uvt-letterhead-open"] {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
   margin: 0 0 1.5em;
 }
 
-[data-pdf-se-type-original="LetterForm"] {
+[data-pdf-se-type-original="uvt-letterhead-form"] {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -68,36 +68,36 @@ p[data-pdf-se-type="P"]:is([class*="justify"], [style*="justify"]) {
 }
 
 /* Closing text block */
-[data-pdf-se-type-original="LetterClosing"] {
+[data-pdf-se-type-original="uvt-letterhead-closing"] {
   margin-top: 2em;
 }
 
-[data-pdf-se-type-original="LetterClosing"] p {
+[data-pdf-se-type-original="uvt-letterhead-closing"] p {
   margin: 0 0 0.25em;
 }
 
 /* Tables inside the letter blocks */
-[data-pdf-se-type-original="LetterOpen"] table,
-[data-pdf-se-type-original="LetterForm"] table {
+[data-pdf-se-type-original="uvt-letterhead-open"] table,
+[data-pdf-se-type-original="uvt-letterhead-form"] table {
   border-collapse: collapse;
 }
 
-[data-pdf-se-type-original="LetterOpen"] td,
-[data-pdf-se-type-original="LetterForm"] td {
+[data-pdf-se-type-original="uvt-letterhead-open"] td,
+[data-pdf-se-type-original="uvt-letterhead-form"] td {
   padding: 0.15em 0.5em 0.15em 0;
   vertical-align: middle;
   text-align: left;
 }
 
 /* Author name and the closing-form date */
-[data-pdf-se-type-original="LetterName"],
-[data-pdf-se-type-original="LetterDate"] {
+[data-pdf-se-type-original="uvt-letterhead-from-name"],
+[data-pdf-se-type-original="uvt-letterhead-date"] {
   font-weight: 700;
 }
 
 /* Department and university */
-[data-pdf-se-type-original="LetterDepartment"],
-[data-pdf-se-type-original="LetterUniversity"] {
+[data-pdf-se-type-original="uvt-letterhead-from-dept"],
+[data-pdf-se-type-original="uvt-letterhead-from-university"] {
   font-style: italic;
 }
 
@@ -107,11 +107,11 @@ p[data-pdf-se-type="P"]:is([class*="justify"], [style*="justify"]) {
 }
 
 /* Signature image */
-[data-pdf-se-type-original="LetterSignature"] figure {
+[data-pdf-se-type-original="uvt-letterhead-signature"] figure {
   margin: 0;
 }
 
-[data-pdf-se-type-original="LetterSignature"] img {
+[data-pdf-se-type-original="uvt-letterhead-signature"] img {
   max-height: 2.5em;
 }
 
