@@ -38,8 +38,8 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | `doublespacing`      | Use double spaced paragraphs (default `onehalfspacing`)    |
 | `helveticanow`       | Try to load the *Helvetica Now Display* fonts              |
 | `colorize`           | Use official department colors in header graphics          |
+| `tagged`             | Enable accessibility tagged template elements              |
 | `department=<value>` | Use predefined department info (header and footer)         |
-| `tagged`             | Enable tagging in the template elements                    |
 | `showframe`          | [DEBUG] Shows a frame around page elements (margins, etc.) |
 | `layoutgrid`         | [DEBUG] Adds a debug grid to check alignment               |
 
@@ -127,17 +127,19 @@ Note that the logos are expected to be square with a white on transparent backgr
 Most departments have logos in such a format, but we can always modify them and
 include them here, if necessary.
 
-## Tagging (PDF/UA2 Compliance)
+## Tagging (PDF/UA-2 Compliance)
 
-By default, the current template uses the new LaTeX Tagging infrastructure to
-produce PDFs that are a first step towards PDF/UA2 (Universal Accessibility)
-standard compliance. We currently pass the checks from
-[veraPDF](https://verapdf.org/), but this is not sufficient for full
-compliance. The tagged build requires a pretty modern LaTeX toolchain:
+By default, the current template uses the new [LaTeX
+Tagging](https://latex3.github.io/tagging-project/) infrastructure to produce
+more accessible PDFs (using the PDF/UA-2 standard for Universal Accessibility).
+We currently pass the checks from [veraPDF](https://verapdf.org/), but this is
+not sufficient for full compliance (i.e. some aspects cannot be checked
+automatically, such as image contrast). The accessible build requires a pretty
+modern LaTeX toolchain:
 
 - **TeXLive 2025+**, the newer the better (Overleaf has TeXLive 2026).
 - **LuaLaTeX**. PDFLaTeX and XeLaTeX cannot produce the required tagged PDFs.
-  Note that PDFLaTeX can produce PDF/UA2 documents, but they do not pass the
+  Note that PDFLaTeX can produce PDF/UA-2 documents, but they do not pass the
   `veraPDF` checks at this point.
 
 Other things to keep in mind when using tagged PDFs:
@@ -152,9 +154,9 @@ Other things to keep in mind when using tagged PDFs:
   and [Overleaf's documentation](https://docs.overleaf.com/writing-and-editing/creating-accessible-pdfs)
   for more information on the various problems.
 
-The tagged build should be easy to disable. You must delete the `\DocumentMetadata`
-command at the top of the template files and remove the `tagged` argument
-from the document class command.
+The tagged build should be easy to disable. You can just delete the
+`\DocumentMetadata` command at the top of the template files and remove the
+`tagged` argument from the document class command.
 
 ## Fonts
 
