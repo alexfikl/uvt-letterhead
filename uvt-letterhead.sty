@@ -230,7 +230,19 @@
 \else
     \providecommand{\tagstructbegin}[1]{}
     \providecommand{\tagstructend}{}
+    \providecommand{\tagmcbegin}[1]{}
+    \providecommand{\tagmcend}{}
 \fi
+
+% NOTE: wrap tags so that they correctly work inside tables. It seems like
+% without this, the actual text doesn't get wrapped in the <span> or whatever.
+\NewDocumentCommand \uvt@tabletag { m m } {
+    \tagstructbegin{tag=#1}
+    \tagmcbegin{}
+    #2
+    \tagmcend
+    \tagstructend
+}
 
 % >>>
 
@@ -673,12 +685,12 @@
 \noindent \hfill \begin{tabular}{@{}l@{}}
     \@ifundefined{@fromname}
         {}
-        {\tagstructbegin{tag=LetterName}\textbf{\@fromname}\tagstructend \\}
+        {\uvt@tabletag{LetterName}{\textbf{\@fromname}} \\}
     \@ifundefined{@fromposition}
         {}
         {\@fromposition \\}
-    \tagstructbegin{tag=LetterDepartment}\textit{\@fromdept}\tagstructend \\
-    \tagstructbegin{tag=LetterUniversity}\textit{\@fromuniversity}\tagstructend \\
+    \uvt@tabletag{LetterDepartment}{\textit{\@fromdept}} \\
+    \uvt@tabletag{LetterUniversity}{\textit{\@fromuniversity}} \\
     \@ifundefined{@fromweb}
         {}
         {\textit{\GetTranslation{Website}}: \href{\@fromweb}{\texttt{\@fromweb}} \\}
@@ -724,19 +736,15 @@
     \ifuvt@tagged\tagpdfsetup{table/tagging=presentation}\fi
     \noindent \begin{tabular}[t]{@{}l@{}}
     \GetTranslation{Date}: \\
-    \tagstructbegin{tag=LetterDate}\textbf{\uvtdate}\tagstructend
+    \uvt@tabletag{LetterDate}{\textbf{\uvtdate}}
     \end{tabular}%
     \hfill%
     \begin{tabular}[t]{@{}ll@{}}
         \GetTranslation{Name (First, Last)}: &
-            \@ifundefined{@fromname}{}{\tagstructbegin{tag=LetterName}\textbf{\@fromname}\tagstructend} \\
+            \@ifundefined{@fromname}{}{\uvt@tabletag{LetterName}{\textbf{\@fromname}}} \\
         \GetTranslation{Signature}: &
         \@ifundefined{@fromsignature}{}{
-            \tagstructbegin{tag=LetterSignature}
-            \raisebox{\dimexpr10pt-\totalheight\relax}{
-            \@fromsignature
-            }
-            \tagstructend
+            \uvt@tabletag{LetterSignature}{\raisebox{\dimexpr10pt-\totalheight\relax}{\@fromsignature}}
         }
     \end{tabular}
 \tagstructend
