@@ -31,7 +31,6 @@ body {
 
 /* A4-like page with the same margins as the LaTeX template */
 [data-pdf-se-type="Document"] {
-  width: 100%;
   max-width: 21cm;
   margin: 0 auto;
   padding: 2.54cm;
@@ -114,16 +113,11 @@ p[data-pdf-se-type="P"]:is([class*="justify"], [style*="justify"]) {
 
 [data-pdf-se-type-original="LetterSignature"] img {
   max-height: 2.5em;
-  width: auto;
 }
 
 @media print {
   @page {
     size: A4;
-    margin: 0;
-  }
-
-  body {
     margin: 0;
   }
 }
