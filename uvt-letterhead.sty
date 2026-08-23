@@ -236,10 +236,10 @@
 
 % NOTE: wrap tags so that they correctly work inside tables. It seems like
 % without this, the actual text doesn't get wrapped in the <span> or whatever.
-\NewDocumentCommand \uvt@tabletag { m m } {
-    \tagstructbegin{tag=#1}
-    \tagmcbegin{}
-    #2
+\NewDocumentCommand \uvt@tabletag { m m } {%
+    \tagstructbegin{tag=#1}%
+    \tagmcbegin{}%
+    #2%
     \tagmcend
     \tagstructend
 }
