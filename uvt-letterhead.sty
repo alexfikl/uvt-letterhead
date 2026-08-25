@@ -67,13 +67,6 @@
 \DeclareDefaultOption{\PackageWarning{uvt-letterhead}{Unknown option `\CurrentOption`}}
 \ProcessKeyvalOptions*
 
-% warn about tagging before we start
-\ifuvt@tagged
-    \ifpdftex
-        \PackageWarning{uvt-letterhead}{The 'tagged' option has no effect with pdfLaTeX. Compile with LuaLaTeX (TeX Live 2025+) to produce a tagged PDF}
-    \fi
-\fi
-
 % >>>
 
 % <<< packages
@@ -204,6 +197,21 @@
 % >>>
 
 % <<< tagging
+
+% disable tagging if DocumentMetadata is not provided in the document
+\if@tagged
+    \ifdefined\DocumentMetadata\else
+        \@taggedfalse
+        \PackageWarning{uvt-letterhead}{The 'tagged' option requires the \string\DocumentMetadata\space command to be used before \string\documentclass. Tagging is now disabled}
+    \fi
+\fi
+
+% warn about tagging before we start
+\ifuvt@tagged
+    \ifluatex\else
+        \PackageWarning{uvt-letterhead}{The 'tagged' option is not fully supported with pdfLaTeX and will not currently produce veraPDF-clean PDF/UA-2 output. Compile with LuaLaTeX (TeX Live 2025+) for tagged PDFs}
+    \fi
+\fi
 
 % declare the custom roles used by the letter structure
 \ifuvt@tagged
