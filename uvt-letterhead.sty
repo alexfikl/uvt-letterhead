@@ -199,9 +199,9 @@
 % <<< tagging
 
 % disable tagging if DocumentMetadata is not provided in the document
-\if@tagged
+\ifuvt@tagged
     \ifdefined\DocumentMetadata\else
-        \@taggedfalse
+        \uvt@taggedfalse
         \PackageWarning{uvt-letterhead}{The 'tagged' option requires the \string\DocumentMetadata\space command to be used before \string\documentclass. Tagging is now disabled}
     \fi
 \fi
