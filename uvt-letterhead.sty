@@ -8,16 +8,15 @@
 %
 % Usage:
 %   \usepackage[department=<dept>]{uvt-letterhead}
-%   \usepackage[department=<dept>, tagged]{uvt-letterhead}
 %
-% Tagging / accessibility (the 'tagged' option):
+% Tagging / accessibility:
 %   To produce a PDF/UA-2 tagged PDF, compile with LuaLaTeX (TeX Live 2025+),
-%   load the package with the 'tagged' option, and add, before \documentclass,
+%   and add, before \documentclass,
 %
 %     \DocumentMetadata{pdfstandard=ua-2, tagging=on}
 %
 %   See https://latex3.github.io/tagging-project/documentation/usage-instructions
-%   for details. Without these the 'tagged' option has no effect.
+%   for details.
 %
 % References:
 %   Colors and Logos: https://dci.uvt.ro/identitate-vizuala
@@ -53,8 +52,11 @@
 \DeclareBoolOption[false]{helveticanow}
 % colorize: use official colors for each university
 \DeclareBoolOption[false]{colorize}
-% enable tagging / accessibility functionality for PDF/UA-2
-\DeclareBoolOption[false]{tagged}
+% enable tagging features if \DocumentMetadata was used
+\newif\ifuvt@tagged \uvt@taggedfalse
+\ifdefined\IfDocumentMetadataTF
+    \IfDocumentMetadataTF{\uvt@taggedtrue}{\uvt@taggedfalse}
+\fi
 % department: name of the department
 \DeclareStringOption[uvt]{department}
 
@@ -198,18 +200,10 @@
 
 % <<< tagging
 
-% disable tagging if DocumentMetadata is not provided in the document
-\ifuvt@tagged
-    \ifdefined\DocumentMetadata\else
-        \uvt@taggedfalse
-        \PackageWarning{uvt-letterhead}{The 'tagged' option requires the \string\DocumentMetadata\space command to be used before \string\documentclass. Tagging is now disabled}
-    \fi
-\fi
-
 % warn about tagging before we start
 \ifuvt@tagged
     \ifluatex\else
-        \PackageWarning{uvt-letterhead}{The 'tagged' option is not fully supported with pdfLaTeX and will not currently produce veraPDF-clean PDF/UA-2 output. Compile with LuaLaTeX (TeX Live 2025+) for tagged PDFs}
+        \PackageWarning{uvt-letterhead}{Tagged PDF generation is not fully supported with pdfLaTeX and will not currently produce veraPDF-clean PDF/UA-2 output. Compile with LuaLaTeX (TeX Live 2025+) for tagged PDFs}
     \fi
 \fi
 

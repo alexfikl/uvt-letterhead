@@ -40,7 +40,6 @@ The package defines the following options used as `\usepacakge[opts]{uvt-letterh
 | `doublespacing`      | Use double spaced paragraphs (default `onehalfspacing`)    |
 | `helveticanow`       | Try to load the *Helvetica Now Display* fonts              |
 | `colorize`           | Use official department colors in header graphics          |
-| `tagged`             | Enable accessibility tagged template elements              |
 | `department=<value>` | Use predefined department info (header and footer)         |
 | `showframe`          | [DEBUG] Shows a frame around page elements (margins, etc.) |
 | `layoutgrid`         | [DEBUG] Adds a debug grid to check alignment               |
@@ -129,7 +128,11 @@ Note that the logos are expected to be square with a white on transparent backgr
 Most departments have logos in such a format, but we can always modify them and
 include them here, if necessary.
 
-## Tagging (PDF/UA-2 Compliance)
+## Accessibility (PDF/UA-2 Compliance)
+
+> [!NOTE]
+> Accessibility support (PDF/UA-2) is enabled automatically whenever
+> `\DocumentMetadata` is provided before `\documentclass` in the templates.
 
 By default, the current template uses the new [LaTeX
 Tagging](https://latex3.github.io/tagging-project/) infrastructure to produce
@@ -156,9 +159,8 @@ Other things to keep in mind when using tagged PDFs:
   and [Overleaf's documentation](https://docs.overleaf.com/writing-and-editing/creating-accessible-pdfs)
   for more information on the various problems.
 
-The tagged build should be easy to disable. You can just delete the
-`\DocumentMetadata` command at the top of the template files and remove the
-`tagged` argument from the document class command.
+The tagged build should be easy to disable. You only need to delete or
+comment out the `\DocumentMetadata` command at the top of the template files.
 
 ## Fonts
 
