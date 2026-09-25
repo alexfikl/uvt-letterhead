@@ -278,6 +278,20 @@
 \NewDocumentCommand \fromdeptweb    { m } {\def\@fromdeptweb{#1}}
 \NewDocumentCommand \fromdeptlogo   { m } {\def\@fromdeptlogo{#1}}
 
+% fancy placeholder underline that fills the whole line
+\newlength{\phthick}
+\setlength\phthick{0.4pt}
+\newlength{\phdepth}
+\setlength\phdepth{0.55ex}
+\NewDocumentCommand \phrule {} {\leaders\hrule height \dimexpr\phthick-\phdepth\relax depth \phdepth}
+
+\NewDocumentCommand \placeholder { o m } {%
+    \leavevmode
+    \IfNoValueTF{#1}
+        {\rlap{#2}\phrule\hfill\null}%                           % fills the rest of the line
+        {\rlap{\makebox[#1em][l]{#2}}\phrule\hskip #1em\relax}%  % fixed em width
+}
+
 % >>>
 
 % <<< translations
